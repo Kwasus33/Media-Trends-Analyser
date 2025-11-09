@@ -1,0 +1,221 @@
+[
+    {
+        "Bankier": {
+            "base_url": "https://www.bankier.pl/rss/%s",
+            "categories": [
+                "wiadomosci.xml",
+                "finanse.xml"
+            ]
+        },
+        "type": "rss"
+    },
+    {
+        "naTemat": {
+            "base_url": "https://natemat.pl/rss/wszystkie",
+            "categories": []
+        },
+        "type": "rss"
+    },
+    {
+        "Defence24": {
+            "base_url": "https://defence24.pl/_rss",
+            "categories": []
+        },
+        "type": "rss"
+    },
+    {
+        "title": "SpidersWeb",
+        "endpoint": {
+            "base_url": "https://spidersweb.pl/api/post/feed/feed-gn",
+            "categories": []
+        },
+        "type": "rss"
+    },
+    {
+        "title": "Money.pl",
+        "endpoint": {
+            "base_url": "https://www.money.pl/rss/",
+            "categories": []
+        },
+        "type": "rss"
+    },
+    {
+        "title": "BusinessInsider",
+        "endpoint": {
+            "base_url": "https://businessinsider.com.pl/.feed",
+            "categories": []
+        },
+        "type": "rss"
+    },
+    {
+        "title": "nextGazeta",
+        "endpoint": {
+            "base_url": "https://next.gazeta.pl/pub/next/rssnext.htm",
+            "categories": []
+        },
+        "type": "rss"
+    },
+    {
+        "title": "TVN24",
+        "endpoint": {
+            "base_url": "https://www.tvn24.pl/%s",
+            "categories": [
+                "najnowsze.xml",
+                "najwazniejsze.xml",
+                "internet-hi-tech-media,40.xml",
+                "wiadomosci-z-kraju,3.xml"
+            ]
+        },
+        "type": "rss"
+    },
+    {
+        "title": "GazetaWyborcza",
+        "endpoint": {
+            "base_url": "http://rss.gazeta.pl/pub/rss/%s",
+            "categories": [
+                "gazetawyborcza_kraj.xml",
+                "gazetawyborcza_swiat.xml"
+            ]
+        },
+        "type": "rss"
+    },
+    {
+        "title": "Interia",
+        "endpoint": {
+            "base_url": "http://%s.interia.pl/feed",
+            "categories": [
+                "fakty",
+                "gry",
+                "nt"
+            ]
+        },
+        "type": "rss"
+    },
+    {
+        "title": "naTemat",
+        "endpoint": {
+            "base_url": "http://www.rmf24.pl/%s/feed",
+            "categories": [
+                "fakty/polska",
+                "fakty/swiat",
+                "ekonomia",
+                "nauka"
+            ]
+        },
+        "type": "rss"
+    },
+    {
+        "title": "NewYorkTimes",
+        "endpoint": {
+            "base_url": "https://rss.nytimes.com/services/xml/rss/nyt/%s.xml",
+            "categories": [
+                "Africa",
+                "Americas",
+                "ArtandDesign",
+                "Arts",
+                "AsiaPacific",
+                "Automobiles",
+                "Baseball",
+                "Books/Review",
+                "Business",
+                "Climate",
+                "CollegeBasketball",
+                "CollegeFootball",
+                "Dance",
+                "Dealbook",
+                "DiningandWine",
+                "Economy",
+                "Education",
+                "EnergyEnvironment",
+                "Europe",
+                "FashionandStyle",
+                "Golf",
+                "Health",
+                "Hockey",
+                "HomePage",
+                "Jobs",
+                "Lens",
+                "MediaandAdvertising",
+                "MiddleEast",
+                "MostEmailed",
+                "MostShared",
+                "MostViewed",
+                "Movies",
+                "Music",
+                "NYRegion",
+                "Obituaries",
+                "PersonalTech",
+                "Politics",
+                "ProBasketball",
+                "ProFootball",
+                "RealEstate",
+                "Science",
+                "SmallBusiness",
+                "Soccer",
+                "Space",
+                "Sports",
+                "SundayBookReview",
+                "Sunday-Review",
+                "Technology",
+                "Television",
+                "Tennis",
+                "Theater",
+                "TMagazine",
+                "Travel",
+                "Upshot",
+                "US",
+                "Weddings",
+                "Well",
+                "World",
+                "YourMoney"
+            ]
+        },
+        "type": "rss"
+    },
+    {
+        "title": "NewYorkTimes Top Stories",
+        "endpoint": {
+            "base_url": "https://api.nytimes.com/svc/topstories/v2/%s.json?api-key=",
+            "categories": [
+                "arts",
+                "automobiles",
+                "books/review",
+                "business",
+                "fashion",
+                "food",
+                "health",
+                "home",
+                "insider",
+                "magazine",
+                "movies",
+                "nyregion",
+                "obituaries",
+                "opinion",
+                "politics",
+                "realestate",
+                "science",
+                "sports",
+                "sundayreview",
+                "technology",
+                "theater",
+                "t-magazine",
+                "travel",
+                "upshot",
+                "us",
+                "world"
+            ]
+        },
+        "type": "api"
+    },
+    {
+        "title": "BBC",
+        "endpoint": {
+            "base_url": "https://bbc-news-api.vercel.app/%s?lang=english",
+            "categories": [
+                "latest",
+                "news"
+            ]
+        },
+        "type": "api"
+    }
+]
