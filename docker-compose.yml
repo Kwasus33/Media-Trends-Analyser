@@ -1,13 +1,30 @@
 services:
-  backend:
-    build: ./server
-    container_name: fastapi_app
+  api-gateway:
+    build: ./services/api-gateway
+    container_name: api-gateway
     ports:
       - "8080:8080"
-    env_file:
-      - ./server/.env
+    # env_file: ./services/api-gateway/.env
     depends_on:
       - postgres
+    networks:
+      - app_network
+
+  data-service:
+    build: ./services/data-scrapper-service
+    container_name: data-scrapper-service
+    # env_file: ./services/data-scrapper-service/.env
+    depends_on:
+      - api-gateway
+    networks:
+      - app_network
+
+  agent-service:
+    build: ./services/agent-service
+    container_name: agent-service
+    # env_file: ./services/agent-service/.env
+    depends_on:
+      - api-gateway
     networks:
       - app_network
 
@@ -18,7 +35,6 @@ services:
       - postgres_data:/var/lib/postgresql/trend_analyzer_data
     networks:
       - app_network
-
   # frontend:
   #   build: ./client
   #   container_name: client
