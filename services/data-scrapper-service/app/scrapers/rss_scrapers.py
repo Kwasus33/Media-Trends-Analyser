@@ -9,7 +9,7 @@ class RssScraper(BaseScraper):
         """
         ...
         """
-        temp_url = self.url + category if category else self.url
+        temp_url = self.url % category if category else self.url
         response = requests.get(temp_url)
         root = ET.fromstring(response.content)
         for item in root.iter("item"):
