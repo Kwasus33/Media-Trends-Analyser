@@ -24,7 +24,7 @@ class AgentSettings(BaseSettings):
             {{articles}}
             
             Return JSON with the following fields:
-            - summary: the most important events of the day
+            - summary: a detailed summary (at least 5-7 sentences) describing the main events, topics, and trends of the day based on all articles.
             - categories: list of article count per category (keys: {categories_str})
             - references: list of 3-5 URLs to the most important articles of the day
             
