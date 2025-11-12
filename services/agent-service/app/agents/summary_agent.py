@@ -2,13 +2,13 @@ import json
 from google import genai
 from google.genai.types import GenerateContentConfig
 from datetime import date
-from app.core.agent_config import AgentSettings
+from app.agents.agent_config import AgentSettings
 from app.schemas.article import Article
 from app.schemas.daily_summary import DailySummary
 from app.schemas.period_summary import PeriodSummary
 
 
-class LLMService:
+class SummaryAgent:
     def __init__(self, settings: AgentSettings):
         self.settings = settings
         self.client = genai.Client(api_key=settings.gemini_api_key)
