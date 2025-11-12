@@ -1,9 +1,7 @@
 .
-├── data-scrapper-service  # Contains the main application files.
-│   ├── __init__.py   # this file makes "app" a "Python package"
-│   ├── main.py       # Initializes the FastAPI application.
-│   ├── dependencies.py # Defines dependencies used by the routers
-│   ├── routers       # Defines APIs
+├── data-scraper-service     # Contains service files
+│   ├── api           # Defines APIs
+│   │   ├── v1/       # API versioning
 │   │   ├── __init__.py
 │   │   └── ...
 │   ├── core          # Defines configurations, auth, jwt, loggers
@@ -15,10 +13,6 @@
 │   ├── schemas       # Defines Pydantic data schemas
 │   │   ├── __init__.py
 │   │   └── ...
-│   ├── db            # Defines and configures data base 
-│   │   ├── __init__.py
-│   │   ├── migrations
-│   │   └── ...  
 │   ├── services      # Defines application's bussiness logic
 │   │   ├── __init__.py
 │   │   └── ...
@@ -28,6 +22,8 @@
 ├── tests
 │   ├── __init__.py
 │   └── ...
-├── pyproject.toml
 ├── .gitignore
-└── README.md
+├── .python-version
+├── pyproject.toml    # Stores project information and dependecies 
+├── README.md
+└── uv.lock           # Locks dependencies for uv package manager
