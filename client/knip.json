@@ -1,0 +1,9 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "project": ["src/**/*.{ts,tsx}"],
+  "ignore": [".next/**", "node_modules/**"],
+  "ignoreDependencies": ["tailwindcss"],
+  "tailwind": {
+    "config": "tailwind.config.ts"
+  }
+}
