@@ -4,9 +4,10 @@ from pydantic import BaseModel, HttpUrl
 
 class Article(BaseModel):
     url: HttpUrl
+    published_at: datetime
     title: str
     description: str
-    published_at: datetime
+    source: str
 
     def for_daily_summary(self):
-        return f"title: {self.title}, description: {self.description}, url: {self.url}"
+        return f"title: {self.title}, description: {self.description}, url: {self.url}, source: {self.source}"
