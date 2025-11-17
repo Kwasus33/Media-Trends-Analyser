@@ -15,4 +15,4 @@ class PeriodicSummary(BaseModel):
 
     key_insights: list[str] = Field(default_factory=list)
     source_highlights: dict[str, str] = Field(default_factory=dict)
-    event_timeline: list[dict] = Field(default_factory=list)
+    event_timeline: dict[date, str] = Field(default_factory=dict)
