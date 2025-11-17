@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Inter } from 'next/font/google';
+import ReportTab from '../components/reportTab';
+import AnalyticsTab from '../components/analyticsTab';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,6 +14,7 @@ export default function Home() {
   const [endDate, setEndDate] = useState<string>('');
   const [selectedSources, setSelectedSources] = useState<string[]>(dataSources);
   const [reportSummary, setReportSummary] = useState('Select time period.');
+  const [activeTab, setActiveTab] = useState<'report' | 'analytics'>('report');
 
   const handleSourceChange = (source: string) => {
     setSelectedSources((prevSources) => {
@@ -42,7 +45,13 @@ export default function Home() {
     const summaryMessage = `Selected dates: ${startDate} - ${endDate}. Selected data sources: ${sourcesList}.`;
 
     setReportSummary(summaryMessage);
+    setActiveTab('report');
   };
+
+  const activeTabStyle =
+    'border-b-2 border-blue-500 text-blue-500 font-semibold';
+  const inactiveTabStyle =
+    'border-b-2 border-transparent text-gray-400 hover:text-white';
 
   return (
     <main className={`min-h-screen p-8 ${inter.className} bg-black`}>
@@ -123,11 +132,34 @@ export default function Home() {
         </div>
       </section>
 
+      <nav className="flex mb-6 border-b border-gray-700">
+        <button
+          onClick={() => setActiveTab('report')}
+          className={`px-4 py-2 text-lg transition duration-150 ${
+            activeTab === 'report' ? activeTabStyle : inactiveTabStyle
+          }`}
+        >
+          Report
+        </button>
+        <button
+          onClick={() => setActiveTab('analytics')}
+          className={`px-4 py-2 text-lg transition duration-150 ${
+            activeTab === 'analytics' ? activeTabStyle : inactiveTabStyle
+          }`}
+        >
+          Trend Analytics
+        </button>
+      </nav>
+
       <section>
-        <div className="bg-gray-900 p-6 rounded-xl shadow-2xl border border-gray-700 min-h-[500px]">
-          <h2 className="text-3xl font-bold text-white mb-4">Report</h2>
-          <p className="text-gray-400">{reportSummary}</p>
-        </div>
+        {activeTab === 'report' && <ReportTab reportSummary={reportSummary} />}
+        {activeTab === 'analytics' && (
+          <AnalyticsTab
+            startDate={startDate}
+            endDate={endDate}
+            selectedSources={selectedSources}
+          />
+        )}
       </section>
     </main>
   );
