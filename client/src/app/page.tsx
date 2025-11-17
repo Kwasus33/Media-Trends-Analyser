@@ -64,12 +64,10 @@ export default function Home() {
       <section className="mb-10">
         <h2 className="text-2xl font-semibold text-gray-200 mb-4"></h2>
 
-        <div className="flex flex-col gap-6 p-6 bg-gray-900 rounded-xl shadow-2xl border border-gray-700 mx-auto max-w-5xl">
+        <div className="flex flex-col gap-6 p-6 bg-gray-900 rounded-xl shadow-2xl border border-gray-700 mx-auto max-w-6xl">
           <div className="pt-4 border-t border-gray-800">
-            <h3 className="text-xl font-semibold text-white mb-2">
-              Data Sources:
-            </h3>
-            <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <h3 className="text-xl font-semibold text-white mb-2"></h3>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
               {dataSources.map((source) => (
                 <label
                   key={source}
@@ -79,7 +77,7 @@ export default function Home() {
                     type="checkbox"
                     checked={selectedSources.includes(source)}
                     onChange={() => handleSourceChange(source)}
-                    className="form-checkbox h-4 w-4 text-blue-600 bg-gray-700 border-gray-600 rounded"
+                    className="form-checkbox h-6 w-6 text-blue-600 bg-gray-700 border-gray-600 rounded"
                   />
                   <span className="ml-2 text-lg">{source}</span>
                 </label>
@@ -132,7 +130,7 @@ export default function Home() {
         </div>
       </section>
 
-      <nav className="flex mb-6 border-b border-gray-700 mx-auto max-w-4xl">
+      <nav className="flex mb-6 border-b border-gray-700 mx-auto max-w-4xl justify-center">
         <button
           onClick={() => setActiveTab('report')}
           className={`px-4 py-2 text-lg transition duration-150 ${
