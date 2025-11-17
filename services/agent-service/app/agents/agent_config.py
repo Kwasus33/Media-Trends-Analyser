@@ -40,7 +40,7 @@ class AgentSettings(BaseSettings):
               is another dict containing category counts for that specific source 
               (keys: {categories_str})
             - references: a dict where each key is a source name and each value is a list of 
-              3–5 URLs to the most important articles from that specific source.
+              3–5 the most important articles IDs from that specific source.
             
             Return only JSON, without additional info.
         """
@@ -67,6 +67,8 @@ class AgentSettings(BaseSettings):
               of what each source focused on over the period.
             - event_timeline: a dict where keys are dates (YYYY-MM-DD) and values are short descriptions
               of key events that occurred on that day, combining information from all sources.
+            - references: a dict where keys are source names and values are lists of article IDs
+              that were included in the summaries for that source.
 
             Return only JSON, with no additional explanations.
         """

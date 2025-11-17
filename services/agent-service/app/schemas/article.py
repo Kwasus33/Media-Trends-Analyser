@@ -3,6 +3,7 @@ from pydantic import BaseModel, HttpUrl
 
 
 class Article(BaseModel):
+    id: int
     url: HttpUrl
     published_at: datetime
     title: str
