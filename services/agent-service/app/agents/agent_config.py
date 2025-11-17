@@ -44,3 +44,30 @@ class AgentSettings(BaseSettings):
             
             Return only JSON, without additional info.
         """
+
+    @property
+    def periodic_summary_prompt(self):
+        return f"""
+            Based on the following daily summaries, generate a periodic summary in JSON format:
+
+            {{daily_summaries}}
+
+            You must aggregate information across all days in the period.
+
+            Return JSON with the following fields:
+            - summary: a comprehensive narrative (8–12 sentences) describing the main themes, events,
+              and developments across the entire period.
+            - categories_timeline: a dict where keys are category names and values are lists of integers
+              representing daily counts in chronological order.
+            - category_totals: total count per category across the whole period.
+            - trends: a list of observed trends, including rising topics, declining topics,
+              emerging themes, and notable shifts.
+            - key_insights: 5–10 short bullet-style statements highlighting the most important findings.
+            - source_highlights: a dict where keys are source names and values are 1–3 sentence summaries
+              of what each source focused on over the period.
+            - event_timeline: a chronological list of important events, where each entry includes:
+                - date
+                - short description of key events of that day
+
+            Return only JSON, with no additional explanations.
+        """
