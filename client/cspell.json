@@ -1,0 +1,15 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "ignorePaths": [
+    "node_modules/**",
+    ".next/**",
+    "out/**",
+    "build/**",
+    "package-lock.json",
+    "pnpm-lock.yaml",
+    "coverage/**"
+  ],
+  //List of words to be considered correct:
+  "words": []
+}

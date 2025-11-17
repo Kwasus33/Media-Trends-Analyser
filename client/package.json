@@ -7,17 +7,18 @@
     "build": "next build",
     "start": "next start",
     "prepare": "husky",
-    "lint": "eslint",
+    "lint": "eslint --max-warnings 0",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
+    "spellcheck": "cspell \"**/*.{ts,tsx,md,json}\"",
     "knip": "knip",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "check": "npm run lint && npm run prettier:write && npm run knip && npm run test && npm run build",
-    "validate": "npm run lint && npm run knip && npm run test"
+    "validate": "npm run lint && npm run knip && npm run spellcheck && npm run test",
+    "check": " npm run prettier:write && npm run validate && npm run build"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "npx eslint --fix",
+    "*.{js,jsx,ts,tsx}": "npx eslint --fix --max-warnings 0",
     "*.{js,jsx,ts,tsx,css,md,json}": "npx prettier --write"
   },
   "dependencies": {
@@ -34,6 +35,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "cspell": "^9.3.2",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "eslint-config-prettier": "^10.1.8",
