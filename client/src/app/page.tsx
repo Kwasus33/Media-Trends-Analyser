@@ -6,6 +6,7 @@ import { AnalyticsTab } from '@/components/AnalyticsTab';
 import { Button } from '@/components/Button';
 import { Checkbox } from '@/components/Checkbox';
 import { DateInput } from '@/components/DateInput';
+import { Box } from '@/components/Box';
 
 const dataSources = ['X', 'Reddit', 'RSS Feeds', 'BBC', 'New York Times'];
 
@@ -61,7 +62,7 @@ export default function Home() {
         </h1>
       </header>
 
-      <section className="flex flex-col gap-6 p-6 bg-gray-900 rounded-xl shadow-2xl border border-gray-700 mx-auto max-w-6xl mb-10">
+      <Box className="flex flex-col gap-6 mb-10">
         <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center pt-4 border-t border-gray-800">
           {dataSources.map((source, index) => (
             <Checkbox
@@ -97,7 +98,7 @@ export default function Home() {
             Generate Report
           </Button>
         </div>
-      </section>
+      </Box>
 
       <nav className="flex mb-6 border-b border-gray-700 mx-auto max-w-4xl justify-center">
         <button

@@ -1,8 +1,6 @@
-import type { ButtonHTMLAttributes, Ref } from 'react';
+import type { ComponentProps } from 'react';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  ref?: Ref<HTMLButtonElement>;
-};
+type ButtonProps = ComponentProps<'button'>;
 
 export function Button({ className, ref, children, ...props }: ButtonProps) {
   return (
