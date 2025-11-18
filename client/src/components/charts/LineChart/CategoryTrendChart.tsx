@@ -46,7 +46,7 @@ export function CategoryTrendChart({
           <YAxis stroke="#FFFFFF" />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#00000',
+              backgroundColor: '#000000',
               border: 'none',
               padding: '4px',
             }}
