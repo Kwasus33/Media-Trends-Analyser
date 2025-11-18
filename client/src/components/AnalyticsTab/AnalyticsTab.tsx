@@ -6,7 +6,7 @@ type AnalyticsTabProps = {
   selectedSources: string[];
 };
 
-export default function AnalyticsTab({
+export function AnalyticsTab({
   startDate,
   endDate,
   selectedSources,

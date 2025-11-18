@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import ReportTab from '../components/reportTab';
-import AnalyticsTab from '../components/analyticsTab';
+import { ReportTab } from '@/components/ReportTab';
+import { AnalyticsTab } from '@/components/AnalyticsTab';
 import { Button } from '@/components/Button';
 import { Checkbox } from '@/components/Checkbox';
 import { DateInput } from '@/components/DateInput';
