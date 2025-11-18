@@ -1,8 +1,8 @@
 'use client';
 
-interface ReportTabProps {
+type ReportTabProps = {
   reportSummary: string;
-}
+};
 
 export default function ReportTab({ reportSummary }: ReportTabProps) {
   return (
