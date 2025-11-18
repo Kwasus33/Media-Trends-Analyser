@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Inter } from 'next/font/google';
 import ReportTab from '../components/reportTab';
 import AnalyticsTab from '../components/analyticsTab';
+import { Button } from '@/components/Button';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -119,13 +120,13 @@ export default function Home() {
               />
             </div>
 
-            <button
+            <Button
               onClick={handleGenerateReport}
-              className="w-full sm:w-auto px-6 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-lg hover:bg-blue-700 transition duration-200 disabled:bg-gray-700 ml-auto self-end"
+              className="w-full sm:w-auto ml-auto self-end"
               disabled={isButtonDisabled}
             >
               Generate Report
-            </button>
+            </Button>
           </div>
         </div>
       </section>
