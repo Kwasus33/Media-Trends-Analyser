@@ -18,7 +18,10 @@ export default function Home() {
   const [selectedSources, setSelectedSources] = useState<string[]>(dataSources);
   const [reportSummary, setReportSummary] = useState('Select time period.');
   const [activeTab, setActiveTab] = useState<'report' | 'analytics'>('report');
+
   const [filteredTrendData, setFilteredTrendData] = useState(mockTrendData);
+  const [calculatedCategoryData, setCalculatedCategoryData] =
+    useState(mockCategoryData);
 
   const todayDate = new Date().toISOString().slice(0, 10);
 
@@ -41,7 +44,24 @@ export default function Home() {
     const filteredData = mockTrendData.filter((item) => {
       return item.date >= startDate && item.date <= endDate;
     });
+
+    const totals: { [key: string]: number } = {};
+
+    filteredData.forEach((point) => {
+      Object.keys(point).forEach((key) => {
+        if (key !== 'date') {
+          totals[key] = (totals[key] || 0) + Number(point[key]);
+        }
+      });
+    });
+
+    const newPieData = Object.entries(totals).map(([name, value]) => ({
+      name,
+      value,
+    }));
+
     setFilteredTrendData(filteredData);
+    setCalculatedCategoryData(newPieData);
 
     const sourcesList =
       selectedSources.length > 0
@@ -123,7 +143,7 @@ export default function Home() {
             startDate={startDate}
             endDate={endDate}
             selectedSources={selectedSources}
-            categoryData={mockCategoryData}
+            categoryData={calculatedCategoryData}
             trendData={filteredTrendData}
           />
         )}
