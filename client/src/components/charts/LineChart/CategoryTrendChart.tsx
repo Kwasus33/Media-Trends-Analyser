@@ -8,6 +8,7 @@ import {
   CartesianGrid,
   Legend,
   ResponsiveContainer,
+  Tooltip,
 } from 'recharts';
 
 const COLORS = ['#3B82F6', '#22C55E', '#F59E0B', '#EF4444', '#8B5CF6'];
@@ -43,6 +44,15 @@ export function CategoryTrendChart({
           <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
           <XAxis dataKey="date" stroke="#FFFFFF" />
           <YAxis stroke="#FFFFFF" />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: '#00000',
+              border: 'none',
+              padding: '4px',
+            }}
+            itemStyle={{ color: '#FFFFFF' }}
+            labelStyle={{ color: '#FFFFFF' }}
+          />
           <Legend />{' '}
           {categories.map((category, index) => (
             <Line
