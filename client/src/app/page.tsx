@@ -18,6 +18,7 @@ export default function Home() {
   const [selectedSources, setSelectedSources] = useState<string[]>(dataSources);
   const [reportSummary, setReportSummary] = useState('Select time period.');
   const [activeTab, setActiveTab] = useState<'report' | 'analytics'>('report');
+  const [filteredTrendData, setFilteredTrendData] = useState(mockTrendData);
 
   const todayDate = new Date().toISOString().slice(0, 10);
 
@@ -37,11 +38,10 @@ export default function Home() {
   };
 
   const handleGenerateReport = () => {
-    console.log('Report for: ', {
-      startDate,
-      endDate,
-      sources: selectedSources,
+    const filteredData = mockTrendData.filter((item) => {
+      return item.date >= startDate && item.date <= endDate;
     });
+    setFilteredTrendData(filteredData);
 
     const sourcesList =
       selectedSources.length > 0
@@ -50,7 +50,7 @@ export default function Home() {
     const summaryMessage = `Selected dates: ${startDate} - ${endDate}. Selected data sources: ${sourcesList}.`;
 
     setReportSummary(summaryMessage);
-    setActiveTab('report');
+    setActiveTab('analytics');
   };
 
   return (
@@ -124,7 +124,7 @@ export default function Home() {
             endDate={endDate}
             selectedSources={selectedSources}
             categoryData={mockCategoryData}
-            trendData={mockTrendData}
+            trendData={filteredTrendData}
           />
         )}
       </section>
