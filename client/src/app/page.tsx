@@ -63,64 +63,60 @@ export default function Home() {
         </h1>
       </header>
 
-      <section className="mb-10">
-        <div className="flex flex-col gap-6 p-6 bg-gray-900 rounded-xl shadow-2xl border border-gray-700 mx-auto max-w-6xl">
-          <div className="pt-4 border-t border-gray-800">
-            <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
-              {dataSources.map((source, index) => (
-                <Checkbox
-                  key={source + index}
-                  checked={selectedSources.includes(source)}
-                  onChange={() => handleSourceChange(source)}
-                >
-                  {source}
-                </Checkbox>
-              ))}
-            </div>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 items-end border-b border-gray-800 pb-6 mx-auto max-w-4xl w-full">
-            <div className="flex flex-col w-40">
-              <label
-                htmlFor="startDate"
-                className="text-lg font-medium text-gray-400 mb-1"
-              >
-                From:
-              </label>
-
-              <input
-                id="startDate"
-                type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                className="p-2 border border-gray-500 rounded-md focus:border-gray-600 focus:ring focus:ring-gray-500 focus:ring-opacity-50 bg-gray-700 text-white"
-              />
-            </div>
-
-            <div className="flex flex-col w-40">
-              <label
-                htmlFor="endDate"
-                className="text-lg font-medium text-gray-400 mb-1"
-              >
-                To:
-              </label>
-
-              <input
-                id="endDate"
-                type="date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                className="p-2 border border-gray-500 rounded-md focus:border-gray-500 focus:ring focus:ring-gray-500 focus:ring-opacity-50 bg-gray-700 text-white"
-              />
-            </div>
-
-            <Button
-              onClick={handleGenerateReport}
-              className="w-full sm:w-auto ml-auto self-end"
-              disabled={isButtonDisabled}
+      <section className="flex flex-col gap-6 p-6 bg-gray-900 rounded-xl shadow-2xl border border-gray-700 mx-auto max-w-6xl mb-10">
+        <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center pt-4 border-t border-gray-800">
+          {dataSources.map((source, index) => (
+            <Checkbox
+              key={source + index}
+              checked={selectedSources.includes(source)}
+              onChange={() => handleSourceChange(source)}
             >
-              Generate Report
-            </Button>
+              {source}
+            </Checkbox>
+          ))}
+        </div>
+        <div className="flex flex-col sm:flex-row gap-4 items-end border-b border-gray-800 pb-6 mx-auto max-w-4xl w-full">
+          <div className="flex flex-col w-40">
+            <label
+              htmlFor="startDate"
+              className="text-lg font-medium text-gray-400 mb-1"
+            >
+              From:
+            </label>
+
+            <input
+              id="startDate"
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="p-2 border border-gray-500 rounded-md focus:border-gray-600 focus:ring focus:ring-gray-500 focus:ring-opacity-50 bg-gray-700 text-white"
+            />
           </div>
+
+          <div className="flex flex-col w-40">
+            <label
+              htmlFor="endDate"
+              className="text-lg font-medium text-gray-400 mb-1"
+            >
+              To:
+            </label>
+
+            <input
+              id="endDate"
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="p-2 border border-gray-500 rounded-md focus:border-gray-500 focus:ring focus:ring-gray-500 focus:ring-opacity-50 bg-gray-700 text-white"
+            />
+          </div>
+
+          <Button
+            onClick={handleGenerateReport}
+            className="w-full sm:w-auto ml-auto self-end"
+            disabled={isButtonDisabled}
+          >
+            Generate Report
+          </Button>
         </div>
       </section>
 
