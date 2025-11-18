@@ -57,6 +57,7 @@ export function CategoryTrendChart({
               key={category}
               dataKey={category}
               stroke={CHART_COLORS[index % CHART_COLORS.length]}
+              dot={false}
             />
           ))}
         </LineChart>
