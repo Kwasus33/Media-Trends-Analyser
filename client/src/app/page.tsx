@@ -98,7 +98,15 @@ export default function Home() {
             label="From:"
             value={startDate}
             max={todayDate}
-            onChange={(e) => setStartDate(e.target.value)}
+            onChange={(e) => {
+              const newStart = e.target.value;
+              if (endDate && newStart > endDate) {
+                setStartDate(endDate);
+                setEndDate(newStart);
+              } else {
+                setStartDate(newStart);
+              }
+            }}
           />
 
           <DateInput
@@ -106,7 +114,15 @@ export default function Home() {
             label="To:"
             value={endDate}
             max={todayDate}
-            onChange={(e) => setEndDate(e.target.value)}
+            onChange={(e) => {
+              const newEnd = e.target.value;
+              if (startDate && newEnd < startDate) {
+                setEndDate(startDate);
+                setStartDate(newEnd);
+              } else {
+                setEndDate(newEnd);
+              }
+            }}
           />
 
           <Button
