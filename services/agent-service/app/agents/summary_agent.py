@@ -4,9 +4,7 @@ from app.schemas.daily_summary import DailySummary
 from app.schemas.periodic_summary import PeriodicSummary
 
 from datetime import date
-import json
 
-from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from dotenv import load_dotenv
@@ -97,9 +95,6 @@ class SummaryAgent:
                 "categories": self.summary_categories,
             }
         )
-        import pprint
-
-        pprint.pprint(output)
         self.daily_summary_id += 1
 
         return DailySummary(
