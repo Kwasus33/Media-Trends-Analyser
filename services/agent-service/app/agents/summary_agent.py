@@ -22,7 +22,6 @@ class SummaryAgent:
         self.summary_categories = ", ".join(self.settings.article_categories)
         self.summary_sources = ", ".join(self.settings.sources)
         self.daily_summary_id = 0
-        self.period_summary_prompt = 0
 
     @property
     def daily_summary_prompt(self):
@@ -30,17 +29,20 @@ class SummaryAgent:
             """
             Based on the following articles, generate a summary in JSON format:\
             {articles}\
-            You must include all sources from the following list, even if some sources have no articles: {sources}\
+            You must include all sources from the following list {sources}, without additional
+            keys like "no source", "default" etc.\
+            
+            Language: english\
             
             Return JSON with the following fields:\
             - summaries: a dict where each key is a source name and each value is a detailed summary 
               (at least 5–7 sentences) describing the main events, topics, and trends covered by articles 
               from that specific source.\
             - categories: a dict where each key is a source name and each value 
-              is another dict containing category counts for that specific source 
+              is another dict containing category counts for that specific source, if none return 0 for each category 
               (keys: {categories})\
             - references: a dict where each key is a source name and each value is a list of 
-              3–5 the most important articles IDs from that specific source.\
+              3–5 the most important articles URLs from that specific source.\
             
             Return only JSON, without additional info.
         """
@@ -55,6 +57,8 @@ class SummaryAgent:
             {daily_summaries}\
 
             You must aggregate information across all days in the period.\
+            
+            Language: english\
 
             Return JSON with the following fields:\
             - main_summary: a comprehensive narrative (8–12 sentences) describing the main themes, events,
@@ -69,7 +73,7 @@ class SummaryAgent:
               of what each source focused on over the period.\
             - event_timeline: a dict where keys are dates (YYYY-MM-DD) and values are short descriptions
               of key events that occurred on that day, combining information from all sources.\
-            - references: a dict where keys are source names and values are lists of article IDs
+            - references: a dict where keys are source names and values are lists of article URLs
               that were included in the summaries for that source.\
 
             Return only JSON, with no additional explanations.
@@ -97,6 +101,8 @@ class SummaryAgent:
         )
         self.daily_summary_id += 1
 
+        print(output)
+
         return DailySummary(
             id=self.daily_summary_id,
             date=summary_date,
@@ -106,14 +112,30 @@ class SummaryAgent:
         )
 
     def get_periodic_summary(
-        self, daily_summaries: list[DailySummary], start_date: date, end_date: date
+        self, daily_summaries: list[DailySummary], sources: list[str], start_date: date, end_date: date
     ):
         periodic_summary_chain = (
             self.periodic_summary_prompt
             | self.model
             | JsonOutputParser(pydantic_object=PeriodicSummary)
         )
+
+        for summary in daily_summaries:
+            summary.summaries = {
+                k: v for k, v in summary.summaries.items() if k in sources
+            }
+
+            summary.categories = {
+                k: v for k, v in summary.categories.items() if k in sources
+            }
+
+            summary.references = {
+                k: v for k, v in summary.references.items() if k in sources
+            }
+
         output = periodic_summary_chain.invoke({"daily_summaries": daily_summaries})
+
+        print(output)
 
         return PeriodicSummary(
             start_date=start_date,
