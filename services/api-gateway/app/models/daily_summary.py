@@ -1,9 +1,8 @@
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Date, Integer
 from sqlalchemy.dialects.postgresql import JSONB
 from datetime import  date
-from base import Base
-from article import Article
+from .base import Base
 
 
 class DailySummary(Base):
