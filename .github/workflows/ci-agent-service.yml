@@ -27,7 +27,7 @@ jobs:
         run: |
           pip install uv
           uv venv
-          source .vevn/bin/activate
+          source .venv/bin/activate
           uv pip install ruff pytest
           uv lock
           uv sync
