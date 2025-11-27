@@ -11,9 +11,11 @@ services:
       - app_network
 
   data-service:
-    build: ./services/data-scrapper-service
-    container_name: data-scrapper-service
-    # env_file: ./services/data-scrapper-service/.env
+    build: ./services/data-scraper-service
+    container_name: data-scraper-service
+    expose:
+      - "8080"
+    # env_file: ./services/data-scraper-service/.env
     depends_on:
       - api-gateway
     networks:
@@ -22,6 +24,8 @@ services:
   agent-service:
     build: ./services/agent-service
     container_name: agent-service
+    expose:
+      - "8080"
     # env_file: ./services/agent-service/.env
     depends_on:
       - api-gateway
