@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Date, Integer
 from sqlalchemy.dialects.postgresql import JSONB
-from datetime import  date
+from datetime import date
 from .base import Base
 
 

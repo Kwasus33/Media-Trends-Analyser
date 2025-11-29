@@ -14,13 +14,10 @@ class Article(Base):
     description: Mapped[str] = mapped_column(Text)
     source: Mapped[str] = mapped_column(Text)
     daily_summary_id: Mapped[int] = mapped_column(
-        ForeignKey("daily_summary.id", ondelete="SET NULL"),
-        nullable=True
+        ForeignKey("daily_summary.id", ondelete="SET NULL"), nullable=True
     )
 
-    daily_summary: Mapped["DailySummary"] = relationship(
-        back_populates="articles"
-    )
+    daily_summary: Mapped["DailySummary"] = relationship(back_populates="articles")
 
     def __repr__(self) -> str:
         return f"Article(id={self.id}, title={self.title})"
