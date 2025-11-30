@@ -65,29 +65,36 @@ class SummaryAgent:
             """
             Based on the following daily summaries, generate a periodic summary in JSON format:\
 
+            Input data:\
             {daily_summaries}\
 
-            You must aggregate information across all days in the period.\
+            Structure explanation:\
+            The input data is organized hierarchically: Day -> Source -> Category.\
+            - "summaries": Source -> Category -> Text content.\
+            - "categories": Source -> Category -> Integer count.\
+            
+            Your task:\
+            1. Aggregate information across all days.\
+            2. Aggregate counts for the same category accross all sources.\
+            3. Use the provided "summaries" text to write the main summary and highlights\
             
             Language: english\
 
             Return JSON with the following fields:\
-            - main_summary: a comprehensive narrative (8–12 sentences) describing the main themes, events,
-              and developments across the entire period.\
+            - main_summary: a narrative (8–12 sentences) synthesizing the main themes and events across the period.\
             - categories_timeline: a dict where keys are category names and values are lists of integers
-              representing daily counts in chronological order.\
-            - category_totals: total count per category across the whole period.\
-            - trends: a list of observed trends, including rising topics, declining topics,
-              emerging themes, and notable shifts.\
-            - key_insights: 5–10 short bullet-style statements highlighting the most important findings.\
-            - source_highlights: a dict where keys are source names and values are 1–3 sentence summaries
-              of what each source focused on over the period.\
-            - event_timeline: a dict where keys are dates (YYYY-MM-DD) and values are short descriptions
-              of key events that occurred on that day, combining information from all sources.\
-            - references: a dict where keys are source names and values are lists of article URLs
-              that were included in the summaries for that source.\
+              representing total daily counts (summed across all sources).\
+            - category_totals: a dict with total counts per category for the entire period.\
+            - trends: A dictionary containing three specific lists:\
+                * rising: Topics that are gaining momentum or frequency over the period.\
+                * declining: Topics that were prominent at the start but faded.\
+                * emerging: Completely new topics that appeared late in the period.\
+            - key_insights: 5–10 bullet points covering the most critical findings.\
+            - source_highlights: a dict (Key: Source Name, Value: 1-3 sentence summary of that source's focus).\
+            - event_timeline: a dict (Key: YYYY-MM-DD, Value: Description of key events).\
+            - references: a dict (Key: Source Name, Value: List of ALL URLs found in the input for that source).\
 
-            Return only JSON, with no additional explanations.
+            Return only JSON, with no additional explanations.\
         """
         )
 
@@ -112,8 +119,6 @@ class SummaryAgent:
         )
         self.daily_summary_id += 1
 
-        print(output)
-
         return DailySummary(
             id=self.daily_summary_id,
             date=summary_date,
@@ -126,6 +131,7 @@ class SummaryAgent:
         self,
         daily_summaries: list[DailySummary],
         sources: list[str],
+        categories: list[str],
         start_date: date,
         end_date: date,
     ):
@@ -137,20 +143,22 @@ class SummaryAgent:
 
         for summary in daily_summaries:
             summary.summaries = {
-                k: v for k, v in summary.summaries.items() if k in sources
+                src: {c: v for c, v in data.items() if c in categories}
+                for src, data in summary.summaries.items()
+                if src in sources
             }
-
             summary.categories = {
-                k: v for k, v in summary.categories.items() if k in sources
+                src: {c: v for c, v in data.items() if c in categories}
+                for src, data in summary.categories.items()
+                if src in sources
             }
-
             summary.references = {
-                k: v for k, v in summary.references.items() if k in sources
+                src: {c: v for c, v in data.items() if c in categories}
+                for src, data in summary.references.items()
+                if src in sources
             }
 
         output = periodic_summary_chain.invoke({"daily_summaries": daily_summaries})
-
-        print(output)
 
         return PeriodicSummary(
             start_date=start_date,
