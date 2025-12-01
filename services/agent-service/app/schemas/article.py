@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel, HttpUrl, ConfigDict
 
 
 class Article(BaseModel):
@@ -13,3 +13,14 @@ class Article(BaseModel):
     @property
     def full_description(self):
         return f"title: {self.title}, description: {self.description}, url: {self.url}, source: {self.source}"
+
+
+class ArticleResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    url: str
+    published_at: datetime | None
+    title: str | None
+    description: str | None
+    source: str | None

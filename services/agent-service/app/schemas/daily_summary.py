@@ -1,6 +1,5 @@
 from datetime import date
-from pydantic import BaseModel, Field
-import random
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class DailySummary(BaseModel):
@@ -21,3 +20,20 @@ class DailySummary(BaseModel):
     # Key 2: Category name
     # Value: List of URLs
     references: dict[str, dict[str, list[str]]] = Field(default_factory=dict)
+
+
+class DailySummaryCreate(BaseModel):
+    date: date
+    summaries: dict
+    categories: dict
+    references: dict
+
+
+class DailySummaryResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    date: date
+    summaries: dict
+    categories: dict
+    references: dict
