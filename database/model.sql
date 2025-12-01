@@ -12,6 +12,5 @@ CREATE TABLE article (
     published_at TIMESTAMPTZ,
     title TEXT,
     description TEXT,
-    source TEXT,
-    daily_summary_id INT REFERENCES daily_summary(id) ON DELETE SET NULL
+    source TEXT
 );
