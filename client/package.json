@@ -15,7 +15,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "validate": "npm run lint && npm run knip && npm run spellcheck && npm run test",
-    "check": " npm run prettier:write && npm run validate && npm run build"
+    "check": " npm run prettier:check && npm run validate && npm run build"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "npx eslint --fix --max-warnings 0",
