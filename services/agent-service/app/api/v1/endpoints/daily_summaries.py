@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.orm import Session
 from app.database.database import get_db
 from app.models import DailySummary, Article, ViewDailySummary
@@ -62,3 +62,28 @@ def get_daily_summary_by_date(summary_date: date, db: Session = Depends(get_db))
     summary.id = summary.summary_id
 
     return summary
+
+
+@router.get("/range", response_model=list[DailySummaryResponse])
+def get_summaries_by_range(
+    start: date = Query(...),
+    end: date = Query(...),
+    db: Session = Depends(get_db),
+):
+    if start > end:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Start date cannot be after end date",
+        )
+
+    summaries = (
+        db.query(ViewDailySummary)
+        .filter(ViewDailySummary.date >= start, ViewDailySummary.date <= end)
+        .order_by(ViewDailySummary.date.desc())
+        .all()
+    )
+
+    for s in summaries:
+        s.id = s.summary_id
+
+    return summaries
