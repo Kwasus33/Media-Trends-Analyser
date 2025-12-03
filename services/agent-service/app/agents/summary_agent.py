@@ -43,7 +43,7 @@ class SummaryAgent:
             - categories: a dict where keys are source names. The value must be a nested dictionary
               containing article counts for each allowed category\
             - references: a dict where keys are soucre names. The value must be a nested dictionary
-              where keys are category names and values are lists of source URLs corresponding strictly
+              where keys are category names and values are lists of articles IDs corresponding strictly
               to the articles summarized in the category.\
             
             Constraints:
