@@ -1,6 +1,6 @@
 import { Box } from '@/components/Box';
-import { CategoryPieChart } from '@/components/charts/PieChart/CategoryPieChart';
-import { CategoryTrendChart } from '@/components/charts/LineChart/CategoryTrendChart';
+import { CategoryPieChart } from './PieChart';
+import { CategoryTrendChart } from './LineChart';
 
 type CategoryData = {
   name: string;
@@ -12,7 +12,7 @@ type TrendDataPoint = {
   [key: string]: string | number;
 };
 
-type AnalyticsTabProps = {
+type ChartsProps = {
   startDate: string;
   endDate: string;
   selectedSources: string[];
@@ -20,13 +20,13 @@ type AnalyticsTabProps = {
   trendData: TrendDataPoint[];
 };
 
-export function AnalyticsTab({
+export function Charts({
   startDate,
   endDate,
   selectedSources,
   categoryData,
   trendData,
-}: AnalyticsTabProps) {
+}: ChartsProps) {
   const sourcesText =
     selectedSources.length > 0
       ? selectedSources.join(', ')

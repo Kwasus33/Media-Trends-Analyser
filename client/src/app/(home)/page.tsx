@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { MainReport } from './MainReport';
-import { AnalyticsTab } from '@/components/AnalyticsTab';
+import { Charts } from './Charts';
 import { Button } from '@/components/Button';
 import { Checkbox } from '@/components/Checkbox';
 import { DateInput } from '@/components/DateInput';
@@ -154,7 +154,7 @@ export default function Home() {
       <section>
         {activeTab === 'report' && <MainReport reportSummary={reportSummary} />}
         {activeTab === 'analytics' && (
-          <AnalyticsTab
+          <Charts
             startDate={startDate}
             endDate={endDate}
             selectedSources={selectedSources}
