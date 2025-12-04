@@ -3,33 +3,33 @@
   "categories_timeline": [
     {
       "date": "2025-11-17",
-      "Technology": 50,
-      "Politics": 30,
-      "Sport": 40
+      "Technology": 45,
+      "Politics": 80,
+      "Sport": 20
     },
     {
       "date": "2025-11-18",
-      "Technology": 60,
-      "Politics": 25,
-      "Sport": 35
+      "Technology": 55,
+      "Politics": 40,
+      "Sport": 65
     },
     {
       "date": "2025-11-19",
-      "Technology": 55,
-      "Politics": 40,
-      "Sport": 50
+      "Technology": 70,
+      "Politics": 35,
+      "Sport": 30
     },
     {
       "date": "2025-11-20",
-      "Technology": 70,
-      "Politics": 20,
+      "Technology": 35,
+      "Politics": 95,
       "Sport": 45
     }
   ],
   "category_totals": {
-    "Technology": 3,
-    "Politics": 12,
-    "Sport": 5
+    "Technology": 205,
+    "Politics": 250,
+    "Sport": 160
   },
   "trends": {
     "rising": [
