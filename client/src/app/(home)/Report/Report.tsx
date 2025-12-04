@@ -32,7 +32,10 @@ export function Report({ startDate, endDate, selectedSources }: ReportProps) {
 
       <KeyInsights insights={data.key_insights} />
 
-      <SourceHighlights highlights={data.source_highlights} />
+      <SourceHighlights
+        highlights={data.source_highlights}
+        references={data.references}
+      />
 
       <EventTimeline timeline={data.event_timeline} />
 
