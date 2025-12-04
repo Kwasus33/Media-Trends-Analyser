@@ -44,7 +44,7 @@ def get_periodic_summary(
     summaries_valid = [DailySummaryResponse.model_validate(s) for s in summaries]
 
     settings = AgentSettings()
-    model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0)
+    model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
     agent = SummaryAgent(model, settings)
     periodic_summary = agent.get_periodic_summary(
         daily_summaries=summaries_valid,
