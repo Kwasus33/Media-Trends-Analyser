@@ -10,7 +10,7 @@ import { TabButton } from '@/components/TabButton';
 import { mockTrendData, type TrendData } from '@/data/mocks';
 import { SourceSelector } from '@/components/SourceSelector/SourceSelector';
 
-const dataSources = ['X', 'Reddit', 'RSS Feeds', 'BBC', 'New York Times'];
+const dataSources = ['Reddit', 'RSS Feeds', 'BBC', 'New York Times'];
 
 const calculatePieData = (data: TrendData[]) => {
   const totals: { [key: string]: number } = {};
