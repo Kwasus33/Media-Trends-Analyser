@@ -12,8 +12,8 @@
     "prettier:write": "prettier --write .",
     "spellcheck": "cspell \"**/*.{ts,tsx,md,json}\"",
     "knip": "knip",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
+    "test": "cross-env NODE_ENV=test jest --coverage",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
     "validate": "npm run lint && npm run knip && npm run spellcheck && npm run test",
     "check": " npm run prettier:check && npm run validate && npm run build"
   },
@@ -22,6 +22,7 @@
     "*.{js,jsx,ts,tsx,css,md,json}": "npx prettier --write"
   },
   "dependencies": {
+    "lucide-react": "^0.555.0",
     "next": "16.0.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
@@ -36,6 +37,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "cross-env": "^10.1.0",
     "cspell": "^9.3.2",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",

@@ -13,7 +13,7 @@ import { CHART_COLORS } from '@/constants/chartColors';
 
 type CategoryData = {
   name: string;
-  value: number;
+  value: unknown;
 };
 
 type CategoryPieChartProps = {
@@ -22,17 +22,18 @@ type CategoryPieChartProps = {
 
 export function CategoryPieChart({ data }: CategoryPieChartProps) {
   return (
-    <div className="w-full h-[400px]">
+    <div className="w-full h-[300px] md:h-[400px]">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
-            labelLine={false}
-            outerRadius={150}
-            fill="#CCCCCC"
+            innerRadius={60}
+            outerRadius={100}
+            paddingAngle={4}
             dataKey="value"
+            stroke="none"
           >
             {data.map((entry, index) => (
               <Cell
@@ -41,8 +42,15 @@ export function CategoryPieChart({ data }: CategoryPieChartProps) {
               />
             ))}
           </Pie>
-          <Tooltip />
-          <Legend verticalAlign="bottom" height={36} />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: '#09090b',
+              border: '1px solid #27272a',
+              borderRadius: '8px',
+            }}
+            itemStyle={{ color: '#e4e4e7' }}
+          />
+          <Legend verticalAlign="bottom" height={36} iconType="circle" />
         </PieChart>
       </ResponsiveContainer>
     </div>

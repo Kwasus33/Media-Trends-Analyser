@@ -1,13 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { ReportTab } from '@/components/ReportTab';
-import { AnalyticsTab } from '@/components/AnalyticsTab';
 import { Button } from '@/components/Button';
 import { DateInput } from '@/components/DateInput';
 import { Box } from '@/components/Box';
-import { TabButton } from '@/components/TabButton';
-import { mockTrendData, type TrendData } from '@/data/mocks';
+import { Report } from './Report';
+import { Loader2 } from 'lucide-react';
 import { SourceSelector } from '@/components/SourceSelector/SourceSelector';
 import { CategorySelector } from '@/components/CategorySelector/CategorySelector';
 
@@ -20,23 +18,8 @@ const dataCategories = [
   'Culture',
 ];
 
-const calculatePieData = (data: TrendData[]) => {
-  const totals: { [key: string]: number } = {};
-  data.forEach((point) => {
-    Object.keys(point).forEach((key) => {
-      const typedKey = key as keyof TrendData;
-      if (key !== 'date') {
-        totals[key] = (totals[key] || 0) + Number(point[typedKey]);
-      }
-    });
-  });
-  return Object.entries(totals).map(([name, value]) => ({ name, value }));
-};
-
 export default function Home() {
   const [selectedSources, setSelectedSources] = useState<string[]>(dataSources);
-  const [reportSummary, setReportSummary] = useState('Select time period.');
-  const [activeTab, setActiveTab] = useState<'report' | 'analytics'>('report');
   const [selectedCategories, setSelectedCategories] =
     useState<string[]>(dataCategories);
 
@@ -49,15 +32,13 @@ export default function Home() {
   const [startDate, setStartDate] = useState<string>(getYesterday());
   const [endDate, setEndDate] = useState<string>(getToday());
 
-  const [filteredTrendData, setFilteredTrendData] = useState(mockTrendData);
-  const [calculatedCategoryData, setCalculatedCategoryData] = useState(
-    calculatePieData(mockTrendData)
-  );
+  const [loading, setLoading] = useState<boolean>(false);
+  const [reportVisible, setReportVisible] = useState<boolean>(false);
 
   const todayDate = new Date().toISOString().slice(0, 10);
 
   const isButtonDisabled =
-    !startDate || !endDate || selectedSources.length === 0;
+    !startDate || !endDate || selectedSources.length === 0 || loading;
 
   const handleSourceChange = (source: string) => {
     setSelectedSources((prevSources) => {
@@ -84,25 +65,17 @@ export default function Home() {
   };
 
   const handleGenerateReport = () => {
-    const filteredData = mockTrendData.filter((item) => {
-      return item.date >= startDate && item.date <= endDate;
-    });
+    setLoading(true);
+    setReportVisible(false);
 
-    setFilteredTrendData(filteredData);
-    setCalculatedCategoryData(calculatePieData(filteredData));
-
-    const sourcesList =
-      selectedSources.length > 0
-        ? selectedSources.join(', ')
-        : 'No data source selected.';
-    const summaryMessage = `Selected dates: ${startDate} - ${endDate}. Selected data sources: ${sourcesList}.`;
-
-    setReportSummary(summaryMessage);
-    setActiveTab('analytics');
+    setTimeout(() => {
+      setLoading(false);
+      setReportVisible(true);
+    }, 2000);
   };
 
   return (
-    <main className={`min-h-screen p-8 bg-black`}>
+    <main className={`w-full p-8 bg-black`}>
       <header className="mb-8 text-center">
         <h1 className="text-5xl font-extrabold text-white">
           Media Trends Analyser
@@ -172,38 +145,28 @@ export default function Home() {
             className="w-full sm:w-auto self-end"
             disabled={isButtonDisabled}
           >
-            Generate Report
+            {loading ? 'Processing...' : 'Generate Report'}
           </Button>
         </div>
       </Box>
 
-      <nav className="flex mb-6 border-b border-gray-700 mx-auto max-w-4xl justify-center">
-        <TabButton
-          isActive={activeTab === 'report'}
-          onClick={() => setActiveTab('report')}
-        >
-          Report
-        </TabButton>
-        <TabButton
-          isActive={activeTab === 'analytics'}
-          onClick={() => setActiveTab('analytics')}
-        >
-          Trend Analytics
-        </TabButton>
-      </nav>
+      {loading && (
+        <div className="w-full flex flex-col items-center justify-center py-20 animate-in fade-in duration-500">
+          <Loader2 className="w-12 h-12 text-indigo-500 animate-spin mb-4" />
+          <h3 className="text-xl font-medium text-white">Analyzing Data...</h3>
+          <p className="text-gray-400 text-sm mt-2">
+            Aggregating trends from selected sources
+          </p>
+        </div>
+      )}
 
-      <section>
-        {activeTab === 'report' && <ReportTab reportSummary={reportSummary} />}
-        {activeTab === 'analytics' && (
-          <AnalyticsTab
-            startDate={startDate}
-            endDate={endDate}
-            selectedSources={selectedSources}
-            categoryData={calculatedCategoryData}
-            trendData={filteredTrendData}
-          />
-        )}
-      </section>
+      {!loading && reportVisible && (
+        <Report
+          startDate={startDate}
+          endDate={endDate}
+          selectedSources={selectedSources}
+        />
+      )}
     </main>
   );
 }
