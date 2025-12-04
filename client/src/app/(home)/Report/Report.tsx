@@ -1,6 +1,7 @@
 import { Box } from '@/components/Box';
 import { Charts } from './Charts';
 import data from '@/data/periodic_summary.json';
+import { TrendAnalysis } from './TrendAnalysis';
 
 type ReportProps = {
   startDate: string;
@@ -24,6 +25,8 @@ export function Report({ startDate, endDate, selectedSources }: ReportProps) {
         categoryData={data.category_totals}
         trendData={data.categories_timeline}
       />
+
+      <TrendAnalysis trends={data.trends} />
     </Box>
   );
 }
