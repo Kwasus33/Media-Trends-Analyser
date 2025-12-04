@@ -1,5 +1,12 @@
 import { type ReactNode } from 'react';
 
+const brandColors: Record<string, string> = {
+  Reddit: '#FF4500',
+  'RSS Feeds': '#CC8400',
+  BBC: '#BB1919',
+  'NY Times': '#333333',
+};
+
 const icons: Record<string, ReactNode> = {
   Reddit: (
     <svg viewBox="0 0 24 24" fill="#FF4500" className="w-9 h-9">
@@ -34,22 +41,29 @@ export function SourceSelector({
   checked,
   onChange,
 }: SourceSelectorProps) {
+  const brandColor = brandColors[source];
+
   return (
     <button
       onClick={onChange}
       className="group flex flex-col items-center gap-3 p-2 rounded-xl transition-all duration-300 hover:bg-gray-900/50"
     >
       <span
-        className={`text- font-medium transition-colors ${checked ? 'text-white' : 'text-gray-500 group-hover:text-gray-300'}`}
+        className={`text-sm font-medium transition-colors ${checked ? 'text-white' : 'text-gray-500 group-hover:text-gray-300'}`}
       >
         {source}
       </span>
       <div
+        style={
+          checked
+            ? { backgroundColor: brandColor, borderColor: brandColor }
+            : {}
+        }
         className={`
-        flex items-center justify-center w-16 h-16 rounded-full border transition-all duration-300
+        flex items-center justify-center w-18 h-14 rounded-xl border transition-all duration-300
         ${
           checked
-            ? 'bg-gray-800 border-blue-500 scale-105 opacity-100'
+            ? 'scale-105 opacity-100 [&_path]:fill-white'
             : 'bg-transparent border-gray-700 opacity-50 grayscale group-hover:opacity-80 group-hover:grayscale-0'
         }
       `}
