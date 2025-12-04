@@ -4,11 +4,11 @@ import { useState } from 'react';
 import { ReportTab } from '@/components/ReportTab';
 import { AnalyticsTab } from '@/components/AnalyticsTab';
 import { Button } from '@/components/Button';
-import { Checkbox } from '@/components/Checkbox';
 import { DateInput } from '@/components/DateInput';
 import { Box } from '@/components/Box';
 import { TabButton } from '@/components/TabButton';
 import { mockTrendData, type TrendData } from '@/data/mocks';
+import { SourceSelector } from '@/components/SourceSelector/SourceSelector';
 
 const dataSources = ['X', 'Reddit', 'RSS Feeds', 'BBC', 'New York Times'];
 
@@ -82,14 +82,13 @@ export default function Home() {
 
       <Box className="flex flex-col gap-6 mb-10">
         <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center pt-4 border-t border-gray-800">
-          {dataSources.map((source, index) => (
-            <Checkbox
-              key={source + index}
+          {dataSources.map((source) => (
+            <SourceSelector
+              key={source}
+              source={source}
               checked={selectedSources.includes(source)}
               onChange={() => handleSourceChange(source)}
-            >
-              {source}
-            </Checkbox>
+            />
           ))}
         </div>
 
