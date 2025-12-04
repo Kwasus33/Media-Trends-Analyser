@@ -1,41 +1,19 @@
 'use client';
 
 import { useState } from 'react';
-import { MainReport } from './MainReport';
-import { Charts } from './Charts';
 import { Button } from '@/components/Button';
 import { Checkbox } from '@/components/Checkbox';
 import { DateInput } from '@/components/DateInput';
 import { Box } from '@/components/Box';
-import { TabButton } from '@/components/TabButton';
-import { mockTrendData, type TrendData } from '@/data/mocks';
+import { Report } from './Report';
 
-const dataSources = ['X', 'Reddit', 'RSS Feeds', 'BBC', 'New York Times'];
-
-const calculatePieData = (data: TrendData[]) => {
-  const totals: { [key: string]: number } = {};
-  data.forEach((point) => {
-    Object.keys(point).forEach((key) => {
-      const typedKey = key as keyof TrendData;
-      if (key !== 'date') {
-        totals[key] = (totals[key] || 0) + Number(point[typedKey]);
-      }
-    });
-  });
-  return Object.entries(totals).map(([name, value]) => ({ name, value }));
-};
+const dataSources = ['Reddit', 'RSS Feeds', 'BBC', 'New York Times'];
 
 export default function Home() {
   const [startDate, setStartDate] = useState<string>('');
   const [endDate, setEndDate] = useState<string>('');
   const [selectedSources, setSelectedSources] = useState<string[]>(dataSources);
-  const [reportSummary, setReportSummary] = useState('Select time period.');
-  const [activeTab, setActiveTab] = useState<'report' | 'analytics'>('report');
-
-  const [filteredTrendData, setFilteredTrendData] = useState(mockTrendData);
-  const [calculatedCategoryData, setCalculatedCategoryData] = useState(
-    calculatePieData(mockTrendData)
-  );
+  const [reportVisible, setReportVisible] = useState<boolean>(true);
 
   const todayDate = new Date().toISOString().slice(0, 10);
 
@@ -55,21 +33,8 @@ export default function Home() {
   };
 
   const handleGenerateReport = () => {
-    const filteredData = mockTrendData.filter((item) => {
-      return item.date >= startDate && item.date <= endDate;
-    });
-
-    setFilteredTrendData(filteredData);
-    setCalculatedCategoryData(calculatePieData(filteredData));
-
-    const sourcesList =
-      selectedSources.length > 0
-        ? selectedSources.join(', ')
-        : 'No data source selected.';
-    const summaryMessage = `Selected dates: ${startDate} - ${endDate}. Selected data sources: ${sourcesList}.`;
-
-    setReportSummary(summaryMessage);
-    setActiveTab('analytics');
+    console.log('clicked');
+    setReportVisible(true);
   };
 
   return (
@@ -136,33 +101,13 @@ export default function Home() {
         </div>
       </Box>
 
-      <nav className="flex mb-6 border-b border-gray-700 mx-auto max-w-4xl justify-center">
-        <TabButton
-          isActive={activeTab === 'report'}
-          onClick={() => setActiveTab('report')}
-        >
-          Report
-        </TabButton>
-        <TabButton
-          isActive={activeTab === 'analytics'}
-          onClick={() => setActiveTab('analytics')}
-        >
-          Trend Analytics
-        </TabButton>
-      </nav>
-
-      <section>
-        {activeTab === 'report' && <MainReport reportSummary={reportSummary} />}
-        {activeTab === 'analytics' && (
-          <Charts
-            startDate={startDate}
-            endDate={endDate}
-            selectedSources={selectedSources}
-            categoryData={calculatedCategoryData}
-            trendData={filteredTrendData}
-          />
-        )}
-      </section>
+      {reportVisible && (
+        <Report
+          startDate={startDate}
+          endDate={endDate}
+          selectedSources={selectedSources}
+        />
+      )}
     </main>
   );
 }

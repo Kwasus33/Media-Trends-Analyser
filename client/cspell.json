@@ -8,7 +8,8 @@
     "build/**",
     "package-lock.json",
     "pnpm-lock.yaml",
-    "coverage/**"
+    "coverage/**",
+    "src/data/**"
   ],
   //List of words to be considered correct:
   "words": []

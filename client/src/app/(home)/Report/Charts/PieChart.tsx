@@ -13,7 +13,7 @@ import { CHART_COLORS } from '@/constants/chartColors';
 
 type CategoryData = {
   name: string;
-  value: number;
+  value: unknown;
 };
 
 type CategoryPieChartProps = {
