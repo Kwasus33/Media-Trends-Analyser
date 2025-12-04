@@ -1,5 +1,7 @@
 import { CategoryPieChart } from './PieChart';
 import { CategoryTrendChart } from './LineChart';
+import { SectionWrapper } from '@/components/SectionWrapper';
+import { ChartColumn } from 'lucide-react';
 
 type TrendData = {
   date: string;
@@ -36,12 +38,13 @@ export function Charts({ categoryData, trendData }: ChartsProps) {
   const categoryNames = categories.map((c) => c.name);
 
   return (
-    <div>
-      <h2 className="text-3xl font-bold text-white mb-4">Trend Analytics</h2>
-
+    <SectionWrapper
+      title="Data Visualization"
+      icon={<ChartColumn className="w-6 h-6 text-green-600" />}
+    >
       <CategoryPieChart data={categories} />
 
       <CategoryTrendChart data={trendData} categories={categoryNames} />
-    </div>
+    </SectionWrapper>
   );
 }

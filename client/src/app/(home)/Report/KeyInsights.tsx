@@ -1,21 +1,16 @@
 import { Lightbulb } from 'lucide-react';
+import { SectionWrapper } from '@/components/SectionWrapper';
 
-type Props = {
+type KeyInsightsProps = {
   insights: string[];
 };
 
-export function KeyInsights({ insights }: Props) {
+export function KeyInsights({ insights }: KeyInsightsProps) {
   return (
-    <div className="w-full bg-gray-900/30 border border-gray-800 rounded-2xl p-6 md:p-8">
-      <div className="flex items-center gap-3 mb-8 border-b border-gray-800 pb-6">
-        <div className="p-3 bg-yellow-500/10 rounded-xl border border-yellow-500/20">
-          <Lightbulb className="w-6 h-6 text-yellow-400" />
-        </div>
-        <div className="text-left">
-          <h3 className="text-2xl font-bold text-white">Strategic Insights</h3>
-        </div>
-      </div>
-
+    <SectionWrapper
+      title="Key Insights"
+      icon={<Lightbulb className="w-5 h-5 text-yellow-400" />}
+    >
       <div className="flex flex-col gap-4 text-left">
         {insights.map((insight, index) => (
           <div
@@ -34,6 +29,6 @@ export function KeyInsights({ insights }: Props) {
           </div>
         ))}
       </div>
-    </div>
+    </SectionWrapper>
   );
 }

@@ -1,4 +1,5 @@
-import { TrendingUp, TrendingDown, Sparkles } from 'lucide-react';
+import { TrendingUp, TrendingDown, Sparkles, Activity } from 'lucide-react';
+import { SectionWrapper } from '@/components/SectionWrapper';
 
 type TrendsData = {
   rising: string[];
@@ -6,37 +7,42 @@ type TrendsData = {
   emerging: string[];
 };
 
-type Props = {
+type TrendAnalysisProps = {
   trends: TrendsData;
 };
 
-export function TrendAnalysis({ trends }: Props) {
+export function TrendAnalysis({ trends }: TrendAnalysisProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-left">
-      <TrendGroup
-        title="Rising Trends"
-        items={trends.rising}
-        icon={<TrendingUp className="w-5 h-5" />}
-        colorClass="text-emerald-400"
-        bgClass="bg-emerald-900/20 border-emerald-500/20"
-      />
+    <SectionWrapper
+      title="Trend Analysis"
+      icon={<Activity className="w-5 h-5 text-red-600" />}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-left">
+        <TrendGroup
+          title="Rising Trends"
+          items={trends.rising}
+          icon={<TrendingUp className="w-5 h-5" />}
+          colorClass="text-emerald-400"
+          bgClass="bg-emerald-900/20 border-emerald-500/20"
+        />
 
-      <TrendGroup
-        title="Emerging Signals"
-        items={trends.emerging}
-        icon={<Sparkles className="w-5 h-5" />}
-        colorClass="text-blue-400"
-        bgClass="bg-blue-900/20 border-blue-500/20"
-      />
+        <TrendGroup
+          title="Emerging Signals"
+          items={trends.emerging}
+          icon={<Sparkles className="w-5 h-5" />}
+          colorClass="text-blue-400"
+          bgClass="bg-blue-900/20 border-blue-500/20"
+        />
 
-      <TrendGroup
-        title="Declining Topics"
-        items={trends.declining}
-        icon={<TrendingDown className="w-5 h-5" />}
-        colorClass="text-rose-400"
-        bgClass="bg-rose-900/20 border-rose-500/20"
-      />
-    </div>
+        <TrendGroup
+          title="Declining Topics"
+          items={trends.declining}
+          icon={<TrendingDown className="w-5 h-5" />}
+          colorClass="text-rose-400"
+          bgClass="bg-rose-900/20 border-rose-500/20"
+        />
+      </div>
+    </SectionWrapper>
   );
 }
 

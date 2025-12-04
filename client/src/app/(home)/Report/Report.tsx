@@ -3,6 +3,9 @@ import { Charts } from './Charts';
 import data from '@/data/periodic_summary.json';
 import { TrendAnalysis } from './TrendAnalysis';
 import { KeyInsights } from './KeyInsights';
+import { SourceHighlights } from './SourceHighlights';
+import { SectionWrapper } from '@/components/SectionWrapper';
+import { FileText } from 'lucide-react';
 
 type ReportProps = {
   startDate: string;
@@ -15,10 +18,20 @@ export function Report({ startDate, endDate, selectedSources }: ReportProps) {
 
   return (
     <Box className="flex flex-col gap-12 min-h-[500px] text-center">
-      <div>
-        <h2 className="text-3xl font-bold text-white mb-4">Report</h2>
-        <p className="text-gray-400">{data.main_summary}</p>
-      </div>
+      <SectionWrapper
+        title="Executive Summary"
+        icon={<FileText className="w-5 h-5 text-blue-400" />}
+      >
+        <p className="text-gray-300 leading-relaxed text-lg">
+          {data.main_summary}
+        </p>
+      </SectionWrapper>
+
+      <TrendAnalysis trends={data.trends} />
+
+      <KeyInsights insights={data.key_insights} />
+
+      <SourceHighlights highlights={data.source_highlights} />
 
       <Charts
         startDate={startDate}
@@ -26,10 +39,6 @@ export function Report({ startDate, endDate, selectedSources }: ReportProps) {
         categoryData={data.category_totals}
         trendData={data.categories_timeline}
       />
-
-      <TrendAnalysis trends={data.trends} />
-
-      <KeyInsights insights={data.key_insights} />
     </Box>
   );
 }

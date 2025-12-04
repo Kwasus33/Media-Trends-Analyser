@@ -7,6 +7,7 @@ import {
   type LucideProps,
 } from 'lucide-react';
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
+import { SectionWrapper } from '@/components/SectionWrapper';
 
 type Highlights = {
   [key: string]: string;
@@ -65,11 +66,10 @@ export function SourceHighlights({ highlights }: SourceHighlightsProps) {
   if (activeHighlights.length === 0) return null;
 
   return (
-    <div className="w-full">
-      <h3 className="text-2xl font-bold text-white mb-6 text-left border-l-4 border-indigo-500 pl-4">
-        Source Breakdown
-      </h3>
-
+    <SectionWrapper
+      title="Source Breakdown"
+      icon={<Radio className="w-5 h-5 text-indigo-400" />}
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {activeHighlights.map(([source, text]) => {
           const style = SOURCE_STYLES[source] || SOURCE_STYLES['Default'];
@@ -100,6 +100,6 @@ export function SourceHighlights({ highlights }: SourceHighlightsProps) {
           );
         })}
       </div>
-    </div>
+    </SectionWrapper>
   );
 }
