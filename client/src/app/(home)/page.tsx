@@ -18,17 +18,18 @@ const dataCategories = [
   'Culture',
 ];
 
+const getToday = () => new Date().toISOString().split('T')[0];
+
+const getYesterday = () => {
+  const date = new Date();
+  date.setDate(date.getDate() - 1);
+  return date.toISOString().split('T')[0];
+};
+
 export default function Home() {
   const [selectedSources, setSelectedSources] = useState<string[]>(dataSources);
   const [selectedCategories, setSelectedCategories] =
     useState<string[]>(dataCategories);
-
-  const getToday = () => new Date().toISOString().split('T')[0];
-  const getYesterday = () => {
-    const date = new Date();
-    date.setDate(date.getDate() - 1);
-    return date.toISOString().split('T')[0];
-  };
   const [startDate, setStartDate] = useState<string>(getYesterday());
   const [endDate, setEndDate] = useState<string>(getToday());
 
@@ -111,16 +112,8 @@ export default function Home() {
             label="From:"
             className="sm:mr-4"
             value={startDate}
-            max={todayDate}
-            onChange={(e) => {
-              const newStart = e.target.value;
-              if (endDate && newStart > endDate) {
-                setStartDate(endDate);
-                setEndDate(newStart);
-              } else {
-                setStartDate(newStart);
-              }
-            }}
+            max={endDate || todayDate}
+            onChange={(event) => setStartDate(event.target.value)}
           />
 
           <DateInput
@@ -128,16 +121,9 @@ export default function Home() {
             label="To:"
             className="sm:mr-8"
             value={endDate}
+            min={startDate}
             max={todayDate}
-            onChange={(e) => {
-              const newEnd = e.target.value;
-              if (startDate && newEnd < startDate) {
-                setEndDate(startDate);
-                setStartDate(newEnd);
-              } else {
-                setEndDate(newEnd);
-              }
-            }}
+            onChange={(event) => setEndDate(event.target.value)}
           />
 
           <Button
