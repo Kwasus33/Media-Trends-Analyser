@@ -80,11 +80,19 @@ export default function Home() {
   };
 
   return (
-    <main className={`w-full p-8 bg-black`}>
-      <header className="mb-8 text-center">
-        <h1 className="text-5xl font-extrabold text-white">
-          Media Trends Analyser
+    <main className={`w-full p-8`}>
+      <header className="mb-12 text-center relative z-10">
+        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight">
+          <span className="bg-linear-to-b from-white to-white/70 bg-clip-text text-transparent">
+            Media Trends
+          </span>{' '}
+          <span className="bg-linear-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            Analyser
+          </span>
         </h1>
+        <p className="mt-4 text-gray-400 text-lg max-w-2xl mx-auto">
+          AI-powered insights across global news sources and social platforms.
+        </p>
       </header>
 
       <Box className="flex flex-col gap-6 mb-10">
@@ -126,7 +134,7 @@ export default function Home() {
             className="sm:mr-8"
             value={endDate}
             min={startDate}
-            max={todayDate}
+            // max={todayDate}
             onChange={(event) => setEndDate(event.target.value)}
           />
 
