@@ -9,10 +9,6 @@ type HomeProps = {
 export default async function Home({ searchParams }: HomeProps) {
   const params = await searchParams;
 
-  const paramsKey = new URLSearchParams(
-    params as Record<string, string>
-  ).toString();
-
   const hasFilters = Object.keys(params).length > 0;
   const reportData = hasFilters ? await fetchReportData(params) : null;
 
@@ -32,7 +28,7 @@ export default async function Home({ searchParams }: HomeProps) {
         </p>
       </header>
 
-      <ControlPanel key={paramsKey}>
+      <ControlPanel>
         {reportData && (
           <Report
             data={reportData}

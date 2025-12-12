@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useState, useTransition, type ReactNode } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 
@@ -35,6 +35,8 @@ export function ControlPanel({ children }: ControlPanelProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const [isPending, startTransition] = useTransition();
+
   const [selectedSources, setSelectedSources] = useState<string[]>(() => {
     const fromUrl = searchParams.getAll('source');
     return fromUrl.length > 0 ? fromUrl : dataSources;
@@ -53,7 +55,6 @@ export function ControlPanel({ children }: ControlPanelProps) {
     searchParams.get('to') || getToday()
   );
 
-  const [isPending, setIsPending] = useState(false);
   const todayDate = new Date().toISOString().slice(0, 10);
 
   const isButtonDisabled =
@@ -80,8 +81,6 @@ export function ControlPanel({ children }: ControlPanelProps) {
   };
 
   const handleGenerateReport = () => {
-    setIsPending(true);
-
     const params = new URLSearchParams();
 
     selectedSources.forEach((s) => params.append('source', s));
@@ -89,9 +88,16 @@ export function ControlPanel({ children }: ControlPanelProps) {
     params.set('from', startDate);
     params.set('to', endDate);
 
-    params.set('t', Date.now().toString());
+    const newQueryString = params.toString();
+    const currentQueryString = searchParams.toString();
 
-    router.push(`/?${params.toString()}`, { scroll: false });
+    startTransition(() => {
+      if (newQueryString === currentQueryString) {
+        router.refresh();
+      } else {
+        router.push(`/?${newQueryString}`, { scroll: false });
+      }
+    });
   };
 
   return (

@@ -9,7 +9,7 @@ type ReportFilters = {
 };
 
 export async function fetchReportData(filters: ReportFilters) {
-  console.log('Fetching report with filters:', filters);
+  if (!filters) return;
 
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
