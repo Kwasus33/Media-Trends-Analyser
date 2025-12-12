@@ -14,7 +14,6 @@ export default async function Home({ searchParams }: HomeProps) {
   ).toString();
 
   const hasFilters = Object.keys(params).length > 0;
-
   const reportData = hasFilters ? await fetchReportData(params) : null;
 
   return (
@@ -33,15 +32,15 @@ export default async function Home({ searchParams }: HomeProps) {
         </p>
       </header>
 
-      <ControlPanel key={paramsKey} />
-
-      {reportData && (
-        <Report
-          data={reportData}
-          startDate={typeof params.from === 'string' ? params.from : ''}
-          endDate={typeof params.to === 'string' ? params.to : ''}
-        />
-      )}
+      <ControlPanel key={paramsKey}>
+        {reportData && (
+          <Report
+            data={reportData}
+            startDate={typeof params.from === 'string' ? params.from : ''}
+            endDate={typeof params.to === 'string' ? params.to : ''}
+          />
+        )}
+      </ControlPanel>
     </main>
   );
 }
