@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface CategorySelectorProps {
+type CategorySelectorProps = {
   category: string;
   checked: boolean;
   onChange: () => void;
-}
+};
 
 export const CategorySelector = ({
   category,
@@ -13,11 +13,12 @@ export const CategorySelector = ({
 }: CategorySelectorProps) => {
   return (
     <label
-      className={`cursor-pointer px-4 py-1.5 text-sm border rounded-xl transition-all duration-300 select-none
+      className={`
+        cursor-pointer px-6 py-2 text-sm rounded-full border transition-all duration-300 select-none
         ${
           checked
-            ? 'font-bold border-2 text-white border-white bg-gray-800'
-            : 'font-medium text-gray-400 border-gray-700 hover:border-gray-500 hover:text-gray-300'
+            ? 'font-bold border-indigo-600 bg-indigo-600 text-white shadow-lg shadow-indigo-500/20'
+            : 'font-medium text-gray-400 border-gray-800 bg-gray-900/50 hover:border-gray-600 hover:text-gray-300'
         }
       `}
     >

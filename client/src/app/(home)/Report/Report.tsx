@@ -7,16 +7,15 @@ import { SourceHighlights } from './SourceHighlights';
 import { SectionWrapper } from '@/components/SectionWrapper';
 import { FileText } from 'lucide-react';
 import { EventTimeline } from './EventTimeline';
+import type { ReportData } from '@/types/report';
 
 type ReportProps = {
+  data: ReportData;
   startDate: string;
   endDate: string;
-  selectedSources: string[];
 };
 
-export function Report({ startDate, endDate, selectedSources }: ReportProps) {
-  console.log('selectedSources --->', selectedSources);
-
+export function Report({ startDate, endDate }: ReportProps) {
   return (
     <Box className="flex flex-col gap-12 min-h-[500px] text-center">
       <SectionWrapper

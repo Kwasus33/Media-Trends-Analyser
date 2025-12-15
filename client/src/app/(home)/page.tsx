@@ -1,172 +1,35 @@
-'use client';
-
-import { useState } from 'react';
-import { Button } from '@/components/Button';
-import { DateInput } from '@/components/DateInput';
-import { Box } from '@/components/Box';
+import { ControlPanel } from './ControlPanel';
 import { Report } from './Report';
-import { Loader2 } from 'lucide-react';
-import { SourceSelector } from '@/components/SourceSelector/SourceSelector';
-import { CategorySelector } from '@/components/CategorySelector/CategorySelector';
+import { fetchReportData } from './api';
+import { HeaderLogo } from '@/components/HeaderLogo';
 
-const dataSources = ['Reddit', 'RSS Feeds', 'BBC', 'NY Times'];
-const dataCategories = [
-  'Technology',
-  'Politics',
-  'Economy',
-  'Sport',
-  'Culture',
-];
+type HomeProps = {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
-export default function Home() {
-  const [selectedSources, setSelectedSources] = useState<string[]>(dataSources);
-  const [selectedCategories, setSelectedCategories] =
-    useState<string[]>(dataCategories);
+export default async function Home({ searchParams }: HomeProps) {
+  const params = await searchParams;
 
-  const getToday = () => new Date().toISOString().split('T')[0];
-  const getYesterday = () => {
-    const date = new Date();
-    date.setDate(date.getDate() - 1);
-    return date.toISOString().split('T')[0];
-  };
-  const [startDate, setStartDate] = useState<string>(getYesterday());
-  const [endDate, setEndDate] = useState<string>(getToday());
+  const paramsKey = new URLSearchParams(
+    params as Record<string, string>
+  ).toString();
 
-  const [loading, setLoading] = useState<boolean>(false);
-  const [reportVisible, setReportVisible] = useState<boolean>(false);
-
-  const todayDate = new Date().toISOString().slice(0, 10);
-
-  const isButtonDisabled =
-    !startDate || !endDate || selectedSources.length === 0 || loading;
-
-  const handleSourceChange = (source: string) => {
-    setSelectedSources((prevSources) => {
-      const isCurrentlySelected = prevSources.includes(source);
-
-      if (isCurrentlySelected) {
-        return prevSources.filter((s) => s !== source);
-      } else {
-        return [...prevSources, source];
-      }
-    });
-  };
-
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategories((prevCategories) => {
-      const isCurrentlySelected = prevCategories.includes(category);
-
-      if (isCurrentlySelected) {
-        return prevCategories.filter((c) => c !== category);
-      } else {
-        return [...prevCategories, category];
-      }
-    });
-  };
-
-  const handleGenerateReport = () => {
-    setLoading(true);
-    setReportVisible(false);
-
-    setTimeout(() => {
-      setLoading(false);
-      setReportVisible(true);
-    }, 2000);
-  };
+  const hasFilters = Object.keys(params).length > 0;
+  const reportData = hasFilters ? await fetchReportData(params) : null;
 
   return (
-    <main className={`w-full p-8 bg-black`}>
-      <header className="mb-8 text-center">
-        <h1 className="text-5xl font-extrabold text-white">
-          Media Trends Analyser
-        </h1>
-      </header>
+    <main className="w-full p-8">
+      <HeaderLogo />
 
-      <Box className="flex flex-col gap-6 mb-10">
-        <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center pt-4 border-t border-gray-800">
-          {dataSources.map((source) => (
-            <SourceSelector
-              key={source}
-              source={source}
-              checked={selectedSources.includes(source)}
-              onChange={() => handleSourceChange(source)}
-            />
-          ))}
-        </div>
-
-        <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center">
-          {dataCategories.map((category) => (
-            <CategorySelector
-              key={category}
-              category={category}
-              checked={selectedCategories.includes(category)}
-              onChange={() => handleCategoryChange(category)}
-            />
-          ))}
-        </div>
-
-        <div className="justify-center flex flex-col sm:flex-row items-end border-b border-gray-800 pb-6 mx-auto max-w-4xl w-full">
-          <DateInput
-            id="startData"
-            label="From:"
-            className="sm:mr-4"
-            value={startDate}
-            max={todayDate}
-            onChange={(e) => {
-              const newStart = e.target.value;
-              if (endDate && newStart > endDate) {
-                setStartDate(endDate);
-                setEndDate(newStart);
-              } else {
-                setStartDate(newStart);
-              }
-            }}
+      <ControlPanel key={paramsKey}>
+        {reportData && (
+          <Report
+            data={reportData}
+            startDate={typeof params.from === 'string' ? params.from : ''}
+            endDate={typeof params.to === 'string' ? params.to : ''}
           />
-
-          <DateInput
-            id="endDate"
-            label="To:"
-            className="sm:mr-8"
-            value={endDate}
-            max={todayDate}
-            onChange={(e) => {
-              const newEnd = e.target.value;
-              if (startDate && newEnd < startDate) {
-                setEndDate(startDate);
-                setStartDate(newEnd);
-              } else {
-                setEndDate(newEnd);
-              }
-            }}
-          />
-
-          <Button
-            onClick={handleGenerateReport}
-            className="w-full sm:w-auto self-end"
-            disabled={isButtonDisabled}
-          >
-            {loading ? 'Processing...' : 'Generate Report'}
-          </Button>
-        </div>
-      </Box>
-
-      {loading && (
-        <div className="w-full flex flex-col items-center justify-center py-20 animate-in fade-in duration-500">
-          <Loader2 className="w-12 h-12 text-indigo-500 animate-spin mb-4" />
-          <h3 className="text-xl font-medium text-white">Analyzing Data...</h3>
-          <p className="text-gray-400 text-sm mt-2">
-            Aggregating trends from selected sources
-          </p>
-        </div>
-      )}
-
-      {!loading && reportVisible && (
-        <Report
-          startDate={startDate}
-          endDate={endDate}
-          selectedSources={selectedSources}
-        />
-      )}
+        )}
+      </ControlPanel>
     </main>
   );
 }
