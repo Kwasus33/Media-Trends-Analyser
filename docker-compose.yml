@@ -1,55 +1,64 @@
 services:
-  api-gateway:
-    build: ./services/api-gateway
-    container_name: api-gateway
-    ports:
-      - "8080:8080"
-    # env_file: ./services/api-gateway/.env
-    depends_on:
-      - postgres
+  traefik:
+    image: "traefik:v3.4"
+    container_name: "traefik"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     networks:
       - app_network
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=app_network"
+      - "--entryPoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   data-service:
     build: ./services/data-scraper-service
     container_name: data-scraper-service
-    expose:
-      - "8080"
-    # env_file: ./services/data-scraper-service/.env
-    depends_on:
-      - api-gateway
     networks:
       - app_network
+    volumes:
+      - ./services/data-scraper-service/app:/src/app
+      - ./services/data-scraper-service/pyproject.toml:/src/pyproject.toml
+      - ./services/data-scraper-service/uv.lock:/src/uv.lock
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.scrapers-v1.rule=(Host(`trendsanalyser.com`) || Host(`localhost`)) && PathPrefix(`/scrapers/api/v1`)"
+      - "traefik.http.routers.scrapers-v1.entrypoints=web"
+
+      - "traefik.http.middlewares.scrapers-v1-strip.stripprefix.prefixes=/scrapers/api/v1"
+      - "traefik.http.routers.scrapers-v1.middlewares=scrapers-v1-strip"
+
+      - "traefik.http.services.scrapers-svc.loadbalancer.server.port=8082"
 
   agent-service:
     build: ./services/agent-service
     container_name: agent-service
-    expose:
-      - "8080"
-    # env_file: ./services/agent-service/.env
-    depends_on:
-      - api-gateway
     networks:
       - app_network
-
-  postgres:
-    image: postgres:16
-    container_name: postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/trend_analyzer_data
-    networks:
-      - app_network
-  # frontend:
-  #   build: ./client
-  #   container_name: client
-  #   ports:
-  #     - "5001:5001"
-  #   networks:
-  #     - app_network
+      - ./services/agent-service/app:/src/app
+      - ./services/agent-service/pyproject.toml:/src/pyproject.toml
+      - ./services/agent-service/uv.lock:/src/uv.lock
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.llmagent-v1.rule=(Host(`trendsanalyser.com`) || Host(`localhost`)) && PathPrefix(`/agent/api/v1`)"
+      - "traefik.http.routers.llmagent-v1.entrypoints=web"
+
+      - "traefik.http.middlewares.llmagent-v1-strip.stripprefix.prefixes=/agent/api/v1"
+      - "traefik.http.routers.llmagent-v1.middlewares=llmagent-v1-strip"
+
+      - "traefik.http.services.llmagent-svc.loadbalancer.server.port=8083"
 
 networks:
   app_network:
-
+    name: app_network
 
 volumes:
   postgres_data:
