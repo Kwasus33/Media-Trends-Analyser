@@ -14,12 +14,12 @@ RUN uv sync
 
 COPY app ./app
 
-WORKDIR /src/app
+WORKDIR /src
 
 ENV PATH="/src/.venv/bin:${PATH}"
 
-ENV PYTHONPATH="/src/app"
+ENV PYTHONPATH="/src"
 
 EXPOSE $PORT
 
-CMD [ "uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8083", "--reload" ]
+CMD [ "uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8083", "--reload" ]
