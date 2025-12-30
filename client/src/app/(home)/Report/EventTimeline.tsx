@@ -60,38 +60,40 @@ export function EventTimeline({ timeline }: EventTimelineProps) {
       title="Event Timeline"
       icon={<CalendarClock className="w-5 h-5 text-sky-400" />}
     >
-      <div className="flex flex-col gap-6">
-        <div
-          ref={scrollRef}
-          className="flex items-center px-4 pt-4 pb-8 overflow-x-auto custom-scrollbar scroll-smooth"
-        >
-          {sortedDates.map((date, index) => {
-            let delay = 0;
+      <div className="flex flex-col gap-4">
+        {sortedDates.length !== 1 && (
+          <div
+            ref={scrollRef}
+            className="flex items-center justify-start px-4 pt-4 pb-12 overflow-x-auto custom-scrollbar scroll-smooth"
+          >
+            {sortedDates.map((date, index) => {
+              let delay = 0;
 
-            if (direction === 'forward') {
-              if (index >= prevIndex && index < selectedIndex) {
-                delay = (index - prevIndex) * ANIMATION_DURATION;
+              if (direction === 'forward') {
+                if (index >= prevIndex && index < selectedIndex) {
+                  delay = (index - prevIndex) * ANIMATION_DURATION;
+                }
+              } else {
+                if (index >= selectedIndex && index < prevIndex) {
+                  const reversedIndex = prevIndex - 1 - index;
+                  delay = reversedIndex * ANIMATION_DURATION;
+                }
               }
-            } else {
-              if (index >= selectedIndex && index < prevIndex) {
-                const reversedIndex = prevIndex - 1 - index;
-                delay = reversedIndex * ANIMATION_DURATION;
-              }
-            }
 
-            return (
-              <TimelineNode
-                key={date}
-                date={date}
-                isActive={date === selectedDate}
-                isPast={index < selectedIndex}
-                isLast={index === sortedDates.length - 1}
-                onClick={() => handleNodeClick(date)}
-                transitionDelay={`${delay}ms`}
-              />
-            );
-          })}
-        </div>
+              return (
+                <TimelineNode
+                  key={date}
+                  date={date}
+                  isActive={date === selectedDate}
+                  isPast={index < selectedIndex}
+                  isLast={index === sortedDates.length - 1}
+                  onClick={() => handleNodeClick(date)}
+                  transitionDelay={`${delay}ms`}
+                />
+              );
+            })}
+          </div>
+        )}
 
         <TimelineContent date={selectedDate} content={timeline[selectedDate]} />
       </div>
@@ -110,7 +112,7 @@ function TimelineNode({
   const dateObj = new Date(date);
 
   return (
-    <div className={`flex items-center relative ${!isLast ? 'flex-1' : ''}`}>
+    <div className="flex items-center relative shrink-0">
       <button
         data-date={date}
         onClick={onClick}
@@ -141,7 +143,7 @@ function TimelineNode({
       </button>
 
       {!isLast && (
-        <div className="flex-1 h-0.5 relative -mx-8 z-0 min-w-12">
+        <div className="w-32 h-0.5 relative -mx-8 z-0">
           <div className="absolute inset-0 bg-gray-800 rounded-full" />
 
           <div
