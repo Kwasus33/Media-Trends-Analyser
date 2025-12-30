@@ -15,6 +15,7 @@ type TimelineNodeProps = {
   isPast: boolean;
   isLast: boolean;
   onClick: () => void;
+  transitionDelay: string;
 };
 
 type TimelineContentProps = {
@@ -22,12 +23,20 @@ type TimelineContentProps = {
   content: string;
 };
 
+const ANIMATION_DURATION = 150;
+
 export function EventTimeline({ timeline }: EventTimelineProps) {
   const sortedDates = Object.keys(timeline).sort();
   const [selectedDate, setSelectedDate] = useState(sortedDates[0]);
+  const [prevIndex, setPrevIndex] = useState(0);
 
   const selectedIndex = sortedDates.indexOf(selectedDate);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleNodeClick = (date: string) => {
+    setPrevIndex(selectedIndex);
+    setSelectedDate(date);
+  };
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -44,6 +53,8 @@ export function EventTimeline({ timeline }: EventTimelineProps) {
     }
   }, [selectedDate]);
 
+  const direction = selectedIndex >= prevIndex ? 'forward' : 'backward';
+
   return (
     <SectionWrapper
       title="Event Timeline"
@@ -52,18 +63,34 @@ export function EventTimeline({ timeline }: EventTimelineProps) {
       <div className="flex flex-col gap-6">
         <div
           ref={scrollRef}
-          className="flex items-center px-4 py-4 overflow-x-auto custom-scrollbar scroll-smooth"
+          className="flex items-center px-4 pt-4 pb-8 overflow-x-auto custom-scrollbar scroll-smooth"
         >
-          {sortedDates.map((date, index) => (
-            <TimelineNode
-              key={date}
-              date={date}
-              isActive={date === selectedDate}
-              isPast={index < selectedIndex}
-              isLast={index === sortedDates.length - 1}
-              onClick={() => setSelectedDate(date)}
-            />
-          ))}
+          {sortedDates.map((date, index) => {
+            let delay = 0;
+
+            if (direction === 'forward') {
+              if (index >= prevIndex && index < selectedIndex) {
+                delay = (index - prevIndex) * ANIMATION_DURATION;
+              }
+            } else {
+              if (index >= selectedIndex && index < prevIndex) {
+                const reversedIndex = prevIndex - 1 - index;
+                delay = reversedIndex * ANIMATION_DURATION;
+              }
+            }
+
+            return (
+              <TimelineNode
+                key={date}
+                date={date}
+                isActive={date === selectedDate}
+                isPast={index < selectedIndex}
+                isLast={index === sortedDates.length - 1}
+                onClick={() => handleNodeClick(date)}
+                transitionDelay={`${delay}ms`}
+              />
+            );
+          })}
         </div>
 
         <TimelineContent date={selectedDate} content={timeline[selectedDate]} />
@@ -71,26 +98,26 @@ export function EventTimeline({ timeline }: EventTimelineProps) {
     </SectionWrapper>
   );
 }
+
 function TimelineNode({
   date,
   isActive,
   isPast,
   isLast,
   onClick,
+  transitionDelay,
 }: TimelineNodeProps) {
   const dateObj = new Date(date);
 
   return (
-    <div
-      className={`flex items-center min-w-[100px] ${!isLast ? 'flex-1' : ''}`}
-    >
+    <div className={`flex items-center relative ${!isLast ? 'flex-1' : ''}`}>
       <button
         data-date={date}
         onClick={onClick}
-        className="group relative flex flex-col items-center gap-2 min-w-[60px] focus:outline-none"
+        className="group relative z-10 flex flex-col items-center gap-2 w-16 shrink-0 focus:outline-none"
       >
         <div
-          className={`w-4 h-4 rounded-full border-2 transition-all duration-300 z-10 ${
+          className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
             isActive
               ? 'bg-sky-500 border-sky-500 shadow-[0_0_15px_rgba(14,165,233,0.6)] scale-125'
               : isPast
@@ -100,7 +127,7 @@ function TimelineNode({
         />
 
         <span
-          className={`text-xs font-mono font-medium whitespace-nowrap transition-colors ${
+          className={`text-xs font-mono font-medium whitespace-nowrap transition-colors absolute top-8 ${
             isActive
               ? 'text-sky-400'
               : 'text-gray-500 group-hover:text-gray-300'
@@ -114,10 +141,15 @@ function TimelineNode({
       </button>
 
       {!isLast && (
-        <div className="w-full h-0.5 shrink-0 relative -mx-2 -mt-6">
+        <div className="flex-1 h-0.5 relative -mx-8 z-0 min-w-12">
           <div className="absolute inset-0 bg-gray-800 rounded-full" />
+
           <div
-            className={`absolute inset-0 bg-sky-500/50 rounded-full transition-all duration-500 origin-left ${
+            style={{
+              transitionDelay,
+              transitionDuration: `${ANIMATION_DURATION}ms`,
+            }}
+            className={`absolute inset-0 bg-sky-500/50 rounded-full transition-transform ease-linear origin-left ${
               isPast ? 'scale-x-100' : 'scale-x-0'
             }`}
           />
