@@ -1,0 +1,44 @@
+name: CI Data-Scraper-Service
+
+on:
+  push:
+    branches-ignore:
+      - main
+      - develop
+    paths:
+      - 'services/data-scraper-service/**'
+      - '.github/workflows/ci-data-scraper-service.yml'
+
+env:
+  SERVICE_DIR: services/data-scraper-service
+
+jobs:
+  run_ci:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Project Dependencies
+        working-directory: ${{ env.SERVICE_DIR }}
+        run: |
+          pip install uv
+          uv venv
+          source .venv/bin/activate
+          uv add ruff pytest
+          uv sync
+        
+      - name: Run Linter
+        working-directory: ${{ env.SERVICE_DIR }}
+        run: uv run ruff check app/
+
+      - name: Run formatter
+        working-directory: ${{ env.SERVICE_DIR }}
+        run: uv run ruff format app/
+
+      - name: Run Unit Tests
+        working-directory: ${{ env.SERVICE_DIR }}
+        run: uv run pytest tests/*

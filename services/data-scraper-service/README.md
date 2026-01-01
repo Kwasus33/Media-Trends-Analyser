@@ -1,5 +1,5 @@
-agent-service             # Contains service files
-    ├── app               # main api gateway logic
+data-scraper-service      # Contains service files
+    ├── app               # main micro service logic
     │   ├── api           # Defines APIs
     │   │   ├── v1        # API versioning
     |   |   |    ├── __init__.py   

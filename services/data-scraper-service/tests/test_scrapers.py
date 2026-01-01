@@ -1,0 +1,11 @@
+from fastapi.testclient import TestClient
+from app.main import app
+
+
+client = TestClient(app)
+
+
+def test_service_test_client():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"service": "data-scraper"}
