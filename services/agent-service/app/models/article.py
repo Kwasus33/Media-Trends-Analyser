@@ -2,6 +2,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Text, DateTime, Integer, ForeignKey
 from datetime import datetime
 from .base import Base
+from .daily_summary import DailySummary
 
 
 class Article(Base):
