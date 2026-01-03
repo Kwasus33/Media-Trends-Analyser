@@ -7,7 +7,7 @@ from datetime import datetime
 class Base(DeclarativeBase): ...
 
 
-class AticleDB(Base):
+class ArticleDB(Base):
     __tablename__ == "articles"
 
     id: Mapped[int] = mapped_column(Integer, Identity(), primary_key=True)

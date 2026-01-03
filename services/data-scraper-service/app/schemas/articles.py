@@ -1,13 +1,23 @@
-from pydantic import BaseModel, Field, HttpUrl
+from pydantic import BaseModel, Field, HttpUrl, ValidationError
 from datetime import datetime
 
 
 class ArticleCreate(BaseModel):
     title: str | None = Field(default=None, min_length=5)
-    description: str = Field(min_length=50)
+    description: str = Field(min_length=10)
     url: HttpUrl
     published_at: datetime = Field(default_factory=datetime.now)
     source: str | None = None
-    category: list[str] = Field(default_factory=list, min_length=1)
+    category: list[str] = Field(default_factory=list)
 
     model_config = {"str_strip_whitespace": True, "extra": "forbid"}
+
+    @classmethod
+    def create(cls, **data):
+        """
+        Returns instance if valid, None if invalid
+        """
+        try:
+            return cls(**data)
+        except ValidationError:
+            return None
