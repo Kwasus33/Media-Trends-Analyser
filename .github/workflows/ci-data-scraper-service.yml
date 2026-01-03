@@ -33,7 +33,7 @@ jobs:
         
       - name: Run Linter
         working-directory: ${{ env.SERVICE_DIR }}
-        run: uv run ruff check app/
+        run: uv run ruff check --fix app/
 
       - name: Run formatter
         working-directory: ${{ env.SERVICE_DIR }}
