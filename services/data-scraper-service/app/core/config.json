@@ -1,6 +1,6 @@
 {
     "bankier": {
-        "title": "Bankier",
+        "title": "Bankier.pl",
         "endpoint": {
             "base_url": "https://www.bankier.pl/rss/%s",
             "categories": [
@@ -8,7 +8,7 @@
                 "finanse.xml"
             ]
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "natemat": {
         "title": "naTemat",
@@ -16,7 +16,7 @@
             "base_url": "https://natemat.pl/rss/wszystkie",
             "categories": []
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "Defence24": {
         "title": "Defence24",
@@ -24,7 +24,7 @@
             "base_url": "https://defence24.pl/_rss",
             "categories": []
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "spidersweb": {
         "title": "SpidersWeb",
@@ -32,7 +32,7 @@
             "base_url": "https://spidersweb.pl/api/post/feed/feed-gn",
             "categories": []
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "moneypl": {
         "title": "Money.pl",
@@ -40,7 +40,7 @@
             "base_url": "https://www.money.pl/rss/",
             "categories": []
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "businessinsider": {
         "title": "BusinessInsider",
@@ -48,7 +48,7 @@
             "base_url": "https://businessinsider.com.pl/.feed",
             "categories": []
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "nextgazeta": {
         "title": "nextGazeta",
@@ -56,7 +56,7 @@
             "base_url": "https://next.gazeta.pl/pub/next/rssnext.htm",
             "categories": []
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "tvn24": {
         "title": "TVN24",
@@ -69,7 +69,7 @@
                 "wiadomosci-z-kraju,3.xml"
             ]
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "gazetawyborcza": {
         "title": "GazetaWyborcza",
@@ -80,7 +80,7 @@
                 "gazetawyborcza_swiat.xml"
             ]
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "interia": {
         "title": "Interia",
@@ -92,7 +92,7 @@
                 "nt"
             ]
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "natematKategorie": {
         "title": "naTemat",
@@ -105,7 +105,7 @@
                 "nauka"
             ]
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "nytRss": {
         "title": "NewYorkTimes",
@@ -173,7 +173,7 @@
                 "YourMoney"
             ]
         },
-        "type": "rss"
+        "type": "RssScraper"
     },
     "nytTopStories": {
         "title": "NewYorkTimes Top Stories",
@@ -208,8 +208,7 @@
                 "world"
             ]
         },
-        "type": "api",
-        "classType": "NYTScrapper"
+        "type": "NYTScrapper"
     },
     "bbc": {
         "title": "BBC",
@@ -220,7 +219,6 @@
                 "news"
             ]
         },
-        "type": "api",
-        "classType": "BBCScraper"
+        "type": "BBCScraper"
     }
 }
