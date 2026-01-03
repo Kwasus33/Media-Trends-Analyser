@@ -1,9 +1,11 @@
 from dotenv import load_dotenv
 import json
 
+CONFIG_FILE = "app/core/config.json"
+
 
 def load_context():
-    with open("app/utils/config.json", "r") as fh:
+    with open(CONFIG_FILE, "r") as fh:
         obj = json.load(fh)
     return obj
 
