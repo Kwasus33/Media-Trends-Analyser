@@ -1,19 +1,17 @@
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
+
+API_SCRAPERS = {}
 
 
-@dataclass
-class Entry:
-    title: str
-    description: str
-    url: str
-    category: list[str]
+def save_scrapers(cls):
+    API_SCRAPERS[cls.__qualname__] = cls
+    return cls
 
 
 class BaseScraper(ABC):
-    def __init__(self, url: str) -> None:
+    def __init__(self, url: str, source_name: str = "Unnknown") -> None:
         self.url = url
-        self.data = []
+        self.source_name = source_name
 
     @abstractmethod
     def collect_data(self): ...

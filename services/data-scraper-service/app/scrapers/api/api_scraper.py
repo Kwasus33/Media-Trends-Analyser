@@ -1,15 +1,10 @@
-from app.scrapers.base_scraper import BaseScraper, Entry
+from app.scrapers.base_scraper import BaseScraper, save_scrapers
+from app.schemas.articles import ArticleCreate
+
 from abc import abstractmethod
+from datetime import datetime
 
-from functools import wraps
 import requests
-
-API_SCRAPERS = {}
-
-
-def save_scrapers(cls):
-    API_SCRAPERS[cls.__qualname__] = cls
-    return cls
 
 
 class ApiScraper(BaseScraper):
@@ -50,13 +45,15 @@ class NYTScrapper(ApiScraper):
         data = []
         for result in response["results"]:
             try:
-                entry = {
-                    "title": result["title"],
-                    "description": result["abstract"],
-                    "url": result["url"],
-                    "category": result["des_facet"] + result["org_facet"],
-                }
-                data.append(Entry(**entry))
+                article = ArticleCreate(
+                    title=result["title"],
+                    description=result["abstract"],
+                    url=result["url"],
+                    published_at=datetime.now(),
+                    source=self.source_name,
+                    category=result["des_facet"] + result["org_facet"],
+                )
+                data.append(article)
             except:
                 pass
         return data
@@ -71,13 +68,15 @@ class BBCScraper(ApiScraper):
             if isinstance(values, list):
                 for value in values:
                     try:
-                        entry = {
-                            "title": value["title"],
-                            "description": value["summary"],
-                            "url": value["news_link"],
-                            "category": [key],
-                        }
-                        data.append(Entry(**entry))
+                        article = ArticleCreate(
+                            title=value["title"],
+                            description=value["summary"],
+                            url=value["news_link"],
+                            published_at=datetime.now(),
+                            source=self.source_name,
+                            category=[key],
+                        )
+                        data.append(article)
                     except:
                         pass
         return data
