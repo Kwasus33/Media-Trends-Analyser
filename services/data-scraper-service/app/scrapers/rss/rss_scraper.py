@@ -4,6 +4,7 @@ from datetime import datetime
 
 import xml.etree.ElementTree as ET
 import requests
+from pydantic import ValidationError
 
 
 @save_scrapers
@@ -19,12 +20,12 @@ class RssScraper(BaseScraper):
             response = requests.get(temp_url)
             root = ET.fromstring(response.content)
         except requests.RequestException as e:
-            raise Exception(f"Request failed for {temp_url}: {e}") from e
-        # except Exception as e:
-        #     raise Exception(e)
+            raise Exception(f"Request failed for {temp_url}: {e}")
+        except Exception as e:
+            raise Exception(e)
 
         for item in root.iter("item"):
-            article = ArticleCreate(
+            article = ArticleCreate.create(
                 title=item.find(".//title").text,
                 description=item.find(".//description").text,
                 url=item.find(".//link").text,
@@ -36,5 +37,7 @@ class RssScraper(BaseScraper):
                     if category.text
                 ],
             )
-            data.append(article)
+            if article:
+                data.append(article)
+
         return data

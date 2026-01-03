@@ -9,7 +9,7 @@ def save_scrapers(cls):
 
 
 class BaseScraper(ABC):
-    def __init__(self, url: str, source_name: str = "Unnknown") -> None:
+    def __init__(self, url: str, source_name: str = "Unknown") -> None:
         self.url = url
         self.source_name = source_name
 

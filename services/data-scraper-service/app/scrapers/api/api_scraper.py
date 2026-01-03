@@ -8,9 +8,11 @@ import requests
 
 
 class ApiScraper(BaseScraper):
-    def __init__(self, url: str, api_key: str = None) -> None:
+    def __init__(
+        self, url: str, source_name: str = "Unknown", api_key: str = None
+    ) -> None:
         """ """
-        super().__init__(url)
+        super().__init__(url, source_name)
         if api_key:
             self.api_key = api_key
             self.url += self.api_key
@@ -29,7 +31,7 @@ class ApiScraper(BaseScraper):
             raise Exception("Response is not valid JSON") from e
 
         status = response.get("status")
-        if status not in ("OK", 200):
+        if status and status not in ("OK", 200):
             raise Exception(f"API error status: {status}")
 
         return self._extract_data(response)
@@ -45,7 +47,7 @@ class NYTScrapper(ApiScraper):
         data = []
         for result in response["results"]:
             try:
-                article = ArticleCreate(
+                article = ArticleCreate.create(
                     title=result["title"],
                     description=result["abstract"],
                     url=result["url"],
@@ -53,8 +55,10 @@ class NYTScrapper(ApiScraper):
                     source=self.source_name,
                     category=result["des_facet"] + result["org_facet"],
                 )
-                data.append(article)
-            except:
+                if article:
+                    data.append(article)
+            # will be better specified later
+            except Exception:
                 pass
         return data
 
@@ -68,7 +72,7 @@ class BBCScraper(ApiScraper):
             if isinstance(values, list):
                 for value in values:
                     try:
-                        article = ArticleCreate(
+                        article = ArticleCreate.create(
                             title=value["title"],
                             description=value["summary"],
                             url=value["news_link"],
@@ -76,7 +80,9 @@ class BBCScraper(ApiScraper):
                             source=self.source_name,
                             category=[key],
                         )
-                        data.append(article)
-                    except:
+                        if article:
+                            data.append(article)
+                    # will be better specified later
+                    except Exception:
                         pass
         return data
