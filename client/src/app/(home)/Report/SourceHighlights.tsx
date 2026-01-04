@@ -27,6 +27,7 @@ type References = {
 type SourceHighlightsProps = {
   highlights: Highlights;
   references: References;
+  isExport?: boolean;
 };
 
 const SOURCE_STYLES: Record<
@@ -75,6 +76,7 @@ const SOURCE_STYLES: Record<
 export function SourceHighlights({
   highlights,
   references,
+  isExport = false,
 }: SourceHighlightsProps) {
   const activeHighlights = Object.entries(highlights);
 
@@ -91,7 +93,7 @@ export function SourceHighlights({
             key={source}
             source={source}
             text={text}
-            urls={references[source] || []}
+            urls={isExport ? [] : references[source] || []}
           />
         ))}
       </div>
@@ -152,7 +154,7 @@ function SourceCard({
           <h4 className={`text-xl font-bold ${style.color}`}>{source}</h4>
         </div>
 
-        <p className="text-gray-300 leading-relaxed text-sm md:text-base border-t border-white/5 pt-4">
+        <p className="text-gray-300 leading-relaxed text-sm md:text-base border-t border-white/5 pt-4 pb-2">
           {text}
         </p>
       </div>

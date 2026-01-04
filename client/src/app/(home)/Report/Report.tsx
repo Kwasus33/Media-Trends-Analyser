@@ -41,6 +41,7 @@ export function Report({
       <SourceHighlights
         highlights={data.source_highlights}
         references={data.references}
+        isExport={isExport}
       />
 
       <EventTimeline timeline={data.event_timeline} isExport={isExport} />
