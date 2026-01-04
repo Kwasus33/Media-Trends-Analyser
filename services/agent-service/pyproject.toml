@@ -15,4 +15,5 @@ dependencies = [
     "uvicorn>=0.38.0",
     "sqlalchemy>=2.0.45",
     "ruff>=0.14.10",
+    "psycopg2-binary>=2.9.11",
 ]
