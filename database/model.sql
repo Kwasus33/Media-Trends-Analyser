@@ -14,8 +14,10 @@ CREATE TABLE article (
     published_at TIMESTAMPTZ,
     title VARCHAR(255),
     description TEXT,
-    source VARCHAR(20),
+    source VARCHAR(30),
+    categories JSONB,
     category VARCHAR(20) DEFAULT '',
+
     daily_summary_id INT REFERENCES daily_summary(id)
 );
 
