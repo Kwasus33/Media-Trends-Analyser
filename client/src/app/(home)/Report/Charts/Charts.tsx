@@ -62,7 +62,7 @@ export function Charts({
         </div>
 
         <div className="md:col-span-2 bg-black/20 rounded-xl border border-white/5 p-4">
-          <CategoryPieChart data={categories} disableAnimation={isExport} />
+          <CategoryPieChart data={categories} isExport={isExport} />
         </div>
       </div>
 
@@ -84,7 +84,7 @@ export function Charts({
           <CategoryTrendChart
             data={trendData}
             categories={categoryNames}
-            disableAnimation={isExport}
+            isExport={isExport}
           />
         </div>
       </div>

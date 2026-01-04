@@ -25,7 +25,7 @@ export function ClientWrapper({
 
   const handlePrint = useReactToPrint({
     contentRef: printRef,
-    documentTitle: `Trend-Report-${startDate}-${{ endDate }}`,
+    documentTitle: `Trend-Report-${startDate}-${endDate}`,
   });
 
   return (
@@ -49,15 +49,7 @@ export function ClientWrapper({
             isExport={false}
           />
 
-          <div
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: '-10000px',
-              width: '794px',
-              height: 'auto',
-            }}
-          >
+          <div className="hidden">
             <div
               ref={printRef}
               className="bg-[#030712] text-white p-8 print:block"
