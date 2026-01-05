@@ -10,4 +10,11 @@ class AgentSettings(BaseSettings):
         "Culture",
         "Society",
     ]
-    sources: list[str] = ["TVN24", "Interia", "GazetaWyborcza", "Reddit", "BBC", "New York Times"]
+    sources: list[str] = [
+        "TVN24",
+        "Interia",
+        "GazetaWyborcza",
+        "Reddit",
+        "BBC",
+        "New York Times",
+    ]

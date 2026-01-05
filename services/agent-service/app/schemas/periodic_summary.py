@@ -19,6 +19,7 @@ class PeriodicSummary(BaseModel):
 
     references: dict[str, list[int]] = Field(default_factory=dict)
 
+
 class PeriodicSummaryResponse(BaseModel):
     start_date: date
     end_date: date

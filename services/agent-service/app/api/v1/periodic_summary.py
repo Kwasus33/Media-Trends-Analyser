@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from datetime import date
 from app.database.database import get_db
 from app.models import ViewDailySummary, Article
-from app.schemas import PeriodicSummary, PeriodicSummaryResponse, DailySummaryResponse
+from app.schemas import PeriodicSummaryResponse, DailySummaryResponse
 from langchain_google_genai import ChatGoogleGenerativeAI
 from app.agents.summary_agent import SummaryAgent
 from app.agents.agent_config import AgentSettings
@@ -64,8 +64,7 @@ def get_periodic_summary(
 
         for source_name, ref_list in periodic_summary.references.items():
             periodic_summary.references[source_name] = [
-                id_to_url.get(article_id, article_id)
-                for article_id in ref_list
+                id_to_url.get(article_id, article_id) for article_id in ref_list
             ]
 
     return periodic_summary

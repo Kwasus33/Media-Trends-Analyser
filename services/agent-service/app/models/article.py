@@ -4,8 +4,10 @@ from sqlalchemy.dialects.postgresql import JSONB
 from datetime import datetime
 from .base import Base
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
     from .daily_summary import DailySummary
+
 
 class Article(Base):
     __tablename__ = "article"
