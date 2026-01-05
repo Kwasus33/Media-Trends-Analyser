@@ -34,7 +34,6 @@ class SummaryAgent:
             - id: unique identifier
             - title: article title
             - description: article content
-            - url: article link
             - source: news source name
             - categories: optional category information (if available)
             
@@ -83,6 +82,7 @@ class SummaryAgent:
             The input data is organized hierarchically: Day -> Source -> Category.\
             - "summaries": Source -> Category -> Text content.\
             - "categories": Source -> Category -> Integer count.\
+            - "references": Source -> Category -> List of article IDs and titles.\
             
             Your task:\
             1. Aggregate information across all days.\
@@ -105,7 +105,7 @@ class SummaryAgent:
             - key_insights: 5–10 bullet points covering the most critical findings.\
             - source_highlights: a dict (Key: Source Name, Value: 1-3 sentence summary of that source's focus).\
             - event_timeline: a dict (Key: YYYY-MM-DD, Value: Description of key events).\
-            - references: a dict (Key: Source Name, Value: List of ALL URLs found in the input for that source).\
+            - references: a dict (Key: Source Name, Value: List of top 5 most important articles IDs (only integer) found in the input for that source).\
 
             Return only JSON, with no additional explanations.\
         """

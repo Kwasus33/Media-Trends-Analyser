@@ -17,7 +17,7 @@ class DailySummary(BaseModel):
 
     # Key 1: Source name
     # Key 2: Category name
-    # Value: List of URLs
+    # Value: List of IDs
     references: dict[str, dict[str, list]] = Field(default_factory=dict)
 
 
