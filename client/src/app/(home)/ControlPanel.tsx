@@ -137,34 +137,47 @@ export function ControlPanel({ children }: ControlPanelProps) {
 
   return (
     <>
-      <Box className="flex flex-col gap-6 mb-10">
-        <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center pt-4">
-          {dataSources.map((source) => (
-            <SourceSelector
-              key={source}
-              source={source}
-              checked={selectedSources.includes(source)}
-              onChange={() => handleSourceChange(source)}
-            />
-          ))}
+      <Box className="flex flex-col gap-5 mb-8 max-w-5xl mx-auto px-6 py-6">
+        <div className="flex flex-col gap-3 items-center">
+          <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            Sources
+          </div>
+          <div className="flex flex-wrap gap-4 justify-center">
+            {dataSources.map((source) => (
+              <SourceSelector
+                key={source}
+                source={source}
+                checked={selectedSources.includes(source)}
+                onChange={() => handleSourceChange(source)}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center">
-          {dataCategories.map((category) => (
-            <CategorySelector
-              key={category}
-              category={category}
-              checked={selectedCategories.includes(category)}
-              onChange={() => handleCategoryChange(category)}
-            />
-          ))}
+        <div className="h-px w-full max-w-2xl mx-auto bg-gray-800/60" />
+
+        <div className="flex flex-col gap-3 items-center">
+          <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            Categories
+          </div>
+          <div className="flex flex-wrap gap-3 justify-center">
+            {dataCategories.map((category) => (
+              <CategorySelector
+                key={category}
+                category={category}
+                checked={selectedCategories.includes(category)}
+                onChange={() => handleCategoryChange(category)}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="justify-center flex flex-col sm:flex-row items-end pb-4 mx-auto max-w-4xl w-full">
+        <div className="h-px w-full max-w-2xl mx-auto bg-gray-800/60" />
+
+        <div className="flex flex-col md:flex-row items-end md:items-center justify-center gap-6 w-full pt-1">
           <DateInput
             id="startDate"
-            label="From:"
-            className="sm:mr-4"
+            label="From date"
             value={startDate}
             min={MIN_DATA_DATE}
             max={todayDate}
@@ -173,8 +186,7 @@ export function ControlPanel({ children }: ControlPanelProps) {
 
           <DateInput
             id="endDate"
-            label="To:"
-            className="sm:mr-8"
+            label="To date"
             value={endDate}
             min={startDate || MIN_DATA_DATE}
             max={todayDate}
@@ -183,7 +195,7 @@ export function ControlPanel({ children }: ControlPanelProps) {
 
           <Button
             onClick={handleGenerateReport}
-            className="w-full sm:w-auto sm:min-w-47.5 self-end"
+            className="w-full md:w-auto md:min-w-48 h-10 text-base shadow-lg shadow-indigo-500/20"
             disabled={isButtonDisabled}
           >
             {isPending ? 'Processing...' : 'Generate Report'}
