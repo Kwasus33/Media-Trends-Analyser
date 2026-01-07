@@ -12,6 +12,7 @@ export function DateInput({
   className,
   value,
   onChange,
+  min,
   ...props
 }: DateInputProps) {
   const adjustDate = (days: number) => {
@@ -22,10 +23,14 @@ export function DateInput({
 
     const newDate = date.toISOString().split('T')[0];
 
+    if (min && newDate < (min as string)) return;
+
     if (onChange) {
       onChange({ target: { value: newDate } } as ChangeEvent<HTMLInputElement>);
     }
   };
+
+  const isMinReached = min && value ? value <= min : false;
 
   return (
     <div className={`flex flex-col w-48 ${className}`}>
@@ -37,7 +42,10 @@ export function DateInput({
         <button
           type="button"
           onClick={() => adjustDate(-1)}
-          className="px-2 bg-gray-700 border border-gray-500 rounded-l-md border-r-0 hover:bg-gray-600 text-gray-300 transition-colors"
+          disabled={isMinReached}
+          className={`px-2 bg-gray-700 border border-gray-500 disabled:cursor-default rounded-l-md border-r-0 text-gray-300 transition-colors ${
+            isMinReached ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-600'
+          }`}
         >
           <svg
             viewBox="0 0 24 24"
@@ -58,6 +66,7 @@ export function DateInput({
           id={id}
           type="date"
           value={value}
+          min={min}
           onChange={onChange}
           className="flex-1 p-2 min-w-0 border border-gray-500 bg-gray-700 text-white text-center focus:ring-0 focus:outline-none [color-scheme:dark]"
           {...props}
