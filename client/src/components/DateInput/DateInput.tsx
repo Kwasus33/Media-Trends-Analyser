@@ -12,6 +12,7 @@ export function DateInput({
   className,
   value,
   onChange,
+  min,
   ...props
 }: DateInputProps) {
   const adjustDate = (days: number) => {
@@ -22,34 +23,46 @@ export function DateInput({
 
     const newDate = date.toISOString().split('T')[0];
 
+    if (min && newDate < (min as string)) return;
+
     if (onChange) {
       onChange({ target: { value: newDate } } as ChangeEvent<HTMLInputElement>);
     }
   };
 
+  const isMinReached = min && value ? value <= min : false;
+
   return (
-    <div className={`flex flex-col w-48 ${className}`}>
-      <label htmlFor={id} className="text-lg font-medium text-gray-400 mb-1">
+    <div className={`flex flex-col w-60 ${className}`}>
+      <label
+        htmlFor={id}
+        className="text-xs font-semibold text-gray-400/60 uppercase tracking-wider mb-2 ml-1"
+      >
         {label}
       </label>
 
-      <div className="flex items-stretch shadow-sm">
+      <div className="flex items-stretch">
         <button
           type="button"
           onClick={() => adjustDate(-1)}
-          className="px-2 bg-gray-700 border border-gray-500 rounded-l-md border-r-0 hover:bg-gray-600 text-gray-300 transition-colors"
+          disabled={isMinReached}
+          className={`px-3 h-12 bg-slate-800 border border-indigo-500/30 disabled:cursor-default rounded-l-lg border-r-0 text-indigo-400 transition-all ${
+            isMinReached
+              ? 'opacity-30 cursor-not-allowed'
+              : 'hover:bg-indigo-600 hover:text-white hover:border-indigo-600'
+          }`}
         >
           <svg
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            className="w-3 h-3"
+            className="w-5 h-5"
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
-              d="M20 .755l-14.374 11.245 14.374 11.219-.619.781-15.381-12 15.391-12 .609.755z"
+              strokeWidth={2.5}
+              d="M15 19l-7-7 7-7"
             />
           </svg>
         </button>
@@ -58,27 +71,28 @@ export function DateInput({
           id={id}
           type="date"
           value={value}
+          min={min}
           onChange={onChange}
-          className="flex-1 p-2 min-w-0 border border-gray-500 bg-gray-700 text-white text-center focus:ring-0 focus:outline-none [color-scheme:dark]"
+          className="flex-1 h-12 min-w-0 border border-indigo-500/30 bg-slate-800 text-indigo-100 text-base font-medium focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none scheme-dark flex items-center justify-center cursor-pointer"
           {...props}
         />
 
         <button
           type="button"
           onClick={() => adjustDate(1)}
-          className="px-2 bg-gray-700 border border-gray-500 rounded-r-md border-l-0 hover:bg-gray-600 text-gray-300 transition-colors"
+          className="px-3 h-12 bg-slate-800 border border-indigo-500/30 rounded-r-lg border-l-0 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 text-indigo-400 transition-all"
         >
           <svg
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            className="w-3 h-3"
+            className="w-5 h-5"
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z"
+              strokeWidth={2.5}
+              d="M9 5l7 7-7 7"
             />
           </svg>
         </button>

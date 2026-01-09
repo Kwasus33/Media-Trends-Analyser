@@ -1,6 +1,11 @@
 'use client';
 
-import { useState, useTransition, type ReactNode } from 'react';
+import {
+  useState,
+  useTransition,
+  type ReactNode,
+  type ChangeEvent,
+} from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 
@@ -10,13 +15,33 @@ import { Box } from '@/components/Box';
 import { SourceSelector } from '@/components/SourceSelector';
 import { CategorySelector } from '@/components/CategorySelector';
 
-const dataSources = ['Reddit', 'RSS Feeds', 'BBC', 'NY Times'];
+const MIN_DATA_DATE = '2026-01-01';
+
+const dataSources = [
+  'Reddit',
+  'BBC',
+  'NY Times',
+  'Source 1',
+  'Source 2',
+  'Source 3',
+];
+
+const sourceRegions: Record<string, 'global' | 'pl'> = {
+  Reddit: 'global',
+  BBC: 'global',
+  'NY Times': 'global',
+  'Source 1': 'pl',
+  'Source 2': 'pl',
+  'Source 3': 'pl',
+};
+
 const dataCategories = [
   'Technology',
   'Politics',
   'Economy',
   'Sport',
   'Culture',
+  'Society',
 ];
 
 const getToday = () => new Date().toISOString().split('T')[0];
@@ -55,7 +80,7 @@ export function ControlPanel({ children }: ControlPanelProps) {
     searchParams.get('to') || getToday()
   );
 
-  const todayDate = new Date().toISOString().slice(0, 10);
+  const todayDate = getToday();
 
   const isButtonDisabled =
     !startDate ||
@@ -80,6 +105,26 @@ export function ControlPanel({ children }: ControlPanelProps) {
     );
   };
 
+  const handleStartDateChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newStart = event.target.value;
+
+    if (newStart < MIN_DATA_DATE) return;
+
+    setStartDate(newStart);
+
+    if (endDate && newStart > endDate) {
+      setEndDate(newStart);
+    }
+  };
+
+  const handleEndDateChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newEnd = event.target.value;
+
+    if (newEnd < MIN_DATA_DATE) return;
+
+    setEndDate(newEnd);
+  };
+
   const handleGenerateReport = () => {
     const params = new URLSearchParams();
 
@@ -102,52 +147,66 @@ export function ControlPanel({ children }: ControlPanelProps) {
 
   return (
     <>
-      <Box className="flex flex-col gap-6 mb-10">
-        <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center pt-4">
-          {dataSources.map((source) => (
-            <SourceSelector
-              key={source}
-              source={source}
-              checked={selectedSources.includes(source)}
-              onChange={() => handleSourceChange(source)}
-            />
-          ))}
+      <Box className="flex flex-col gap-5 mb-8 max-w-5xl mx-auto p-6 pb-8">
+        <div className="flex flex-col gap-3 items-center">
+          <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            Sources
+          </div>
+          <div className="flex flex-wrap gap-4 justify-center">
+            {dataSources.map((source) => (
+              <SourceSelector
+                key={source}
+                source={source}
+                region={sourceRegions[source]}
+                checked={selectedSources.includes(source)}
+                onChange={() => handleSourceChange(source)}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center">
-          {dataCategories.map((category) => (
-            <CategorySelector
-              key={category}
-              category={category}
-              checked={selectedCategories.includes(category)}
-              onChange={() => handleCategoryChange(category)}
-            />
-          ))}
+        <div className="h-px w-full max-w-3xl mx-auto bg-gray-800/60" />
+
+        <div className="flex flex-col gap-3 items-center">
+          <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            Categories
+          </div>
+          <div className="flex flex-wrap gap-3 justify-center">
+            {dataCategories.map((category) => (
+              <CategorySelector
+                key={category}
+                category={category}
+                checked={selectedCategories.includes(category)}
+                onChange={() => handleCategoryChange(category)}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="justify-center flex flex-col sm:flex-row items-end pb-4 mx-auto max-w-4xl w-full">
+        <div className="h-px w-full max-w-3xl mx-auto bg-gray-800/60" />
+
+        <div className="flex flex-col md:flex-row items-end justify-center gap-6 w-full pt-1">
           <DateInput
-            id="startData"
-            label="From:"
-            className="sm:mr-4"
+            id="startDate"
+            label="From date"
             value={startDate}
-            max={endDate || todayDate}
-            onChange={(event) => setStartDate(event.target.value)}
+            min={MIN_DATA_DATE}
+            max={todayDate}
+            onChange={handleStartDateChange}
           />
 
           <DateInput
             id="endDate"
-            label="To:"
-            className="sm:mr-8"
+            label="To date"
             value={endDate}
-            min={startDate}
+            min={startDate || MIN_DATA_DATE}
             max={todayDate}
-            onChange={(event) => setEndDate(event.target.value)}
+            onChange={handleEndDateChange}
           />
 
           <Button
             onClick={handleGenerateReport}
-            className="w-full sm:w-auto sm:min-w-47.5 self-end"
+            className="w-full md:w-auto md:min-w-60 h-12 text-lg shadow-lg shadow-indigo-500/20 flex items-center justify-center"
             disabled={isButtonDisabled}
           >
             {isPending ? 'Processing...' : 'Generate Report'}
