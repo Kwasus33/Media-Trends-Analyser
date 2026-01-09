@@ -14,7 +14,7 @@ interface SelectorProps {
   onChange: () => void;
 }
 
-jest.mock('../../components/SourceSelector', () => ({
+jest.mock('/src/components/SourceSelector', () => ({
   SourceSelector: ({ source, checked, onChange }: SelectorProps) => (
     <div data-testid="source-selector">
       <label>
@@ -30,7 +30,7 @@ jest.mock('../../components/SourceSelector', () => ({
   ),
 }));
 
-jest.mock('../../components/CategorySelector', () => ({
+jest.mock('/src/components/CategorySelector', () => ({
   CategorySelector: ({ category, checked, onChange }: SelectorProps) => (
     <div data-testid="category-selector">
       <label>

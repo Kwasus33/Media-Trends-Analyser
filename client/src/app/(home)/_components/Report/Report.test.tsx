@@ -25,7 +25,7 @@ jest.mock('./EventTimeline', () => ({
     <div data-testid="mock-event-timeline">Timeline Component</div>
   ),
 }));
-jest.mock('../../../components/ShareButton', () => ({
+jest.mock('/src/components/ShareButton', () => ({
   ShareButton: () => <button>Share</button>,
 }));
 
