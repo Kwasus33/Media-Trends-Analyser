@@ -131,7 +131,7 @@ describe('ControlPanel', () => {
     });
 
     const callArgs = mockPush.mock.calls[0][0];
-    expect(callArgs).toContain('source=NY+Times');
+    expect(callArgs).toContain('source=New+York+Times');
     expect(callArgs).not.toContain('source=BBC');
     expect(callArgs).not.toContain('source=Reddit');
   });
@@ -150,7 +150,7 @@ describe('ControlPanel', () => {
           el.getAttribute('data-testid')?.includes('Source') ||
           el.getAttribute('data-testid')?.includes('Reddit') ||
           el.getAttribute('data-testid')?.includes('BBC') ||
-          el.getAttribute('data-testid')?.includes('NY')
+          el.getAttribute('data-testid')?.includes('New York Times')
       );
 
     allSources.forEach((checkbox) => {

@@ -2,21 +2,15 @@ import { CategoryPieChart } from './PieChart';
 import { CategoryTrendChart } from './LineChart';
 import { SectionWrapper } from '@/components/SectionWrapper';
 import { ChartColumn, PieChart as PieIcon, Activity } from 'lucide-react';
+import { type Category } from '@/constants/categories';
+
+type CategoryData = {
+  [Key in Category]?: number;
+};
 
 type TrendData = {
   date: string;
-  Technology?: number;
-  Politics?: number;
-  Economy?: number;
-  Sport?: number;
-  Culture?: number;
-};
-
-type CategoryKeys = keyof Omit<TrendData, 'date'>;
-
-type CategoryData = {
-  [Key in CategoryKeys]?: number;
-};
+} & CategoryData;
 
 type ChartsProps = {
   startDate: string;
@@ -28,7 +22,7 @@ type ChartsProps = {
 
 const convertPieData = (data: CategoryData) => {
   return Object.keys(data).map((key) => {
-    const typedKey = key as CategoryKeys;
+    const typedKey = key as Category;
     return { name: typedKey, value: data[typedKey] };
   });
 };

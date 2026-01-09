@@ -15,17 +15,9 @@ import { Box } from '@/components/Box';
 import { SourceSelector } from '@/components/SourceSelector';
 import { CategorySelector } from '@/components/CategorySelector';
 import { type Source, SOURCES } from '@/constants/sources';
+import { CATEGORIES } from '@/constants/categories';
 
 const MIN_DATA_DATE = '2026-01-01';
-
-const dataCategories = [
-  'Technology',
-  'Politics',
-  'Economy',
-  'Sport',
-  'Culture',
-  'Society',
-];
 
 const getToday = () => new Date().toISOString().split('T')[0];
 
@@ -56,7 +48,7 @@ export function ControlPanel({ children }: ControlPanelProps) {
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>(() => {
     const fromUrl = searchParams.getAll('category');
-    return fromUrl.length > 0 ? fromUrl : dataCategories;
+    return fromUrl.length > 0 ? fromUrl : CATEGORIES;
   });
 
   const [startDate, setStartDate] = useState<string>(
@@ -162,7 +154,7 @@ export function ControlPanel({ children }: ControlPanelProps) {
             Categories
           </div>
           <div className="flex flex-wrap gap-3 justify-center">
-            {dataCategories.map((category) => (
+            {CATEGORIES.map((category) => (
               <CategorySelector
                 key={category}
                 category={category}
