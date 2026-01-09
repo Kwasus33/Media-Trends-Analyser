@@ -3,8 +3,8 @@
 import type { ReportData } from '@/types/report';
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import { ControlPanel } from './ControlPanel';
-import { Report } from './Report';
+import { ControlPanel } from './_components/ControlPanel';
+import { Report } from './_components/Report';
 
 type ClientWrapperProps = {
   reportData: ReportData | null;
