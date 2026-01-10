@@ -1,6 +1,5 @@
 import { ClientWrapper } from './ClientWrapper';
 import { fetchReportData } from './api';
-import { HeaderLogo } from '@/components/HeaderLogo';
 
 type HomeProps = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -20,15 +19,11 @@ export default async function Home({ searchParams }: HomeProps) {
   const endDate = typeof params.to === 'string' ? params.to : '';
 
   return (
-    <main className="w-full p-8">
-      <HeaderLogo />
-
-      <ClientWrapper
-        reportData={reportData ?? null}
-        startDate={startDate}
-        endDate={endDate}
-        searchParamsKey={paramsKey}
-      />
-    </main>
+    <ClientWrapper
+      reportData={reportData ?? null}
+      startDate={startDate}
+      endDate={endDate}
+      searchParamsKey={paramsKey}
+    />
   );
 }
