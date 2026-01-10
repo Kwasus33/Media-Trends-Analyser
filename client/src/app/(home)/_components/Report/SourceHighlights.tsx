@@ -55,7 +55,7 @@ export function SourceHighlights({
   );
 }
 
-function SourceCard({ source, text, urls }: SourceCardProps) {
+export function SourceCard({ source, text, urls = [] }: SourceCardProps) {
   const [showLinks, setShowLinks] = useState(false);
 
   const cardRef = useRef<HTMLDivElement>(null);
