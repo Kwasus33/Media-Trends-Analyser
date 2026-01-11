@@ -8,14 +8,14 @@ import {
   Link2,
   BarChart2,
 } from 'lucide-react';
-import { getSourceConfig, type Source } from '@/constants/sources';
-import { getCategoryConfig } from '@/constants/categories';
+import { type Source, getSourceConfig } from '@/constants/sources';
+import { type Category, getCategoryConfig } from '@/constants/categories';
 
 type SourceCardProps = {
   source: Source;
   text: string;
   urls?: string[];
-  categoryCounts?: Record<Source, number>;
+  categoryCounts?: Record<Category, number>;
 };
 
 export function SourceCard({

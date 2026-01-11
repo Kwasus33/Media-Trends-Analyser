@@ -19,7 +19,9 @@ import { CATEGORIES } from '@/constants/categories';
 
 const MIN_DATA_DATE = '2026-01-01';
 
-const categoriesList = Object.keys(CATEGORIES);
+const categoriesList = Object.keys(CATEGORIES).filter(
+  (category) => category !== 'default'
+);
 
 const getToday = () => new Date().toISOString().split('T')[0];
 
