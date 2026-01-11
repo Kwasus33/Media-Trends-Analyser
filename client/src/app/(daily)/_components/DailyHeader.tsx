@@ -2,11 +2,7 @@
 
 import { ChevronDown, Calendar } from 'lucide-react';
 import { getCategoryConfig } from '@/constants/categories';
-
-type TopCategory = {
-  category: string;
-  percent: number;
-};
+import type { TopCategory } from '@/types/dailyReport';
 
 type DailyHeaderProps = {
   date: string;

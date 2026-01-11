@@ -8,3 +8,8 @@ export type DailyReport = {
   summaries: SourceCategoryData<string>;
   categories: SourceCategoryData<number>;
 };
+
+export type TopCategory = {
+  category: string;
+  percent: number;
+};
