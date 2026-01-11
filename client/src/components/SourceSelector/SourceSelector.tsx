@@ -1,4 +1,4 @@
-import { type Source, SOURCES } from '@/constants/sources';
+import { getSourceConfig, type Source } from '@/constants/sources';
 import { Globe } from 'lucide-react';
 
 type SourceSelectorProps = {
@@ -12,7 +12,7 @@ export function SourceSelector({
   checked,
   onChange,
 }: SourceSelectorProps) {
-  const { icon, region, abbreviation } = SOURCES[source] ?? SOURCES.default;
+  const { icon, region, abbreviation } = getSourceConfig(source);
 
   return (
     <button

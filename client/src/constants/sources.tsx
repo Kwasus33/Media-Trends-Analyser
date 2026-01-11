@@ -98,3 +98,7 @@ export const SOURCES: Sources = {
     bg: 'bg-yellow-500/10',
   },
 };
+
+export function getSourceConfig(source: string): SourceDetails {
+  return SOURCES[source as Source] || SOURCES.default;
+}

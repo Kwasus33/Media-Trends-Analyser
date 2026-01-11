@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ExternalLink, ChevronDown, ChevronUp, Link2 } from 'lucide-react';
-import { type Source, SOURCES } from '@/constants/sources';
+import { getSourceConfig, type Source } from '@/constants/sources';
 
 type SourceCardProps = {
   source: Source;
@@ -13,7 +13,7 @@ export function SourceCard({ source, text, urls = [] }: SourceCardProps) {
 
   const cardRef = useRef<HTMLDivElement>(null);
 
-  const style = SOURCES[source] || SOURCES.default;
+  const style = getSourceConfig(source);
   const Icon = style.icon;
 
   useEffect(() => {
