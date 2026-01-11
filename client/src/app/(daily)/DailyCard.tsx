@@ -112,7 +112,7 @@ export function DailyCard({ data }: DailyCardProps) {
       </button>
 
       {isOpen && (
-        <div className="border-t border-white/5 bg-black/20 animate-in slide-in-from-top-2 duration-300">
+        <div className="border-t border-white/5 bg-black/20">
           <div className="p-6 border-b border-white/5 flex flex-col gap-6">
             <div className="text-sm text-gray-400 leading-relaxed max-w-3xl">
               <strong className="text-white block mb-1">
