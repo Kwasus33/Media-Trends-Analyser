@@ -1,20 +1,40 @@
+'use client';
+
 import { useState, useEffect, useRef } from 'react';
-import { ExternalLink, ChevronDown, ChevronUp, Link2 } from 'lucide-react';
+import {
+  ExternalLink,
+  ChevronDown,
+  ChevronUp,
+  Link2,
+  BarChart2,
+} from 'lucide-react';
 import { getSourceConfig, type Source } from '@/constants/sources';
+import { getCategoryConfig } from '@/constants/categories';
 
 type SourceCardProps = {
   source: Source;
   text: string;
-  urls: string[];
+  urls?: string[];
+  categoryCounts?: Record<Source, number>;
 };
 
-export function SourceCard({ source, text, urls = [] }: SourceCardProps) {
+export function SourceCard({
+  source,
+  text,
+  urls = [],
+  categoryCounts,
+}: SourceCardProps) {
   const [showLinks, setShowLinks] = useState(false);
-
   const cardRef = useRef<HTMLDivElement>(null);
 
   const style = getSourceConfig(source);
   const Icon = style.icon;
+
+  const activeCategories = categoryCounts
+    ? Object.entries(categoryCounts)
+        .filter(([, count]) => count > 0)
+        .sort(([, a], [, b]) => b - a)
+    : [];
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -33,22 +53,49 @@ export function SourceCard({ source, text, urls = [] }: SourceCardProps) {
   }, [showLinks]);
 
   return (
-    <div ref={cardRef} className="relative flex flex-col rounded-xl">
+    <div ref={cardRef} className="relative flex flex-col rounded-xl h-full">
       <div
         className={`absolute inset-0 rounded-xl overflow-hidden ${style.bg} pointer-events-none`}
       >
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-linear-to-br from-white/5 to-transparent rounded-full blur-2xl" />
       </div>
 
-      <div className="relative z-10 p-6 pb-4 grow">
-        <div className="flex items-center gap-5 px-2 mb-4">
+      <div className="relative z-10 p-6 grow flex flex-col">
+        <div className="flex items-center gap-4 mb-4">
           {Icon}
           <h4 className={`text-xl font-bold ${style.color}`}>{source}</h4>
         </div>
 
-        <p className="text-gray-300 leading-relaxed text-sm md:text-base border-t border-white/5 pt-4 pb-2">
+        <p className="text-gray-300 leading-relaxed text-sm md:text-base border-t border-white/5 pt-4 pb-1 grow">
           {text}
         </p>
+
+        {activeCategories.length > 0 && (
+          <div className="mt-2 pt-4 border-t border-white/5">
+            <div className="flex items-center gap-2 mb-2">
+              <BarChart2 className="w-3 h-3 text-gray-500" />
+              <span className="text-[10px] uppercase tracking-wider text-gray-500 font-medium">
+                Volume by Topic
+              </span>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {activeCategories.map(([category, count]) => {
+                const style = getCategoryConfig(category);
+
+                return (
+                  <div
+                    key={category}
+                    className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-medium border ${style.bg} ${style.text} ${style.border}`}
+                  >
+                    <span>{category}</span>
+                    <span className="font-bold">{count}%</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
 
       {urls.length > 0 && (
