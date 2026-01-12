@@ -42,6 +42,10 @@ services:
     container_name: agent-service
     networks:
       - app_network
+    env_file:
+      - ./services/agent-service/.env
+#    extra_hosts:
+#      - "host.docker.internal:host-gateway"
     volumes:
       - ./services/agent-service/app:/src/app
       - ./services/agent-service/pyproject.toml:/src/pyproject.toml
