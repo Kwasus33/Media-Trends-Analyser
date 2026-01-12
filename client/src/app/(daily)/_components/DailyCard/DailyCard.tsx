@@ -10,14 +10,14 @@ import { DailyAnalysis } from './DailyAnalysis';
 
 type DailyCardProps = {
   data: DailyReport;
-  isOpen: boolean;
-  onToggle: () => void;
+  isOpenByDefault?: boolean;
 };
 
-export function DailyCard({ data, isOpen, onToggle }: DailyCardProps) {
+export function DailyCard({ data, isOpenByDefault = false }: DailyCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
 
+  const [isOpen, setIsOpen] = useState(isOpenByDefault);
   const [activeCategory, setActiveCategory] = useState<Category>('Politics');
 
   useEffect(() => {
@@ -86,7 +86,7 @@ export function DailyCard({ data, isOpen, onToggle }: DailyCardProps) {
         date={data.date}
         topCategories={topCategories}
         isOpen={isOpen}
-        onToggle={onToggle}
+        onToggle={() => setIsOpen(!isOpen)}
       />
 
       {isOpen && (

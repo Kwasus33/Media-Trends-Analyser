@@ -1,7 +1,7 @@
 import { Box } from '@/components/Box';
-import { DailyList } from './_components/DailyList';
 import { fetchDailyReports } from './api';
 import { DailyHeader } from './_components/DailyHeader';
+import { DailyCard } from './_components/DailyCard';
 
 export default async function DailySummaryPage() {
   const dailyReports = await fetchDailyReports();
@@ -20,7 +20,15 @@ export default async function DailySummaryPage() {
     <Box>
       <DailyHeader dateRange={dateRange} />
 
-      <DailyList data={dailyReports} />
+      <div className="flex flex-col gap-4">
+        {dailyReports.map((dayData, index) => (
+          <DailyCard
+            key={dayData.date}
+            data={dayData}
+            isOpenByDefault={index === 0}
+          />
+        ))}
+      </div>
     </Box>
   );
 }

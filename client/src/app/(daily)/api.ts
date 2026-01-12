@@ -23,7 +23,7 @@ export async function fetchDailyReports(
   // Delete in the future
   if (!filters) return;
 
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // TODO - API Fetch
 
