@@ -1,12 +1,10 @@
 import { Sparkles, CalendarRange } from 'lucide-react';
-import weeklyData from '@/data/daily.json';
 import { Box } from '@/components/Box';
 import { DailyList } from './_components/DailyList';
+import { fetchDailyReports } from './api';
 
 export default async function DailySummaryPage() {
-  const sortedData = [...weeklyData].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  const dailyReports = await fetchDailyReports();
 
   const getShortDate = (date: string) =>
     new Date(date).toLocaleDateString('en-US', {
@@ -33,7 +31,7 @@ export default async function DailySummaryPage() {
           </div>
         </div>
 
-        {weeklyData.length > 0 && (
+        {dailyReports.length > 0 && (
           <div className="flex items-center gap-3 px-4 py-3 bg-white/4 border border-white/10 rounded-xl">
             <div className="p-2 bg-indigo-500/20 rounded-lg text-indigo-400">
               <CalendarRange className="w-5 h-5" />
@@ -45,16 +43,16 @@ export default async function DailySummaryPage() {
               </span>
 
               <span className="text-sm font-semibold text-white">
-                {getShortDate(weeklyData[weeklyData.length - 1].date)}
+                {getShortDate(dailyReports[0].date)}
                 {' - '}
-                {getShortDate(weeklyData[0].date)}
+                {getShortDate(dailyReports[dailyReports.length - 1].date)}
               </span>
             </div>
           </div>
         )}
       </div>
 
-      <DailyList data={sortedData} />
+      <DailyList data={dailyReports} />
     </Box>
   );
 }
