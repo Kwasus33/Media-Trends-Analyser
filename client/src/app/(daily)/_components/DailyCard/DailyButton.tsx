@@ -4,19 +4,19 @@ import { ChevronDown, Calendar } from 'lucide-react';
 import { getCategoryConfig } from '@/constants/categories';
 import type { TopCategory } from '@/types/dailyReport';
 
-type DailyHeaderProps = {
+type DailyButtonProps = {
   date: string;
   topCategories: TopCategory[];
   isOpen: boolean;
   onToggle: () => void;
 };
 
-export function DailyHeader({
+export function DailyButton({
   date,
   topCategories,
   isOpen,
   onToggle,
-}: DailyHeaderProps) {
+}: DailyButtonProps) {
   return (
     <button
       onClick={onToggle}

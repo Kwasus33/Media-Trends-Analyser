@@ -4,7 +4,7 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import type { Category } from '@/constants/categories';
 import type { DailyReport } from '@/types/dailyReport';
 
-import { DailyHeader } from './DailyHeader';
+import { DailyButton } from './DailyButton';
 import { DailyFilters, DailySourceGrid } from './DailySummaries';
 import { DailyAnalysis } from './DailyAnalysis';
 
@@ -82,7 +82,7 @@ export function DailyCard({ data, isOpen, onToggle }: DailyCardProps) {
       ref={cardRef}
       className="bg-white/4 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-white/20"
     >
-      <DailyHeader
+      <DailyButton
         date={data.date}
         topCategories={topCategories}
         isOpen={isOpen}
