@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { Header } from '@/components/Header';
 import './globals.css';
+import { ScrollToTop } from '@/components/ScrollToTop';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -37,7 +39,10 @@ export default function RootLayout({
         </div>
 
         <div className="relative z-10 flex flex-col min-h-screen">
-          <div className="grow w-full">{children}</div>
+          <main className="grow w-full p-8">
+            <Header />
+            {children}
+          </main>
 
           <footer className="w-full py-8 mt-auto flex flex-col gap-2 items-center justify-center text-sm text-gray-500">
             <p>Media Trends Analyser &copy; {currentYear}</p>
@@ -48,6 +53,8 @@ export default function RootLayout({
             </p>
           </footer>
         </div>
+
+        <ScrollToTop />
       </body>
     </html>
   );

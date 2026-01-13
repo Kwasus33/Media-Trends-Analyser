@@ -1,0 +1,835 @@
+[
+  {
+    "date": "2026-01-03",
+    "summaries": {
+      "BBC": {
+        "Sport": "BBC Sport Scotland provided a detailed analysis of Celtic's recent Old Firm defeat, dissecting the team's performance. Additionally, the BBC's \"Football Daily\" program continues to offer the latest news, insights, and analysis on the Premier League, WSL, Football League, as well as Scottish, International, and European football. These broadcasts keep fans informed on key matches, player performances, and league standings across various levels of the sport.",
+        "Culture": "The cultural sphere offers diverse experiences in 2026. Jessie Buckley is \"overwhelmed\" to star in the Oscar-tipped film \"Hamnet,\" while BBC critics have curated lists of 16 exciting films and 12 best TV shows to watch in the year ahead, including new Harlan Coben mysteries. Finnish \"ironwoman\" Elina Mäkinen shares her top ice bathing spots, highlighting Nordic lifestyle. Archaeologists have uncovered the \"dark secrets\" of Roman pleasure palaces, revealing ancient coastal decadence, while the story behind Ikea's iconic Swedish meatballs (Köttbullar) is explored as they turn 40. The world's first Happiness Museum in Copenhagen offers insights into joy, and acclaimed authors and artists like Isabel Allende and Paula Scher are sharing their craft through online courses.",
+        "Economy": "China's BYD has surpassed Tesla to become the world's top electric vehicle seller, marking a significant shift in the automotive market. Meanwhile, Canada's micro-condo market is experiencing a historic crash, with smaller units disproportionately losing value, reflecting broader housing trends. This suggests a challenging period for real estate investors and a re-evaluation of housing preferences in major Canadian cities.",
+        "Society": "Several societal issues and events are highlighted. In Switzerland, a devastating bar fire in Crans-Montana on New Year's Eve killed at least 40 people and injured many more, leading Swiss prosecutors to open a criminal case against the bar managers due to likely cause from sparklers and rapid fire spread. In California, residents navigated floodwaters in the Bay Area, preparing for further coastal inundation. A task force in South Africa is working to protect threatened albatross from lethal fishing lines. Health and wellness topics include an explanation of why electrolytes aren't necessary for everyday exercise and insights for better health and wellbeing. Behavioral psychology offers six mind tricks for dealing with uncertainty, and discussions explore \"22nd-century people\" among us and why giving unwanted gifts can be a \"tradition.\"",
+        "Politics": "New York City Mayor Mamdani faces four significant challenges, particularly concerning his cost-of-living promises. Internationally, Iran's foreign minister labeled Donald Trump's warning about intervention in Iranian protests as \"reckless.\" These political tensions highlight the complexities of urban governance and international relations in a volatile global landscape.",
+        "Technology": "Experts predict that by 2050, the world will see significant technological advancements, including the widespread use of AI teachers and cybernetics. In medical research, clinical trials are showing the potential of psychedelic drugs like \"magic mushrooms\" and MDMA in treating depression and PTSD, offering new avenues for mental health treatment."
+      },
+      "RSS": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Reddit": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "New York Times": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Source 1": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 2": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 3": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      }
+    },
+    "categories": {
+      "BBC": {
+        "Sport": 2,
+        "Culture": 19,
+        "Economy": 30,
+        "Society": 11,
+        "Politics": 2,
+        "Technology": 2
+      },
+      "RSS": {
+        "Sport": 2,
+        "Culture": 61,
+        "Economy": 0,
+        "Society": 80,
+        "Politics": 109,
+        "Technology": 71
+      },
+      "Reddit": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "New York Times": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 1": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 2": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 3": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      }
+    }
+  },
+  {
+    "date": "2026-01-04",
+    "summaries": {
+      "BBC": {
+        "Sport": "BBC Sport Scotland provided a detailed analysis of Celtic's recent Old Firm defeat, dissecting the team's performance. Additionally, the BBC's \"Football Daily\" program continues to offer the latest news, insights, and analysis on the Premier League, WSL, Football League, as well as Scottish, International, and European football. These broadcasts keep fans informed on key matches, player performances, and league standings across various levels of the sport.",
+        "Culture": "The cultural sphere offers diverse experiences in 2026. Jessie Buckley is \"overwhelmed\" to star in the Oscar-tipped film \"Hamnet,\" while BBC critics have curated lists of 16 exciting films and 12 best TV shows to watch in the year ahead, including new Harlan Coben mysteries. Finnish \"ironwoman\" Elina Mäkinen shares her top ice bathing spots, highlighting Nordic lifestyle. Archaeologists have uncovered the \"dark secrets\" of Roman pleasure palaces, revealing ancient coastal decadence, while the story behind Ikea's iconic Swedish meatballs (Köttbullar) is explored as they turn 40. The world's first Happiness Museum in Copenhagen offers insights into joy, and acclaimed authors and artists like Isabel Allende and Paula Scher are sharing their craft through online courses.",
+        "Economy": "China's BYD has surpassed Tesla to become the world's top electric vehicle seller, marking a significant shift in the automotive market. Meanwhile, Canada's micro-condo market is experiencing a historic crash, with smaller units disproportionately losing value, reflecting broader housing trends. This suggests a challenging period for real estate investors and a re-evaluation of housing preferences in major Canadian cities.",
+        "Society": "Several societal issues and events are highlighted. In Switzerland, a devastating bar fire in Crans-Montana on New Year's Eve killed at least 40 people and injured many more, leading Swiss prosecutors to open a criminal case against the bar managers due to likely cause from sparklers and rapid fire spread. In California, residents navigated floodwaters in the Bay Area, preparing for further coastal inundation. A task force in South Africa is working to protect threatened albatross from lethal fishing lines. Health and wellness topics include an explanation of why electrolytes aren't necessary for everyday exercise and insights for better health and wellbeing. Behavioral psychology offers six mind tricks for dealing with uncertainty, and discussions explore \"22nd-century people\" among us and why giving unwanted gifts can be a \"tradition.\"",
+        "Politics": "New York City Mayor Mamdani faces four significant challenges, particularly concerning his cost-of-living promises. Internationally, Iran's foreign minister labeled Donald Trump's warning about intervention in Iranian protests as \"reckless.\" These political tensions highlight the complexities of urban governance and international relations in a volatile global landscape.",
+        "Technology": "Experts predict that by 2050, the world will see significant technological advancements, including the widespread use of AI teachers and cybernetics. In medical research, clinical trials are showing the potential of psychedelic drugs like \"magic mushrooms\" and MDMA in treating depression and PTSD, offering new avenues for mental health treatment."
+      },
+      "RSS": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Reddit": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "New York Times": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Source 1": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 2": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 3": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      }
+    },
+    "categories": {
+      "BBC": {
+        "Sport": 2,
+        "Culture": 19,
+        "Economy": 30,
+        "Society": 11,
+        "Politics": 2,
+        "Technology": 2
+      },
+      "RSS": {
+        "Sport": 2,
+        "Culture": 61,
+        "Economy": 0,
+        "Society": 80,
+        "Politics": 109,
+        "Technology": 71
+      },
+      "Reddit": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "New York Times": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 1": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 2": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 3": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      }
+    }
+  },
+  {
+    "date": "2026-01-05",
+    "summaries": {
+      "BBC": {
+        "Sport": "BBC Sport Scotland provided a detailed analysis of Celtic's recent Old Firm defeat, dissecting the team's performance. Additionally, the BBC's \"Football Daily\" program continues to offer the latest news, insights, and analysis on the Premier League, WSL, Football League, as well as Scottish, International, and European football. These broadcasts keep fans informed on key matches, player performances, and league standings across various levels of the sport.",
+        "Culture": "The cultural sphere offers diverse experiences in 2026. Jessie Buckley is \"overwhelmed\" to star in the Oscar-tipped film \"Hamnet,\" while BBC critics have curated lists of 16 exciting films and 12 best TV shows to watch in the year ahead, including new Harlan Coben mysteries. Finnish \"ironwoman\" Elina Mäkinen shares her top ice bathing spots, highlighting Nordic lifestyle. Archaeologists have uncovered the \"dark secrets\" of Roman pleasure palaces, revealing ancient coastal decadence, while the story behind Ikea's iconic Swedish meatballs (Köttbullar) is explored as they turn 40. The world's first Happiness Museum in Copenhagen offers insights into joy, and acclaimed authors and artists like Isabel Allende and Paula Scher are sharing their craft through online courses.",
+        "Economy": "China's BYD has surpassed Tesla to become the world's top electric vehicle seller, marking a significant shift in the automotive market. Meanwhile, Canada's micro-condo market is experiencing a historic crash, with smaller units disproportionately losing value, reflecting broader housing trends. This suggests a challenging period for real estate investors and a re-evaluation of housing preferences in major Canadian cities.",
+        "Society": "Several societal issues and events are highlighted. In Switzerland, a devastating bar fire in Crans-Montana on New Year's Eve killed at least 40 people and injured many more, leading Swiss prosecutors to open a criminal case against the bar managers due to likely cause from sparklers and rapid fire spread. In California, residents navigated floodwaters in the Bay Area, preparing for further coastal inundation. A task force in South Africa is working to protect threatened albatross from lethal fishing lines. Health and wellness topics include an explanation of why electrolytes aren't necessary for everyday exercise and insights for better health and wellbeing. Behavioral psychology offers six mind tricks for dealing with uncertainty, and discussions explore \"22nd-century people\" among us and why giving unwanted gifts can be a \"tradition.\"",
+        "Politics": "New York City Mayor Mamdani faces four significant challenges, particularly concerning his cost-of-living promises. Internationally, Iran's foreign minister labeled Donald Trump's warning about intervention in Iranian protests as \"reckless.\" These political tensions highlight the complexities of urban governance and international relations in a volatile global landscape.",
+        "Technology": "Experts predict that by 2050, the world will see significant technological advancements, including the widespread use of AI teachers and cybernetics. In medical research, clinical trials are showing the potential of psychedelic drugs like \"magic mushrooms\" and MDMA in treating depression and PTSD, offering new avenues for mental health treatment."
+      },
+      "RSS": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Reddit": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "New York Times": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Source 1": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 2": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 3": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      }
+    },
+    "categories": {
+      "BBC": {
+        "Sport": 2,
+        "Culture": 19,
+        "Economy": 30,
+        "Society": 11,
+        "Politics": 2,
+        "Technology": 2
+      },
+      "RSS": {
+        "Sport": 2,
+        "Culture": 61,
+        "Economy": 0,
+        "Society": 80,
+        "Politics": 109,
+        "Technology": 71
+      },
+      "Reddit": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "New York Times": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 1": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 2": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 3": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      }
+    }
+  },
+  {
+    "date": "2026-01-06",
+    "summaries": {
+      "BBC": {
+        "Sport": "BBC Sport Scotland provided a detailed analysis of Celtic's recent Old Firm defeat, dissecting the team's performance. Additionally, the BBC's \"Football Daily\" program continues to offer the latest news, insights, and analysis on the Premier League, WSL, Football League, as well as Scottish, International, and European football. These broadcasts keep fans informed on key matches, player performances, and league standings across various levels of the sport.",
+        "Culture": "The cultural sphere offers diverse experiences in 2026. Jessie Buckley is \"overwhelmed\" to star in the Oscar-tipped film \"Hamnet,\" while BBC critics have curated lists of 16 exciting films and 12 best TV shows to watch in the year ahead, including new Harlan Coben mysteries. Finnish \"ironwoman\" Elina Mäkinen shares her top ice bathing spots, highlighting Nordic lifestyle. Archaeologists have uncovered the \"dark secrets\" of Roman pleasure palaces, revealing ancient coastal decadence, while the story behind Ikea's iconic Swedish meatballs (Köttbullar) is explored as they turn 40. The world's first Happiness Museum in Copenhagen offers insights into joy, and acclaimed authors and artists like Isabel Allende and Paula Scher are sharing their craft through online courses.",
+        "Economy": "China's BYD has surpassed Tesla to become the world's top electric vehicle seller, marking a significant shift in the automotive market. Meanwhile, Canada's micro-condo market is experiencing a historic crash, with smaller units disproportionately losing value, reflecting broader housing trends. This suggests a challenging period for real estate investors and a re-evaluation of housing preferences in major Canadian cities.",
+        "Society": "Several societal issues and events are highlighted. In Switzerland, a devastating bar fire in Crans-Montana on New Year's Eve killed at least 40 people and injured many more, leading Swiss prosecutors to open a criminal case against the bar managers due to likely cause from sparklers and rapid fire spread. In California, residents navigated floodwaters in the Bay Area, preparing for further coastal inundation. A task force in South Africa is working to protect threatened albatross from lethal fishing lines. Health and wellness topics include an explanation of why electrolytes aren't necessary for everyday exercise and insights for better health and wellbeing. Behavioral psychology offers six mind tricks for dealing with uncertainty, and discussions explore \"22nd-century people\" among us and why giving unwanted gifts can be a \"tradition.\"",
+        "Politics": "New York City Mayor Mamdani faces four significant challenges, particularly concerning his cost-of-living promises. Internationally, Iran's foreign minister labeled Donald Trump's warning about intervention in Iranian protests as \"reckless.\" These political tensions highlight the complexities of urban governance and international relations in a volatile global landscape.",
+        "Technology": "Experts predict that by 2050, the world will see significant technological advancements, including the widespread use of AI teachers and cybernetics. In medical research, clinical trials are showing the potential of psychedelic drugs like \"magic mushrooms\" and MDMA in treating depression and PTSD, offering new avenues for mental health treatment."
+      },
+      "RSS": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Reddit": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "New York Times": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Source 1": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 2": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 3": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      }
+    },
+    "categories": {
+      "BBC": {
+        "Sport": 2,
+        "Culture": 19,
+        "Economy": 30,
+        "Society": 11,
+        "Politics": 2,
+        "Technology": 2
+      },
+      "RSS": {
+        "Sport": 2,
+        "Culture": 61,
+        "Economy": 0,
+        "Society": 80,
+        "Politics": 109,
+        "Technology": 71
+      },
+      "Reddit": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "New York Times": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 1": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 2": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 3": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      }
+    }
+  },
+  {
+    "date": "2026-01-07",
+    "summaries": {
+      "BBC": {
+        "Sport": "BBC Sport Scotland provided a detailed analysis of Celtic's recent Old Firm defeat, dissecting the team's performance. Additionally, the BBC's \"Football Daily\" program continues to offer the latest news, insights, and analysis on the Premier League, WSL, Football League, as well as Scottish, International, and European football. These broadcasts keep fans informed on key matches, player performances, and league standings across various levels of the sport.",
+        "Culture": "The cultural sphere offers diverse experiences in 2026. Jessie Buckley is \"overwhelmed\" to star in the Oscar-tipped film \"Hamnet,\" while BBC critics have curated lists of 16 exciting films and 12 best TV shows to watch in the year ahead, including new Harlan Coben mysteries. Finnish \"ironwoman\" Elina Mäkinen shares her top ice bathing spots, highlighting Nordic lifestyle. Archaeologists have uncovered the \"dark secrets\" of Roman pleasure palaces, revealing ancient coastal decadence, while the story behind Ikea's iconic Swedish meatballs (Köttbullar) is explored as they turn 40. The world's first Happiness Museum in Copenhagen offers insights into joy, and acclaimed authors and artists like Isabel Allende and Paula Scher are sharing their craft through online courses.",
+        "Economy": "China's BYD has surpassed Tesla to become the world's top electric vehicle seller, marking a significant shift in the automotive market. Meanwhile, Canada's micro-condo market is experiencing a historic crash, with smaller units disproportionately losing value, reflecting broader housing trends. This suggests a challenging period for real estate investors and a re-evaluation of housing preferences in major Canadian cities.",
+        "Society": "Several societal issues and events are highlighted. In Switzerland, a devastating bar fire in Crans-Montana on New Year's Eve killed at least 40 people and injured many more, leading Swiss prosecutors to open a criminal case against the bar managers due to likely cause from sparklers and rapid fire spread. In California, residents navigated floodwaters in the Bay Area, preparing for further coastal inundation. A task force in South Africa is working to protect threatened albatross from lethal fishing lines. Health and wellness topics include an explanation of why electrolytes aren't necessary for everyday exercise and insights for better health and wellbeing. Behavioral psychology offers six mind tricks for dealing with uncertainty, and discussions explore \"22nd-century people\" among us and why giving unwanted gifts can be a \"tradition.\"",
+        "Politics": "New York City Mayor Mamdani faces four significant challenges, particularly concerning his cost-of-living promises. Internationally, Iran's foreign minister labeled Donald Trump's warning about intervention in Iranian protests as \"reckless.\" These political tensions highlight the complexities of urban governance and international relations in a volatile global landscape.",
+        "Technology": "Experts predict that by 2050, the world will see significant technological advancements, including the widespread use of AI teachers and cybernetics. In medical research, clinical trials are showing the potential of psychedelic drugs like \"magic mushrooms\" and MDMA in treating depression and PTSD, offering new avenues for mental health treatment."
+      },
+      "RSS": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Reddit": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "New York Times": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Source 1": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 2": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 3": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      }
+    },
+    "categories": {
+      "BBC": {
+        "Sport": 2,
+        "Culture": 19,
+        "Economy": 30,
+        "Society": 11,
+        "Politics": 2,
+        "Technology": 2
+      },
+      "RSS": {
+        "Sport": 2,
+        "Culture": 61,
+        "Economy": 0,
+        "Society": 80,
+        "Politics": 109,
+        "Technology": 71
+      },
+      "Reddit": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "New York Times": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 1": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 2": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 3": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      }
+    }
+  },
+  {
+    "date": "2026-01-08",
+    "summaries": {
+      "BBC": {
+        "Sport": "BBC Sport Scotland provided a detailed analysis of Celtic's recent Old Firm defeat, dissecting the team's performance. Additionally, the BBC's \"Football Daily\" program continues to offer the latest news, insights, and analysis on the Premier League, WSL, Football League, as well as Scottish, International, and European football. These broadcasts keep fans informed on key matches, player performances, and league standings across various levels of the sport.",
+        "Culture": "The cultural sphere offers diverse experiences in 2026. Jessie Buckley is \"overwhelmed\" to star in the Oscar-tipped film \"Hamnet,\" while BBC critics have curated lists of 16 exciting films and 12 best TV shows to watch in the year ahead, including new Harlan Coben mysteries. Finnish \"ironwoman\" Elina Mäkinen shares her top ice bathing spots, highlighting Nordic lifestyle. Archaeologists have uncovered the \"dark secrets\" of Roman pleasure palaces, revealing ancient coastal decadence, while the story behind Ikea's iconic Swedish meatballs (Köttbullar) is explored as they turn 40. The world's first Happiness Museum in Copenhagen offers insights into joy, and acclaimed authors and artists like Isabel Allende and Paula Scher are sharing their craft through online courses.",
+        "Economy": "China's BYD has surpassed Tesla to become the world's top electric vehicle seller, marking a significant shift in the automotive market. Meanwhile, Canada's micro-condo market is experiencing a historic crash, with smaller units disproportionately losing value, reflecting broader housing trends. This suggests a challenging period for real estate investors and a re-evaluation of housing preferences in major Canadian cities.",
+        "Society": "Several societal issues and events are highlighted. In Switzerland, a devastating bar fire in Crans-Montana on New Year's Eve killed at least 40 people and injured many more, leading Swiss prosecutors to open a criminal case against the bar managers due to likely cause from sparklers and rapid fire spread. In California, residents navigated floodwaters in the Bay Area, preparing for further coastal inundation. A task force in South Africa is working to protect threatened albatross from lethal fishing lines. Health and wellness topics include an explanation of why electrolytes aren't necessary for everyday exercise and insights for better health and wellbeing. Behavioral psychology offers six mind tricks for dealing with uncertainty, and discussions explore \"22nd-century people\" among us and why giving unwanted gifts can be a \"tradition.\"",
+        "Politics": "New York City Mayor Mamdani faces four significant challenges, particularly concerning his cost-of-living promises. Internationally, Iran's foreign minister labeled Donald Trump's warning about intervention in Iranian protests as \"reckless.\" These political tensions highlight the complexities of urban governance and international relations in a volatile global landscape.",
+        "Technology": "Experts predict that by 2050, the world will see significant technological advancements, including the widespread use of AI teachers and cybernetics. In medical research, clinical trials are showing the potential of psychedelic drugs like \"magic mushrooms\" and MDMA in treating depression and PTSD, offering new avenues for mental health treatment."
+      },
+      "RSS": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Reddit": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "New York Times": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Source 1": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 2": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 3": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      }
+    },
+    "categories": {
+      "BBC": {
+        "Sport": 2,
+        "Culture": 19,
+        "Economy": 30,
+        "Society": 11,
+        "Politics": 2,
+        "Technology": 2
+      },
+      "RSS": {
+        "Sport": 2,
+        "Culture": 61,
+        "Economy": 0,
+        "Society": 80,
+        "Politics": 109,
+        "Technology": 71
+      },
+      "Reddit": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "New York Times": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 1": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 2": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 3": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      }
+    }
+  },
+  {
+    "date": "2026-01-09",
+    "summaries": {
+      "BBC": {
+        "Sport": "BBC Sport Scotland provided a detailed analysis of Celtic's recent Old Firm defeat, dissecting the team's performance. Additionally, the BBC's \"Football Daily\" program continues to offer the latest news, insights, and analysis on the Premier League, WSL, Football League, as well as Scottish, International, and European football. These broadcasts keep fans informed on key matches, player performances, and league standings across various levels of the sport.",
+        "Culture": "The cultural sphere offers diverse experiences in 2026. Jessie Buckley is \"overwhelmed\" to star in the Oscar-tipped film \"Hamnet,\" while BBC critics have curated lists of 16 exciting films and 12 best TV shows to watch in the year ahead, including new Harlan Coben mysteries. Finnish \"ironwoman\" Elina Mäkinen shares her top ice bathing spots, highlighting Nordic lifestyle. Archaeologists have uncovered the \"dark secrets\" of Roman pleasure palaces, revealing ancient coastal decadence, while the story behind Ikea's iconic Swedish meatballs (Köttbullar) is explored as they turn 40. The world's first Happiness Museum in Copenhagen offers insights into joy, and acclaimed authors and artists like Isabel Allende and Paula Scher are sharing their craft through online courses.",
+        "Economy": "China's BYD has surpassed Tesla to become the world's top electric vehicle seller, marking a significant shift in the automotive market. Meanwhile, Canada's micro-condo market is experiencing a historic crash, with smaller units disproportionately losing value, reflecting broader housing trends. This suggests a challenging period for real estate investors and a re-evaluation of housing preferences in major Canadian cities.",
+        "Society": "Several societal issues and events are highlighted. In Switzerland, a devastating bar fire in Crans-Montana on New Year's Eve killed at least 40 people and injured many more, leading Swiss prosecutors to open a criminal case against the bar managers due to likely cause from sparklers and rapid fire spread. In California, residents navigated floodwaters in the Bay Area, preparing for further coastal inundation. A task force in South Africa is working to protect threatened albatross from lethal fishing lines. Health and wellness topics include an explanation of why electrolytes aren't necessary for everyday exercise and insights for better health and wellbeing. Behavioral psychology offers six mind tricks for dealing with uncertainty, and discussions explore \"22nd-century people\" among us and why giving unwanted gifts can be a \"tradition.\"",
+        "Politics": "New York City Mayor Mamdani faces four significant challenges, particularly concerning his cost-of-living promises. Internationally, Iran's foreign minister labeled Donald Trump's warning about intervention in Iranian protests as \"reckless.\" These political tensions highlight the complexities of urban governance and international relations in a volatile global landscape.",
+        "Technology": "Experts predict that by 2050, the world will see significant technological advancements, including the widespread use of AI teachers and cybernetics. In medical research, clinical trials are showing the potential of psychedelic drugs like \"magic mushrooms\" and MDMA in treating depression and PTSD, offering new avenues for mental health treatment."
+      },
+      "RSS": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Reddit": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "New York Times": {
+        "Sport": "In the world of esports, Lee Sang-hyeok, known as \"Faker\" in League of Legends, made history by receiving the Cheongnyong Medal from the South Korean President, marking the first such honor in esports. Robert Lewandowski was the subject of a simulated Barcelona derby game, where a YouTuber predicted him as the hero.",
+        "Culture": "The cultural landscape in Poland and beyond is vibrant. Netflix's adaptation of Harlan Coben's \"O krok za daleko\" quickly became a hit in Poland, surpassing \"Stranger Things,\" despite mixed reviews. Gamers are enjoying a plethora of releases, including free titles from Epic Games like Chivalry 2, Monument Valley, and the Trine series. The gaming world also sees old classics like Star Wars Racer Revenge becoming collector's items due to soaring prices. In the music scene, lost recordings of Pavarotti's 1995 concert have been released, delighting fans. The Sims 4 developers addressed rumors about the game ending new content, reassuring the community. Additionally, the new year brings discussions on advertising ethics, like Tomasz Karolak's beer ad allegedly damaging Santa Claus's image.",
+        "Economy": "The global economy faces significant challenges in 2026, including trade tensions and debt, though Goldman Sachs predicts \"solid\" growth, especially for China. The Polish economy is projected to receive a record 180 billion PLN from EU funds, boosting investments, while the IMF warns of negative risks for Polish economic growth. In the financial sector, banks are adjusting; BNP Paribas lowered savings rates, while Bank Millennium offers promotional bonuses. Americans made more housing, installment, and cash loans in late 2025, and 19 US states raised their minimum wage, affecting millions. The real estate market saw prices rise fastest in Tricity, surpassing Krakow, with two other cities also on the rise. The automotive industry experienced a shift as China's BYD overtook Tesla as the world's leading electric car seller. Meanwhile, the courier industry saw its debt decrease, and Polish farmers largely reported stable incomes, with strong support for EU membership. Predictions for the tech market are mixed: graphic card prices, like the RTX 5090, are expected to skyrocket, impacting the gaming hardware sector.",
+        "Society": "Polish society faces various challenges and changes in 2026. A tragic bar fire in Switzerland killed 40 and injured 119, including one Pole, prompting authorities to charge two bar managers for negligence; shocking videos showed people filming rather than fleeing. Poland experienced a harsh winter with heavy snowfalls and strong winds, leading to power outages and difficult road conditions, prompting RCB alerts and even the deployment of police Black Hawks for snow clearing. Crime remains a concern, with reports of taxi driver murder, fuel theft, and ongoing investigations into cold cases. Changes in public services include e-Deliveries replacing traditional registered mail, and six new towns gaining city status. Social issues such as high alcohol consumption, the growing popularity of paganism, and the impact of New Year's resolutions are also discussed.",
+        "Politics": "The US launched a large-scale military operation in Venezuela, resulting in the capture of President Nicolas Maduro and his wife, Cilia Flores, who face drug-terrorism charges in New York. President Trump declared the operation an unprecedented success, citing Maduro's alleged destabilization and drug trafficking, and announced the US would lead Venezuela's transition to freedom, hinting at future appointed leadership.",
+        "Technology": "The tech world is buzzing with innovation and challenges in 2026. SpaceX is lowering the orbit of thousands of Starlink satellites to enhance space safety and achieved a record 165 orbital missions in 2025. Elon Musk's Neuralink aims for mass production of brain implants to assist paralyzed individuals, marking a potential revolution in medical technology. In military tech, Israel deployed the Iron Beam laser weapon, the world's first operational combat laser, praised for its effectiveness and low cost. Poland is boosting its defense capabilities by producing Krab howitzer barrels domestically and introducing \"Zawilce\" command vehicles, while also planning a quantum communication ground station for secure satellite links. However, cybersecurity threats are escalating, with experts predicting a \"cybertsunami\" of attacks by 2026 and warnings issued about online scams and data leaks, including one affecting the European Space Agency. Concerns also arise over AI's resource consumption, with data centers projected to use vast amounts of water, and its ethical implications, as Elon Musk's Grok chatbot generated illegal content, prompting calls for stricter AI regulation."
+      },
+      "Source 1": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 2": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      },
+      "Source 3": {
+        "Sport": "",
+        "Culture": "",
+        "Economy": "",
+        "Society": "",
+        "Politics": "",
+        "Technology": ""
+      }
+    },
+    "categories": {
+      "BBC": {
+        "Sport": 2,
+        "Culture": 19,
+        "Economy": 30,
+        "Society": 11,
+        "Politics": 2,
+        "Technology": 2
+      },
+      "RSS": {
+        "Sport": 2,
+        "Culture": 61,
+        "Economy": 0,
+        "Society": 80,
+        "Politics": 109,
+        "Technology": 71
+      },
+      "Reddit": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "New York Times": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 1": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 2": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      },
+      "Source 3": {
+        "Sport": 0,
+        "Culture": 0,
+        "Economy": 0,
+        "Society": 0,
+        "Politics": 0,
+        "Technology": 0
+      }
+    }
+  }
+]

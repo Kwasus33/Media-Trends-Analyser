@@ -49,10 +49,12 @@
     "Online child safety is gaining prominence as a key area for technological platforms to address."
   ],
   "source_highlights": {
-    "RSS": "Focused heavily on political statements and developments, including Kremlin's stance on AI, Lukashenka's unexpected prisoner release, Polish minister's views on Ukraine, and the emerging \"Plan 28\" for peace.",
     "Reddit": "Highlighted the real-world consequences of technology, such as AI-generated misinformation affecting tourists, alongside significant diplomatic incidents like the attack on the Polish ambassador and the EU's \"military Schengen\" proposal.",
     "BBC": "Provided coverage on controversial public health policy changes by the CDC, international security incidents involving a Russian spy ship, and domestic political shifts like the decline in US President Trump's approval ratings.",
-    "New York Times": "Reported on the severe humanitarian impact of the Ukraine conflict, specifically the missile attack on Ternopil, detailed US-led peace initiatives, and covered technology news related to child safety on platforms like Roblox."
+    "New York Times": "Reported on the severe humanitarian impact of the Ukraine conflict, specifically the missile attack on Ternopil, detailed US-led peace initiatives, and covered technology news related to child safety on platforms like Roblox.",
+    "Source 1": "Focused heavily on political statements and developments, including Kremlin's stance on AI, Lukashenka's unexpected prisoner release, Polish minister's views on Ukraine, and the emerging \"Plan 28\" for peace.",
+    "Source 2": "Provided coverage on controversial public health policy changes by the CDC, international security incidents involving a Russian spy ship, and domestic political shifts like the decline in US President Trump's approval ratings.",
+    "Source 3": "Reported on the severe humanitarian impact of the Ukraine conflict, specifically the missile attack on Ternopil, detailed US-led peace initiatives, and covered technology news related to child safety on platforms like Roblox."
   },
   "event_timeline": {
     "2025-11-17": "AI-generated fake images mislead tourists in London; Kremlin clarifies Putin does not use AI tools; CDC controversially alters vaccine-autism content on its website; Hungary criticizes EU financial aid to Ukraine as \"madness.\"",
@@ -81,13 +83,6 @@
     "2025-12-10": "\"Plan 28\" for peace in Ukraine is discussed with a potential resolution this month; European Commission proposes a \"military Schengen\" to enhance military mobility; US President Trump's approval ratings drop to 38%; Roblox announces new safety measures for young users."
   },
   "references": {
-    "RSS": [
-      "https://www.rmf24.pl/fakty/swiat/news-pieskow-poinformowal-czy-putin-korzysta-ze-sztucznej-intelig,nId,8042441",
-      "https://www.rmf24.pl/fakty/swiat/news-niespodziewany-ruch-lukaszenki-duchowni-wyszli-na-wolnosc,nId,8042313",
-      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-bialy-dom-nie-umie-w-internet-wpadka-steve-a-witkoffa-na-x,nId,8042271",
-      "https://www.rmf24.pl/fakty/swiat/news-plan-zakonczenia-wojny-sikorski-zabral-glos-unia-odpowiada,nId,8042261",
-      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-pokoj-w-ukrainie-juz-w-tym-miesiacu-oto-co-zaklada-plan-28,nId,8042075"
-    ],
     "Reddit": [
       "https://www.rmf24.pl/fakty/swiat/news-tlumy-turystow-przed-zamknietymi-bramami-palacu-buckingham-w,nId,8042319",
       "https://www.rmf24.pl/fakty/swiat/news-polski-ambasador-napadniety-w-rosji,nId,8042295",
@@ -99,6 +94,24 @@
       "https://www.rmf24.pl/fakty/swiat/news-notowania-trumpa-najnizsze-od-lat-amerykanie-rozczarowani-pr,nId,8041817"
     ],
     "New York Times": [
+      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-szef-msz-wegier-o-unijnym-szalenstwie-i-zyciu-w-iluzji,nId,8042322",
+      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-rosyjska-masakra-w-tarnopolu-dziesiatki-zabitych-i-poszukiwa,nId,8042293",
+      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-waszyngton-opracowal-propozycje-zakonczenia-wojny-kijow-pomi,nId,8042096",
+      "https://www.rmf24.pl/fakty/swiat/news-wazna-informacja-dla-rodzicow-roblox-wprowadza-nowe-srodki-b,nId,8041916"
+    ],
+    "Source 1": [
+      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-szef-msz-wegier-o-unijnym-szalenstwie-i-zyciu-w-iluzji,nId,8042322",
+      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-rosyjska-masakra-w-tarnopolu-dziesiatki-zabitych-i-poszukiwa,nId,8042293",
+      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-waszyngton-opracowal-propozycje-zakonczenia-wojny-kijow-pomi,nId,8042096",
+      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-waszyngton-opracowal-propozycje-zakonczenia-wojny-kijow-pomi,nId,8042096",
+      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-waszyngton-opracowal-propozycje-zakonczenia-wojny-kijow-pomi,nId,8042096",
+      "https://www.rmf24.pl/fakty/swiat/news-wazna-informacja-dla-rodzicow-roblox-wprowadza-nowe-srodki-b,nId,8041916"
+    ],
+    "Source 2": [
+      "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-szef-msz-wegier-o-unijnym-szalenstwie-i-zyciu-w-iluzji,nId,8042322",
+      "https://www.rmf24.pl/fakty/swiat/news-wazna-informacja-dla-rodzicow-roblox-wprowadza-nowe-srodki-b,nId,8041916"
+    ],
+    "Source 3": [
       "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-szef-msz-wegier-o-unijnym-szalenstwie-i-zyciu-w-iluzji,nId,8042322",
       "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-rosyjska-masakra-w-tarnopolu-dziesiatki-zabitych-i-poszukiwa,nId,8042293",
       "https://www.rmf24.pl/raporty/raport-wojna-z-rosja/news-waszyngton-opracowal-propozycje-zakonczenia-wojny-kijow-pomi,nId,8042096",

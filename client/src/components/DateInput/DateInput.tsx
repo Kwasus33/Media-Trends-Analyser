@@ -1,5 +1,6 @@
 'use client';
 
+import { getISODate } from '@/utils/dateUtils';
 import type { ComponentProps, ChangeEvent } from 'react';
 
 type DateInputProps = ComponentProps<'input'> & {
@@ -21,7 +22,7 @@ export function DateInput({
     const date = new Date(value as string);
     date.setDate(date.getDate() + days);
 
-    const newDate = date.toISOString().split('T')[0];
+    const newDate = getISODate(date);
 
     if (min && newDate < (min as string)) return;
 
