@@ -17,7 +17,7 @@ export function TrendAnalysis({ trends }: TrendAnalysisProps) {
       title="Trend Analysis"
       icon={<Activity className="w-5 h-5 text-red-600" />}
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-left">
+      <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-6 w-full text-left">
         <TrendGroup
           title="Rising Trends"
           items={trends.rising}

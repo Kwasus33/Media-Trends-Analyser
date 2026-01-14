@@ -19,12 +19,8 @@ export function DailyAnalysis({ topCategories, pieData }: DailyAnalysisProps) {
   const primary = topCategories[0];
   const secondary = topCategories[1];
 
-  const gridBreakpoint = '900px';
-
   return (
-    <div
-      className={`grid grid-cols-1 min-[${gridBreakpoint}]:grid-cols-2 gap-2 items-center border-t border-white/5 bg-black/20 p-4 md:p-8`}
-    >
+    <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-2 items-center border-t border-white/5 bg-black/20 p-4 md:p-8">
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <BarChart3 className="w-4 h-4 text-indigo-400" />
@@ -66,9 +62,7 @@ export function DailyAnalysis({ topCategories, pieData }: DailyAnalysisProps) {
         </div>
       </div>
 
-      <div
-        className={`w-full flex justify-center min-[${gridBreakpoint}]:justify-end`}
-      >
+      <div className="w-full flex justify-center">
         <div className="w-full max-w-sm h-full">
           <CategoryPieChart
             data={pieData}
