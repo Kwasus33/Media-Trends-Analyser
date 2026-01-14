@@ -6,7 +6,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Legend,
   ResponsiveContainer,
   Tooltip,
 } from 'recharts';
@@ -30,6 +29,10 @@ export function CategoryTrendChart({
   categories,
   isExport = false,
 }: CategoryTrendChartProps) {
+  const getColor = (category: string, index: number) =>
+    CATEGORIES[category as Category]?.color ||
+    CHART_COLORS[index % CHART_COLORS.length];
+
   const renderChart = () => (
     <LineChart
       data={data}
@@ -37,8 +40,8 @@ export function CategoryTrendChart({
       height={isExport ? 300 : undefined}
       margin={{
         top: 20,
-        right: 30,
-        left: 20,
+        right: isExport ? 70 : 10,
+        left: isExport ? 40 : -20,
         bottom: 5,
       }}
     >
@@ -52,6 +55,7 @@ export function CategoryTrendChart({
         axisLine={false}
         dy={10}
       />
+
       <YAxis
         stroke="#9ca3af"
         tick={{ fill: '#9ca3af', fontSize: 12 }}
@@ -59,6 +63,7 @@ export function CategoryTrendChart({
         axisLine={false}
         dx={-10}
       />
+
       <Tooltip
         formatter={(
           value: number | string | Array<number | string> | undefined
@@ -85,44 +90,65 @@ export function CategoryTrendChart({
         }}
         cursor={{ stroke: '#52525b', strokeWidth: 1 }}
       />
-      <Legend wrapperStyle={{ paddingTop: '20px' }} />
-      {categories.map((category, index) => {
-        const color =
-          CATEGORIES[category as Category]?.color ||
-          CHART_COLORS[index % CHART_COLORS.length];
 
-        return (
-          <Line
-            key={category}
-            dataKey={category}
-            stroke={color}
-            strokeWidth={2}
-            dot={{
-              r: 4,
-              strokeWidth: 0,
-              fill: color,
-            }}
-            activeDot={{ r: 6 }}
-            isAnimationActive={!isExport}
-          />
-        );
-      })}
+      {categories.map((category, index) => (
+        <Line
+          key={category}
+          dataKey={category}
+          stroke={getColor(category, index)}
+          strokeWidth={2}
+          dot={{
+            r: 4,
+            strokeWidth: 0,
+            fill: getColor(category, index),
+          }}
+          activeDot={{ r: 6 }}
+          isAnimationActive={!isExport}
+        />
+      ))}
     </LineChart>
   );
 
+  const legend = (categories: string[]) =>
+    categories.map((category, index) => (
+      <div key={category} className="flex items-center gap-2">
+        <span
+          className="w-5 h-2 rounded-full"
+          style={{ backgroundColor: getColor(category, index) }}
+        />
+        <span
+          className="text-md text-gray-300 whitespace-nowrap"
+          style={{ color: getColor(category, index) }}
+        >
+          {category}
+        </span>
+      </div>
+    ));
+
   if (isExport) {
     return (
-      <div className="w-full flex justify-center items-center">
+      <div className="w-full flex flex-col items-center">
         {renderChart()}
+        <div className="flex flex-wrap justify-center gap-4 mt-4">
+          {legend(categories)}
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full h-100">
-      <ResponsiveContainer width="100%" height="100%">
-        {renderChart()}
-      </ResponsiveContainer>
+    <div className="w-full flex flex-col">
+      <div className="w-full overflow-x-auto pb-2">
+        <div className="min-w-150 h-75">
+          <ResponsiveContainer width="100%" height="100%">
+            {renderChart()}
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 px-4">
+        {legend(categories)}
+      </div>
     </div>
   );
 }
