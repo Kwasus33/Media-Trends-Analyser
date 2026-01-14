@@ -8,7 +8,7 @@ class PeriodicSummary(BaseModel):
 
     main_summary: str
 
-    categories_timeline: list[dict[str, int | str]] = Field(default_factory=dict)
+    categories_timeline: list[dict[str, int | str]] = Field(default_factory=list)
     category_totals: dict[str, int] = Field(default_factory=dict)
 
     trends: dict[str, list[str]] = Field(default_factory=list)
