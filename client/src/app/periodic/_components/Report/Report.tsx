@@ -10,6 +10,7 @@ import { Button } from '@/components/Button';
 import { Printer } from 'lucide-react';
 import { ShareButton } from '@/components/ShareButton';
 import type { PeriodicReport } from '@/types/periodicReport';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 type ReportProps = {
   data: PeriodicReport;
@@ -26,15 +27,19 @@ export function Report({
   isExport = false,
   onPrint,
 }: ReportProps) {
+  const isDesktop = useBreakpoint('md');
+
   const printStyle = 'print:break-before-page print:mt-6';
 
   return (
     <Box
       className={`flex flex-col gap-12 text-center ${isExport ? '' : 'min-h-125'}`}
     >
-      <div className="flex flex-col sm:flex-row justify-between items-end -mb-4 gap-4">
+      <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end -mb-4 gap-4">
         <div className="text-left">
-          <h2 className="text-3xl font-bold text-white">Trend Report</h2>
+          <h2 className="text-3xl font-bold text-white text-center sm:text-left">
+            Trend Report
+          </h2>
           <p className="text-gray-400 text-sm mt-1">
             Analysis Period:{' '}
             <span className="text-indigo-400">{startDate}</span> to{' '}
@@ -46,8 +51,8 @@ export function Report({
           <div className="flex gap-3">
             <ShareButton />
             <Button onClick={onPrint} className="flex items-center gap-2">
-              <Printer className="w-4 h-4" />
-              Export PDF
+              <Printer className="w-6 h-8 md:w-4 md:h-4" />
+              {isDesktop && 'Export PDF'}
             </Button>
           </div>
         )}
