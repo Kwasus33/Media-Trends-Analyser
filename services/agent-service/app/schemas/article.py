@@ -6,9 +6,9 @@ class Article(BaseModel):
     id: int
     url: HttpUrl
     published_at: datetime
-    title: str
+    title: str | None
     description: str
-    source: str
+    source: str | None
     categories: list[str] = Field(default_factory=list)
 
     @property
@@ -22,7 +22,7 @@ class ArticleResponse(BaseModel):
     id: int
     url: str
     published_at: datetime
-    title: str
+    title: str | None
     description: str
-    source: str
+    source: str | None
     categories: list[str] = Field(default_factory=list)
