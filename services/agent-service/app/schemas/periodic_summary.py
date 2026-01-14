@@ -11,7 +11,7 @@ class PeriodicSummary(BaseModel):
     categories_timeline: list[dict[str, int | str]] = Field(default_factory=list)
     category_totals: dict[str, int] = Field(default_factory=dict)
 
-    trends: dict[str, list[str]] = Field(default_factory=list)
+    trends: dict[str, list[str]] = Field(default_factory=dict)
 
     key_insights: list[str] = Field(default_factory=list)
     source_highlights: dict[str, str] = Field(default_factory=dict)
