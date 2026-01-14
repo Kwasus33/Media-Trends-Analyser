@@ -11,6 +11,7 @@ import { Printer } from 'lucide-react';
 import { ShareButton } from '@/components/ShareButton';
 import type { PeriodicReport } from '@/types/periodicReport';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
+import { TextExpander } from '@/components/TextExpander';
 
 type ReportProps = {
   data: PeriodicReport;
@@ -50,7 +51,11 @@ export function Report({
         {!isExport && onPrint && (
           <div className="flex gap-3">
             <ShareButton />
-            <Button onClick={onPrint} className="flex items-center gap-2">
+            <Button
+              data-testid="print-button"
+              onClick={onPrint}
+              className="flex items-center gap-2"
+            >
               <Printer className="w-6 h-8 md:w-4 md:h-4" />
               {isDesktop && 'Export PDF'}
             </Button>
@@ -90,9 +95,11 @@ export function Report({
         title="Executive Summary"
         icon={<FileText className="w-5 h-5 text-blue-400" />}
       >
-        <p className="text-gray-300 leading-relaxed text-start text-lg">
-          {data.main_summary}
-        </p>
+        <TextExpander>
+          <p className="text-gray-300 leading-relaxed text-start text-lg">
+            {data.main_summary}
+          </p>
+        </TextExpander>
       </SectionWrapper>
     </Box>
   );

@@ -77,7 +77,7 @@ describe('Report', () => {
       />
     );
 
-    const printBtn = screen.getByText(/Export PDF/i);
+    const printBtn = screen.getByTestId('print-button');
     fireEvent.click(printBtn);
 
     expect(handlePrint).toHaveBeenCalledTimes(1);
@@ -94,7 +94,7 @@ describe('Report', () => {
       />
     );
 
-    expect(screen.queryByText(/Export PDF/i)).not.toBeInTheDocument();
+    expect(screen.queryByTestId('print-button')).not.toBeInTheDocument();
     expect(screen.queryByText(/Share/i)).not.toBeInTheDocument();
   });
 });
