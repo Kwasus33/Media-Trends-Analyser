@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import { type Source, getSourceConfig } from '@/constants/sources';
 import { type Category, getCategoryConfig } from '@/constants/categories';
+import { TextExpander } from '@/components/TextExpander';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 type SourceCardProps = {
   source: Source;
@@ -26,6 +28,8 @@ export function SourceCard({
 }: SourceCardProps) {
   const [showLinks, setShowLinks] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  const isDesktop = useBreakpoint('md');
 
   const style = getSourceConfig(source);
   const Icon = style.icon;
@@ -66,9 +70,15 @@ export function SourceCard({
           <h4 className={`text-xl font-bold ${style.color}`}>{source}</h4>
         </div>
 
-        <p className="text-gray-300 leading-relaxed text-sm md:text-base border-t border-white/5 pt-4 pb-1 grow">
-          {text}
-        </p>
+        <TextExpander
+          collapsedHeight={isDesktop ? 240 : 180}
+          buttonColor={style.color}
+          buttonClassName="bg-black/20 backdrop-blur-md hover:bg-black/40 shadow-lg"
+        >
+          <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+            {text}
+          </p>
+        </TextExpander>
 
         {activeCategories.length > 0 && (
           <div className="mt-2 pt-3 border-t border-white/5">
@@ -81,12 +91,12 @@ export function SourceCard({
 
             <div className="flex flex-wrap gap-2">
               {activeCategories.map(([category, count]) => {
-                const style = getCategoryConfig(category);
+                const catStyle = getCategoryConfig(category);
 
                 return (
                   <div
                     key={category}
-                    className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-medium border ${style.bg} ${style.text} ${style.border}`}
+                    className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-medium border ${catStyle.bg} ${catStyle.text} ${catStyle.border}`}
                   >
                     <span>{category}</span>
                     <span className="font-bold">{count}%</span>
