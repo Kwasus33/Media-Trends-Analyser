@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel, HttpUrl, ConfigDict
+from pydantic import BaseModel, HttpUrl, ConfigDict, Field
 
 
 class Article(BaseModel):
@@ -9,7 +9,7 @@ class Article(BaseModel):
     title: str
     description: str
     source: str
-    categories: list[str] | None = None
+    categories: list[str] = Field(default_factory=list)
 
     @property
     def full_description(self):
@@ -21,8 +21,8 @@ class ArticleResponse(BaseModel):
 
     id: int
     url: str
-    published_at: datetime | None
-    title: str | None
-    description: str | None
-    source: str | None
-    categories: list[str] | None
+    published_at: datetime
+    title: str
+    description: str
+    source: str
+    categories: list[str] = Field(default_factory=list)
