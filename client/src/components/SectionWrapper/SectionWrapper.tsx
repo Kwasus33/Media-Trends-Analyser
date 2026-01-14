@@ -14,7 +14,7 @@ export function SectionWrapper({
   className = '',
 }: Props) {
   return (
-    <section className="w-full rounded-2xl border border-gray-800 bg-gray-900/20 p-6 md:p-8">
+    <section className="w-full rounded-2xl border border-gray-800 bg-gray-900/20 px-4 py-5 sm:p-8">
       <div className="flex items-center gap-3 mb-6 border-b border-gray-800 pb-4">
         {icon && (
           <div className="p-2 bg-gray-800 rounded-lg text-white">{icon}</div>

@@ -61,7 +61,7 @@ function TrendGroup({
 }) {
   return (
     <div
-      className={`flex flex-col gap-4 p-6 rounded-xl border ${bgClass} transition-all hover:bg-opacity-30`}
+      className={`flex flex-col gap-4 p-4 sm:p-6 rounded-xl border ${bgClass} transition-all hover:bg-opacity-30`}
     >
       <div
         className={`flex items-center gap-2 font-bold text-lg ${colorClass}`}

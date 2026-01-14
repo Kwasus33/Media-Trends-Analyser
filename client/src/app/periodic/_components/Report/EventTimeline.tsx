@@ -70,7 +70,7 @@ export function EventTimeline({ timeline, isExport }: EventTimelineProps) {
         {sortedDates.length > 1 && (
           <div
             ref={scrollRef}
-            className="flex items-start justify-start p-4 overflow-x-auto custom-scrollbar scroll-smooth"
+            className="flex items-start justify-start px-0 py-4 sm:p-4 overflow-x-auto custom-scrollbar scroll-smooth"
           >
             {sortedDates.map((date, index) => {
               let delay = 0;
@@ -149,7 +149,7 @@ function TimelineNode({
       </button>
 
       {!isLast && (
-        <div className="w-32 h-0.5 relative -mx-8 z-0 mt-1.75">
+        <div className="w-20 sm:w-32 h-0.5 relative -mx-8 z-0 mt-1.75">
           <div className="absolute inset-0 bg-gray-800 rounded-full" />
 
           <div
@@ -169,15 +169,15 @@ function TimelineNode({
 
 function TimelineContent({ date, content }: TimelineContentProps) {
   return (
-    <Box className="w-full bg-black/20 border border-white/5 p-6 rounded-xl relative overflow-hidden">
-      <div className="absolute top-0 right-0 p-4 opacity-5">
+    <Box className="w-full bg-black/20 border border-white/5 px-2 py-6 sm:p-6 rounded-xl relative overflow-hidden">
+      <div className="absolute top-0 right-0 p-4 opacity-5 hidden md:block">
         <CalendarClock className="w-32 h-32" />
       </div>
 
       <div className="relative z-10">
         <h4
           suppressHydrationWarning
-          className="text-xl font-bold text-sky-400 mb-4 flex items-center gap-2"
+          className="text-xl font-bold text-sky-400 mb-4 px-1 flex items-center gap-2"
         >
           {new Date(date).toLocaleDateString('en-GB', {
             weekday: 'long',
@@ -191,7 +191,7 @@ function TimelineContent({ date, content }: TimelineContentProps) {
           {content.split(';').map((sentence, index) => (
             <li
               key={index}
-              className="flex gap-3 text-gray-300 text-base leading-relaxed items-start"
+              className="flex gap-1 sm:gap-3 text-gray-300 text-base leading-relaxed items-start"
             >
               <ChevronRight className="w-5 h-5 mt-0.5 shrink-0 text-sky-500/50" />
               <span>{sentence.trim()}</span>

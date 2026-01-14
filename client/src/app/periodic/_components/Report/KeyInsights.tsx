@@ -15,9 +15,9 @@ export function KeyInsights({ insights }: KeyInsightsProps) {
         {insights.map((insight, index) => (
           <div
             key={index}
-            className="group flex gap-4 items-start p-4 rounded-xl bg-black/40 border border-gray-800 hover:border-yellow-500/30 hover:bg-yellow-500/5 transition-all duration-300"
+            className="group flex flex-col sm:flex-row gap-4 items-center sm:items-start p-4 rounded-xl bg-black/40 border border-gray-800 hover:border-yellow-500/30 hover:bg-yellow-500/5 transition-all duration-300"
           >
-            <span className="shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-gray-800 text-yellow-500 font-mono text-sm border border-gray-700 group-hover:border-yellow-500/50 transition-colors">
+            <span className="shrink-0 flex items-center justify-center w-16 sm:w-8 h-8 rounded-lg bg-gray-800 text-yellow-500 font-mono text-sm border border-gray-700 group-hover:border-yellow-500/50 transition-colors">
               {index + 1}
             </span>
 

@@ -131,7 +131,7 @@ export function ControlPanel({ children }: ControlPanelProps) {
 
   return (
     <>
-      <Box className="flex flex-col gap-5 mb-8 max-w-5xl mx-auto p-6 pb-8">
+      <Box className="flex flex-col gap-5 mb-8 max-w-5xl mx-auto p-3 sm:p-6 pb-8">
         <div className="flex flex-col gap-3 items-center">
           <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
             Sources
