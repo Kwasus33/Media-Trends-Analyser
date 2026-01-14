@@ -8,6 +8,8 @@ type TextExpanderProps = {
   collapsedHeight?: number;
   className?: string;
   buttonColor?: string;
+  buttonClassName?: string;
+  fadeHeight?: number;
 };
 
 export function TextExpander({
@@ -15,6 +17,8 @@ export function TextExpander({
   collapsedHeight = 200,
   className = '',
   buttonColor = 'text-indigo-400',
+  buttonClassName = 'bg-black/20 backdrop-blur-md hover:bg-black/40',
+  fadeHeight = 110,
 }: TextExpanderProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showButton, setShowButton] = useState(false);
@@ -23,42 +27,54 @@ export function TextExpander({
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (contentRef.current) {
-      const scrollHeight = contentRef.current.scrollHeight;
+    const measure = () => {
+      if (contentRef.current) {
+        const scrollHeight = contentRef.current.scrollHeight;
+        setFullHeight(scrollHeight);
+        setShowButton(scrollHeight > collapsedHeight);
+      }
+    };
 
-      setFullHeight(scrollHeight);
-      setShowButton(scrollHeight > collapsedHeight);
-    }
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
   }, [children, collapsedHeight]);
+
+  const fadeStart = Math.max(0, collapsedHeight - fadeHeight);
+
+  const maskStyle =
+    !isExpanded && showButton
+      ? {
+          maskImage: `linear-gradient(to bottom, black ${fadeStart}px, transparent ${collapsedHeight}px)`,
+          WebkitMaskImage: `linear-gradient(to bottom, black ${fadeStart}px, transparent ${collapsedHeight}px)`,
+        }
+      : {};
 
   return (
     <div className={`relative flex flex-col ${className}`}>
       <div
-        ref={contentRef}
-        className="relative overflow-hidden transition-[height] duration-500 ease-in-out"
+        className="relative overflow-hidden transition-[max-height] duration-500 ease-in-out"
         style={{
-          height: isExpanded ? fullHeight : collapsedHeight,
+          maxHeight: isExpanded ? fullHeight : collapsedHeight,
         }}
       >
-        {children}
+        <div ref={contentRef} style={maskStyle}>
+          {children}
+        </div>
 
         {!isExpanded && showButton && (
-          <>
-            <div className="absolute bottom-0 left-0 w-full h-16 bg-linear-to-t from-slate-950 via-slate-950/75 to-transparent pointer-events-none" />
-
-            <div className="absolute bottom-2 left-0 w-full flex justify-center z-10">
-              <button
-                onClick={() => setIsExpanded(true)}
-                className={`
-                  flex items-center gap-1 text-sm font-medium hover:underline focus:outline-none
-                  bg-slate-950/50 px-3 py-1 rounded-full backdrop-blur-sm transition-all hover:bg-slate-900/80
-                  ${buttonColor}
-                `}
-              >
-                Read More <ChevronDown className="w-4 h-4" />
-              </button>
-            </div>
-          </>
+          <div className="absolute bottom-2 left-0 w-full flex justify-center z-10">
+            <button
+              onClick={() => setIsExpanded(true)}
+              className={`
+                flex items-center gap-1 text-sm font-medium hover:underline focus:outline-none
+                px-3 py-1 rounded-full transition-all shadow-lg
+                ${buttonClassName} ${buttonColor}
+              `}
+            >
+              Read More <ChevronDown className="w-4 h-4" />
+            </button>
+          </div>
         )}
       </div>
 
