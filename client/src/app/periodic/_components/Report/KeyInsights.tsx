@@ -6,13 +6,19 @@ type KeyInsightsProps = {
 };
 
 export function KeyInsights({ insights }: KeyInsightsProps) {
+  if (insights.length === 0) return null;
+
+  const filteredInsights = insights.filter(
+    (insight) => insight.trim().length > 0
+  );
+
   return (
     <SectionWrapper
       title="Key Insights"
       icon={<Lightbulb className="w-5 h-5 text-yellow-400" />}
     >
       <div className="flex flex-col gap-4 text-left">
-        {insights.map((insight, index) => (
+        {filteredInsights.map((insight, index) => (
           <div
             key={index}
             className="group flex flex-col sm:flex-row gap-4 items-center sm:items-start p-4 rounded-xl bg-black/40 border border-gray-800 hover:border-yellow-500/30 hover:bg-yellow-500/5 transition-all duration-300"

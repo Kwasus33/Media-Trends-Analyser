@@ -91,16 +91,18 @@ export function Report({
         />
       </div>
 
-      <SectionWrapper
-        title="Executive Summary"
-        icon={<FileText className="w-5 h-5 text-blue-400" />}
-      >
-        <TextExpander>
-          <p className="text-gray-300 leading-relaxed text-start text-lg">
-            {data.main_summary}
-          </p>
-        </TextExpander>
-      </SectionWrapper>
+      {data.main_summary && (
+        <SectionWrapper
+          title="Executive Summary"
+          icon={<FileText className="w-5 h-5 text-blue-400" />}
+        >
+          <TextExpander>
+            <p className="text-gray-300 leading-relaxed text-start text-lg">
+              {data.main_summary}
+            </p>
+          </TextExpander>
+        </SectionWrapper>
+      )}
     </Box>
   );
 }

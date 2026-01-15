@@ -71,28 +71,32 @@ export function Charts({
         </div>
       </div>
 
-      <div className="w-full h-px bg-gray-800 print:hidden" />
+      {trendData.length !== 0 && (
+        <>
+          <div className="w-full h-px bg-gray-800 print:hidden" />
 
-      <div className="flex flex-col gap-6 print:gap-4">
-        <div className="flex flex-col gap-1 text-left">
-          <div className="flex items-center gap-2 text-white font-bold text-xl">
-            <Activity className="w-5 h-5 text-sky-400" />
-            <h3>Timeline Evolution</h3>
+          <div className="flex flex-col gap-6 print:gap-4">
+            <div className="flex flex-col gap-1 text-left">
+              <div className="flex items-center gap-2 text-white font-bold text-xl">
+                <Activity className="w-5 h-5 text-sky-400" />
+                <h3>Timeline Evolution</h3>
+              </div>
+              <p className="text-gray-400 text-sm">
+                Tracking the intensity of mentions over the selected period (
+                {startDate} to {endDate}).
+              </p>
+            </div>
+
+            <div className="w-full bg-black/20 rounded-xl border border-white/5 p-4">
+              <CategoryTrendChart
+                data={trendData}
+                categories={categoryNames}
+                isExport={isExport}
+              />
+            </div>
           </div>
-          <p className="text-gray-400 text-sm">
-            Tracking the intensity of mentions over the selected period (
-            {startDate} to {endDate}).
-          </p>
-        </div>
-
-        <div className="w-full bg-black/20 rounded-xl border border-white/5 p-4">
-          <CategoryTrendChart
-            data={trendData}
-            categories={categoryNames}
-            isExport={isExport}
-          />
-        </div>
-      </div>
+        </>
+      )}
     </SectionWrapper>
   );
 }
