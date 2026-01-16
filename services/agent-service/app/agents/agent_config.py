@@ -14,7 +14,7 @@ class AgentSettings(BaseSettings):
         "TVN24",
         "Interia",
         "GazetaWyborcza",
-        "Reddit",
+        "BusinessInsider",
         "BBC",
         "New York Times",
     ]
