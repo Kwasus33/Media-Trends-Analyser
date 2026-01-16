@@ -20,9 +20,9 @@ import { LoadingState } from '@/components/LoadingState';
 
 const MIN_DATA_DATE = '2026-01-01';
 
-const categoriesList = Object.keys(CATEGORIES).filter(
-  (category) => category !== 'default'
-);
+const categoriesList = Object.keys(CATEGORIES)
+  .filter((category) => category !== 'default')
+  .sort();
 
 const getToday = () => getISODate(new Date());
 
