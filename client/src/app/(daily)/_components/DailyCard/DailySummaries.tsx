@@ -56,6 +56,8 @@ export function DailySourceGrid({
   data,
   currentCategory,
 }: DailySourceGridProps) {
+  if (!data.summaries || data.categories) return null;
+
   const activeSources: Source[] = [];
   const silentSources: Source[] = [];
 
@@ -75,8 +77,8 @@ export function DailySourceGrid({
       {activeSources.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {activeSources.map((source) => {
-            const summaryText = data.summaries[source][currentCategory];
-            const sourceCounts = data.categories[source];
+            const summaryText = data.summaries![source][currentCategory];
+            const sourceCounts = data.categories![source];
 
             return (
               <SourceCard
