@@ -5,8 +5,9 @@ type SourceCategoryData<T> = Record<Source, Record<Category, T>>;
 
 export type DailyReport = {
   date: string;
-  summaries: SourceCategoryData<string>;
-  categories: SourceCategoryData<number>;
+  has_data: boolean;
+  summaries?: SourceCategoryData<string>;
+  categories?: SourceCategoryData<number>;
 };
 
 export type TopCategory = {
