@@ -74,6 +74,7 @@ export function SourceCard({
           collapsedHeight={isDesktop ? 240 : 180}
           buttonColor={style.color}
           buttonClassName="bg-black/20 backdrop-blur-md hover:bg-black/40 shadow-lg"
+          className="grow"
         >
           <p className="text-gray-300 leading-relaxed text-sm md:text-base">
             {text}

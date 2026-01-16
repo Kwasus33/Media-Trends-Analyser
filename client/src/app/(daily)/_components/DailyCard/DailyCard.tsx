@@ -44,6 +44,7 @@ export function DailyCard({ data, isOpenByDefault = false }: DailyCardProps) {
     const total = Object.values(totals).reduce((a, b) => a + b, 0);
 
     const sorted = Object.entries(totals)
+      .filter(([, count]) => count !== 0)
       .sort(([, a], [, b]) => b - a)
       .map(([category, count]) => ({
         category,
