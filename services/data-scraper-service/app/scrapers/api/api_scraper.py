@@ -1,9 +1,9 @@
 from app.scrapers.base_scraper import BaseScraper, save_scrapers
 from app.schemas.articles import ArticleCreate
+from app.utils.parser import parse_text
 
 from abc import abstractmethod
 from datetime import datetime
-
 import requests
 
 
@@ -23,8 +23,9 @@ class ApiScraper(BaseScraper):
 
         try:
             response = requests.get(temp_url)
-            # response.raise_for_status()
+            response.raise_for_status()
             response = response.json()
+
         except requests.RequestException as e:
             raise Exception(f"Request failed for {temp_url}: {e}") from e
         except ValueError as e:
@@ -42,46 +43,71 @@ class ApiScraper(BaseScraper):
 
 @save_scrapers
 class NYTScrapper(ApiScraper):
-
     def _extract_data(self, response):
         data = []
         for result in response["results"]:
             try:
+                title = result["title"]
+                title = parse_text(title)
+
+                description = result["abstract"]
+                description = parse_text(description)
+
+                url = result.get("url", None)
+                categories = result.get("des_facet", []) + result.get("org_facet", [])
+
+                if not description or not url:
+                    continue
+
                 article = ArticleCreate.create(
-                    title=result["title"],
-                    description=result["abstract"],
-                    url=result["url"],
+                    title=title,
+                    description=description,
+                    url=url,
                     published_at=datetime.now(),
                     source=self.source_name,
-                    categories=result["des_facet"] + result["org_facet"],
+                    categories=categories,
                 )
+
                 if article:
                     data.append(article)
+
             # will be better specified later
             except Exception:
                 pass
+
         return data
 
 
 @save_scrapers
 class BBCScraper(ApiScraper):
-
     def _extract_data(self, response):
         data = []
         for key, values in response.items():
             if isinstance(values, list):
                 for value in values:
                     try:
+                        title = value["title"]
+                        title = parse_text(title)
+
+                        description = value["summary"]
+                        description = parse_text(description)
+
+                        url = value.get("news_link", None)
+
+                        if not description or not url:
+                            continue
+
                         article = ArticleCreate.create(
-                            title=value["title"],
-                            description=value["summary"],
-                            url=value["news_link"],
+                            title=title,
+                            description=description,
+                            url=url,
                             published_at=datetime.now(),
                             source=self.source_name,
                             categories=[key],
                         )
                         if article:
                             data.append(article)
+
                     # will be better specified later
                     except Exception:
                         pass
