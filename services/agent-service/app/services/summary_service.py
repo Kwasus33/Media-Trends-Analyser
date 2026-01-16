@@ -238,7 +238,7 @@ def get_periodic_summary(
     return periodic_summary
 
 
-def get_recent_daily_summaries(db: Session) -> list[DailySummaryResponse]:
+def get_recent_daily_summaries(db: Session) -> list[dict]:
     end_date = date.today() - timedelta(days=1)
     start_date = end_date - timedelta(days=6)
 
@@ -249,21 +249,29 @@ def get_recent_daily_summaries(db: Session) -> list[DailySummaryResponse]:
         .all()
     )
 
-    if not summaries:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="No daily summaries found for the last 7 days",
-        )
-
-    for s in summaries:
-        s.id = s.summary_id
+    summaries_by_date = {s.date: s for s in summaries}
 
     result = []
-    for s in summaries:
-        summary_response = DailySummaryResponse.model_validate(s)
-        summary_response.categories = convert_categories_to_percentages(
-            summary_response.categories
-        )
-        result.append(summary_response)
+    current_date = end_date
+
+    while current_date >= start_date:
+        if current_date in summaries_by_date:
+            s = summaries_by_date[current_date]
+            categories = convert_categories_to_percentages(s.categories)
+            result.append({
+                "date": current_date.isoformat(),
+                "has_data": True,
+                "summaries": s.summaries,
+                "categories": categories,
+            })
+        else:
+            result.append({
+                "date": current_date.isoformat(),
+                "has_data": False,
+                "summaries": {},
+                "categories": {},
+            })
+
+        current_date -= timedelta(days=1)
 
     return result

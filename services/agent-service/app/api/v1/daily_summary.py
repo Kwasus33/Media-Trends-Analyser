@@ -20,7 +20,7 @@ def get_daily_summary(
 
 @router.get(
     "/recent",
-    response_model=list[DailySummaryResponse],
+    response_model=list[dict],
     status_code=status.HTTP_200_OK,
 )
 def get_recent_daily_summaries(
