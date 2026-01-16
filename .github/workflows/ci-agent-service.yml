@@ -15,12 +15,18 @@ env:
 jobs:
   run_ci:
     runs-on: self-hosted
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+        env:
+          db_url: ${{ secrets.DATABASE_URL }}
+          gemini_key: ${{ secrets.GOOGLE_API_KEY }}
 
       - name: Install Project Dependencies
         working-directory: ${{ env.SERVICE_DIR }}
