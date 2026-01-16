@@ -4,7 +4,6 @@ from datetime import date
 
 from app.database.database import get_db
 from app.schemas import DailySummaryResponse
-from app.models import ViewDailySummary
 from app.services import summary_service
 
 router = APIRouter(prefix="/daily_summary")
