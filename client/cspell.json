@@ -12,5 +12,5 @@
     "src/data/**"
   ],
   //List of words to be considered correct:
-  "words": ["SIAIdziwAIk"]
+  "words": ["SIAIdziwAIk", "couldn"]
 }
