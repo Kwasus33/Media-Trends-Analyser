@@ -12,4 +12,4 @@ def parse_text(text: str | None = "") -> str:
     """
     if not text:
         return ""
-    return re.sub(pattern="<[^>]+.*?>", repl="", string=text)
+    return re.sub(pattern="<(?!!)[^>]+.*?>", repl="", string=text)

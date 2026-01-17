@@ -32,14 +32,25 @@ class RssScraper(BaseScraper):
             description = parse_text(description)
             url = item.find(".//link").text
 
-            if not description or not url:
+            if not title or not description or not url:
+                continue
+
+            date = item.find(".//pubDate").text
+            try:
+                published_date = (
+                    datetime.strptime(date, "%a, %d %b %Y %H:%M:%S %Z")
+                    if date
+                    else datetime.now()
+                )
+            except Exception as e:
+                print(f"Error parsing article publishing date - {e}")
                 continue
 
             article = ArticleCreate.create(
                 title=title,
                 description=description,
                 url=url,
-                published_at=datetime.now(),
+                published_at=published_date,
                 source=self.source_name,
                 categories=[
                     category.text
