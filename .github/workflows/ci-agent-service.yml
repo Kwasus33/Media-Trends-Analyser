@@ -38,7 +38,7 @@ jobs:
           source .venv/bin/activate
           uv add ruff pytest
           uv sync
-        
+
       - name: Run Linter
         working-directory: ${{ env.SERVICE_DIR }}
         run: uv run ruff check app/
@@ -46,6 +46,12 @@ jobs:
       - name: Run formatter
         working-directory: ${{ env.SERVICE_DIR }}
         run: uv run ruff format app/
+
+      - name: Create .env file from Secrets
+        working-directory: ${{ env.SERVICE_DIR }}
+        run: |
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+          echo "GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}" >> .env
 
       - name: Run Unit Tests
         working-directory: ${{ env.SERVICE_DIR }}
