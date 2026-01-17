@@ -1,6 +1,6 @@
 import asyncio
 import logging
-from typing import Any, Optional
+from typing import Any
 from datetime import datetime, date
 from app.schemas.task_status import TaskStatus
 from sqlalchemy.orm import Session
@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 tasks: dict[str, dict[str, Any]] = {}
 TASK_TTL_SECONDS = 3600
-cleanup_task: Optional[asyncio.Task] = None
+cleanup_task: asyncio.Task | None = None
 
 
 def create_task(task_id: str) -> None:

@@ -12,5 +12,5 @@ class TaskStatus(str, Enum):
 class TaskStatusResponse(BaseModel):
     task_id: str
     status: TaskStatus
-    result: dict | None
-    error: dict | None
+    result: dict | None = None
+    error: dict | None = None
