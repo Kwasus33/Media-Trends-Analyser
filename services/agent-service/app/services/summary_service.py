@@ -215,8 +215,8 @@ def fill_dates_in_events(
     end_date: date,
 ) -> dict[str, str]:
     normalized = {
-        k.isoformat() if isinstance(k, date) else k: v
-        for k, v in event_timeline.items()
+        key.isoformat() if isinstance(key, date) else key: val
+        for key, val in event_timeline.items()
     }
 
     result = {}
