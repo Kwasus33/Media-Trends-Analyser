@@ -29,7 +29,7 @@ services:
       - ./services/data-scraper-service/uv.lock:/src/uv.lock
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.scrapers-v1.rule=PathPrefix(`/scrapers/api/v1`) && Header(`API-Key`, `${VM_SECRET}`)"
+      - "traefik.http.routers.scrapers-v1.rule=PathPrefix(`/scrapers/api/v1`) && (Header(`api-key`, `${VM_SECRET}`) || Host(`localhost`))"
       - "traefik.http.routers.scrapers-v1.entrypoints=web"
 
       - "traefik.http.middlewares.scrapers-v1-strip.stripprefix.prefixes=/scrapers/api/v1"
@@ -52,7 +52,7 @@ services:
       - ./services/agent-service/uv.lock:/src/uv.lock
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.llmagent-v1.rule=PathPrefix(`/agent/api/v1`) && Header(`API-Key`, `${VM_SECRET}`)"
+      - "traefik.http.routers.llmagent-v1.rule=PathPrefix(`/agent/api/v1`) && (Header(`api-key`, `${VM_SECRET}`) || Host(`localhost`))"
       - "traefik.http.routers.llmagent-v1.entrypoints=web"
 
       - "traefik.http.middlewares.llmagent-v1-strip.stripprefix.prefixes=/agent/api/v1"
