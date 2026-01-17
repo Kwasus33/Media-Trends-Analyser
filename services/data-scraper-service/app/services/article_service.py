@@ -2,7 +2,6 @@ from app.scrapers import API_SCRAPERS
 from app.core.config import CONTEXT
 
 from dotenv import load_dotenv
-import random
 import os
 
 load_dotenv()
