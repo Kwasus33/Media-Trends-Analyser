@@ -13,8 +13,6 @@ class AgentSettings(BaseSettings):
     sources: list[str] = [
         "TVN24",
         "Interia",
-        "GazetaWyborcza",
-        "BusinessInsider",
         "BBC",
-        "New York Times",
+        "NewYorkTimes",
     ]
