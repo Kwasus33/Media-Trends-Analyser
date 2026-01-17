@@ -4,7 +4,7 @@ import pytest
 from app.models.articles import ArticleDB
 from app.schemas.articles import ArticleCreate
 from app.services.db_service import DatabaseService
-from sqlalchemy import DateTime, create_engine
+from sqlalchemy import create_engine
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.ext.compiler import compiles
 from sqlalchemy.orm import sessionmaker
@@ -14,11 +14,6 @@ from sqlalchemy.orm import sessionmaker
 @compiles(JSONB, "sqlite")
 def compile_jsonb_sqlite(type_, compiler, **kw):
     return "JSON"
-
-
-@compiles(DateTime, "sqlite")
-def compile_datetime_sqlite(type_, compiler, **kw):
-    return "DATETIME"
 
 
 # --- FIXTURES ---
