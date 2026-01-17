@@ -37,8 +37,9 @@ class RssScraper(BaseScraper):
 
             date = item.find(".//pubDate").text
             try:
+                date = date.replace("GMT", "+0000")
                 published_date = (
-                    datetime.strptime(date, "%a, %d %b %Y %H:%M:%S %Z")
+                    datetime.strptime(date, "%a, %d %b %Y %H:%M:%S %z")
                     if date
                     else datetime.now()
                 )
