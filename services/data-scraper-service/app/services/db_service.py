@@ -1,8 +1,8 @@
-from app.schemas.articles import ArticleCreate
-from app.models.articles import ArticleDB
-
-from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import Session
+
+from app.models.articles import ArticleDB
+from app.schemas.articles import ArticleCreate
 
 
 class DatabaseService:
@@ -33,7 +33,10 @@ class DatabaseService:
                 skipped_count += 1
                 continue
 
-            article_data = article.model_dump(mode="json", exclude_none=True)
+            article_data = article.model_dump(exclude_none=True)
+
+            article_data["url"] = str(article_data["url"])
+
             article_db = ArticleDB(**article_data)
             db.add(article_db)
             saved_count += 1
