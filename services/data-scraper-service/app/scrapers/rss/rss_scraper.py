@@ -9,11 +9,11 @@ import requests
 
 @save_scrapers
 class RssScraper(BaseScraper):
-    def collect_data(self, category: str | None = None) -> list:
+    def collect_data(self, category: str | None = None) -> list[ArticleCreate]:
         """
         ...
         """
-        data = []
+        data: list[ArticleCreate] = []
         temp_url = self.url % category if category else self.url
 
         try:

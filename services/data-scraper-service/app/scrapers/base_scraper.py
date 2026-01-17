@@ -1,4 +1,7 @@
+from app.schemas.articles import ArticleCreate
+
 from abc import ABC, abstractmethod
+
 
 API_SCRAPERS = {}
 
@@ -14,4 +17,4 @@ class BaseScraper(ABC):
         self.source_name = source_name
 
     @abstractmethod
-    def collect_data(self): ...
+    def collect_data(self) -> list[ArticleCreate]: ...

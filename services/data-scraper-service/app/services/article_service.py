@@ -1,6 +1,9 @@
 from app.scrapers import API_SCRAPERS
 from app.core.config import CONTEXT
 
+from app.scrapers.base_scraper import BaseScraper
+from app.schemas.articles import ArticleCreate
+
 from dotenv import load_dotenv
 import os
 
@@ -17,7 +20,9 @@ class ScraperService(object):
             cls.instance = super(ScraperService, cls).__new__(cls)
         return cls.instance
 
-    def fetch_articles(self, source: str, category: str | None = None):
+    def fetch_articles(
+        self, source: str, category: str | None = None
+    ) -> list[ArticleCreate]:
         """
         Fetch_articles gets all articles from given source of 'category' (if specified else all available)
 
@@ -36,21 +41,23 @@ class ScraperService(object):
         scraper = API_SCRAPERS[scraper_type]
         api_key = os.getenv(api_key_name)
         source_name = source_name if source_name else "Unknown"
-        scraper = (
+        scraper: BaseScraper = (
             scraper(base_url, source_name, api_key)
             if api_key
             else scraper(base_url, source_name)
         )
 
         if not category and available_categories:
-            scraped_articles = []
+            scraped_articles: list[ArticleCreate] = []
             for category in available_categories:
                 scraped_articles += scraper.collect_data(category)
             return scraped_articles
 
         return scraper.collect_data(category)
 
-    def fetch_all_articles(self, limit_per_source: int | None = None):
+    def fetch_all_articles(
+        self, limit_per_source: int | None = None
+    ) -> list[ArticleCreate]:
         """
         Fetch_articles gets all articles from all sources and categories (if specified)
         defined in `core/config.json` file
@@ -60,7 +67,7 @@ class ScraperService(object):
         :returns: ...
         :rtype: list[ArticleCreate]
         """
-        data = []
+        data: list[ArticleCreate] = []
 
         for source in CONTEXT:
             (
@@ -79,24 +86,28 @@ class ScraperService(object):
                 if api_key
                 else scraper(base_url, source_name)
             )
-
-            if available_categories:
-                for category in available_categories:
+            try:
+                if available_categories:
+                    for category in available_categories:
+                        data += (
+                            scraper.collect_data(category)[:limit_per_source]
+                            if limit_per_source
+                            else scraper.collect_data(category)
+                        )
+                else:
                     data += (
-                        scraper.collect_data(category)[:limit_per_source]
+                        scraper.collect_data()[:limit_per_source]
                         if limit_per_source
-                        else scraper.collect_data(category)
+                        else scraper.collect_data()
                     )
-            else:
-                data += (
-                    scraper.collect_data()[:limit_per_source]
-                    if limit_per_source
-                    else scraper.collect_data()
-                )
+            except Exception as e:
+                print(f"Data source '{source_name}' is not responding - error: {e}")
 
         return data
 
-    def _validate_configuration(self, source: str, category: str | None = None):
+    def _validate_configuration(
+        self, source: str, category: str | None = None
+    ) -> tuple:
         """
         Docstring for _validate_configuration
 

@@ -6,7 +6,7 @@ from sqlalchemy.exc import IntegrityError
 
 
 class DatabaseService:
-    def save_articles(self, articles: list[ArticleCreate], db: Session):
+    def save_articles(self, articles: list[ArticleCreate], db: Session) -> dict:
         """
         Allows to save scraped articles in database
 

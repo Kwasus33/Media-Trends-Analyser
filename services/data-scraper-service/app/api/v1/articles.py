@@ -17,7 +17,9 @@ router = APIRouter(prefix="/articles", responses={404: {"description": "Not foun
 
 
 @router.get("/all")
-async def get_all_articles(limit: int | None = Query(default=None, ge=1)):
+async def get_all_articles(
+    limit: int | None = Query(default=None, ge=1),
+) -> list[ArticleCreate]:
     """
     Gets all available articles from online sources like APIs and RSS feeds
     """
@@ -30,7 +32,7 @@ async def get_all_articles(limit: int | None = Query(default=None, ge=1)):
 
 @router.get("/{source}")
 @router.get("/{source}/{category}")
-async def get_articles(source: str, category: str | None = None):
+async def get_articles(source: str, category: str | None = None) -> list[ArticleCreate]:
     """
     Gets latest available articles from online sources like APIs and RSS feeds
 
@@ -43,7 +45,9 @@ async def get_articles(source: str, category: str | None = None):
 
 
 @router.post("/articles")
-def save_article_in_db(articles: list[ArticleCreate], db: Session = Depends(get_db)):
+def save_article_in_db(
+    articles: list[ArticleCreate], db: Session = Depends(get_db)
+) -> dict:
     """
     Add articles to the Postgres database.
     """
