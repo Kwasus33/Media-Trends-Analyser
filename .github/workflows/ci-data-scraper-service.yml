@@ -4,7 +4,11 @@ on:
   push:
     branches-ignore:
       - main
+      - integration
       - develop
+      - dev_ops
+      - architecture
+      - frontend*
     paths:
       - 'services/data-scraper-service/**'
       - '.github/workflows/ci-data-scraper-service.yml'
@@ -15,6 +19,9 @@ env:
 jobs:
   run_ci:
     runs-on: self-hosted
+    environment: CI-env
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -30,10 +37,10 @@ jobs:
           source .venv/bin/activate
           uv add ruff pytest
           uv sync
-        
+
       - name: Run Linter
         working-directory: ${{ env.SERVICE_DIR }}
-        run: uv run ruff check app/
+        run: uv run ruff check --fix app/
 
       - name: Run formatter
         working-directory: ${{ env.SERVICE_DIR }}
