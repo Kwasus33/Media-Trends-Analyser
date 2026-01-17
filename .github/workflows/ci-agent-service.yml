@@ -47,4 +47,7 @@ jobs:
 
       - name: Run Unit Tests
         working-directory: ${{ env.SERVICE_DIR }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: uv run pytest tests/*
