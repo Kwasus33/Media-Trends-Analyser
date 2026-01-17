@@ -1,6 +1,6 @@
 services:
   traefik:
-    image: "traefik:v3.4"
+    image: "traefik:v3.6"
     container_name: "traefik"
     restart: unless-stopped
     security_opt:
@@ -28,14 +28,14 @@ services:
       - ./services/data-scraper-service/pyproject.toml:/src/pyproject.toml
       - ./services/data-scraper-service/uv.lock:/src/uv.lock
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.scrapers-v1.rule=PathPrefix(`/scrapers/api/v1`) && (Header(`api-key`, `${VM_SECRET}`) || Host(`localhost`))"
-      - "traefik.http.routers.scrapers-v1.entrypoints=web"
+      traefik.enable: "true"
+      traefik.http.routers.scrapers-v1.rule: "PathPrefix(`/scrapers/api/v1`) && Header(`api-key`, `${VM_SECRET}`)"
+      traefik.http.routers.scrapers-v1.entrypoints: "web"
 
-      - "traefik.http.middlewares.scrapers-v1-strip.stripprefix.prefixes=/scrapers/api/v1"
-      - "traefik.http.routers.scrapers-v1.middlewares=scrapers-v1-strip"
+      traefik.http.middlewares.scrapers-v1-strip.stripprefix.prefixes: "/scrapers/api/v1"
+      traefik.http.routers.scrapers-v1.middlewares: "scrapers-v1-strip"
 
-      - "traefik.http.services.scrapers-svc.loadbalancer.server.port=8082"
+      traefik.http.services.scrapers-svc.loadbalancer.server.port: "8082"
 
   agent-service:
     build: ./services/agent-service
@@ -51,14 +51,14 @@ services:
       - ./services/agent-service/pyproject.toml:/src/pyproject.toml
       - ./services/agent-service/uv.lock:/src/uv.lock
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.llmagent-v1.rule=PathPrefix(`/agent/api/v1`) && (Header(`api-key`, `${VM_SECRET}`) || Host(`localhost`))"
-      - "traefik.http.routers.llmagent-v1.entrypoints=web"
+      traefik.enable: "true"
+      traefik.http.routers.llmagent-v1.rule: "PathPrefix(`/agent/api/v1`) && Header(`api-key`, `${VM_SECRET}`)"
+      traefik.http.routers.llmagent-v1.entrypoints: "web"
 
-      - "traefik.http.middlewares.llmagent-v1-strip.stripprefix.prefixes=/agent/api/v1"
-      - "traefik.http.routers.llmagent-v1.middlewares=llmagent-v1-strip"
+      traefik.http.middlewares.llmagent-v1-strip.stripprefix.prefixes: "/agent/api/v1"
+      traefik.http.routers.llmagent-v1.middlewares: "llmagent-v1-strip"
 
-      - "traefik.http.services.llmagent-svc.loadbalancer.server.port=8083"
+      traefik.http.services.llmagent-svc.loadbalancer.server.port: "8083"
 
 networks:
   app_network:
