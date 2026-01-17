@@ -71,3 +71,28 @@ def test_get_daily_summary(mock_model, mock_settings):
     assert result.summaries == expected_output["summaries"]
     assert result.categories["BBC"]["Technology"] == 1
     assert 101 in result.references["BBC"]["Technology"]
+
+
+def test_get_daily_summary_empty(mock_model, mock_settings):
+    agent = SummaryAgent(model=mock_model, settings=mock_settings)
+    test_date = date(2026, 1, 1)
+
+    expected_output = {"summaries": {}, "categories": {}, "references": {}}
+
+    mock_final_chain = MagicMock()
+    mock_final_chain.invoke.return_value = expected_output
+
+    with patch(
+        "app.agents.summary_agent.SummaryAgent.daily_summary_prompt",
+        new_callable=PropertyMock,
+    ) as mock_prompt_property:
+        mock_prompt_obj = MagicMock()
+        mock_prompt_property.return_value = mock_prompt_obj
+
+        mock_prompt_obj.__or__.return_value = mock_model
+        mock_model.__or__.return_value = mock_final_chain
+
+        result = agent.get_daily_summary([], test_date)
+
+    assert result.date == test_date
+    assert result.summaries == {}
