@@ -66,3 +66,14 @@ def test_save_articles_api_validation_error(override_db):
     response = client.post("/articles/articles", json=payload)
 
     assert response.status_code == 422
+
+
+def test_get_articles_by_source_and_category(override_db):
+    with patch("app.api.v1.articles.scraper_service.fetch_articles") as mock_fetch:
+        mock_fetch.return_value = [{"title": "Filtered Article"}]
+
+        response = client.get("/articles/RSS/Technology")
+
+        assert response.status_code == 200
+        assert response.json() == [{"title": "Filtered Article"}]
+        mock_fetch.assert_called_once_with("RSS", "Technology")
