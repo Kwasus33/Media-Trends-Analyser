@@ -29,6 +29,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+        env:
+          db_url: ${{ secrets.DATABASE_URL }}
+          gemini_key: ${{ secrets.GOOGLE_API_KEY }}
 
       - name: Install Project Dependencies
         working-directory: ${{ env.SERVICE_DIR }}
