@@ -1,10 +1,23 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from contextlib import asynccontextmanager
 from app.api.v1.daily_summary import router as daily_summary_router
 from app.api.v1.periodic_summary import router as periodic_summary_router
+from app.services.task_service import start_cleanup_task, stop_cleanup_task
+
+@asynccontextmanager
+async def lifespan(app):
+    start_cleanup_task()
+    try:
+        yield
+    finally:
+        stop_cleanup_task()
 
 app = FastAPI(
-    title="Agent Service", root_path="/agent/api/v1", servers=[{"url": "/agent/api/v1"}]
+    title="Agent Service",
+    root_path="/agent/api/v1",
+    servers=[{"url": "/agent/api/v1"}],
+    lifespan=lifespan,
 )
 
 app.include_router(daily_summary_router)
@@ -17,8 +30,8 @@ async def global_exception_handler(request: Request, exc: Exception):
         content={
             "detail": "Internal server error",
             "error": str(exc),
-            "path": request.url.path
-        }
+            "path": request.url.path,
+        },
     )
 
 @app.get("/")
