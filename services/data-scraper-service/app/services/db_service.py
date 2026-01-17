@@ -6,7 +6,7 @@ from app.schemas.articles import ArticleCreate
 
 
 class DatabaseService:
-    def save_articles(self, articles: list[ArticleCreate], db: Session):
+    def save_articles(self, articles: list[ArticleCreate], db: Session) -> dict:
         """
         Allows to save scraped articles in database
 
@@ -33,10 +33,7 @@ class DatabaseService:
                 skipped_count += 1
                 continue
 
-            article_data = article.model_dump(exclude_none=True)
-
-            article_data["url"] = str(article_data["url"])
-
+            article_data = article.model_dump(mode="json", exclude_none=True)
             article_db = ArticleDB(**article_data)
             db.add(article_db)
             saved_count += 1
