@@ -1,4 +1,5 @@
-from unittest.mock import patch
+from datetime import datetime
+from unittest.mock import MagicMock, patch
 
 import pytest
 import requests
@@ -11,7 +12,7 @@ SAMPLE_RSS_XML = """
             <title>ODWAŻNA Roxie Węgiel w nowym, ostrym wydaniu! Pręży się w słonecznym Świebodzinie... Przesadziła? [ZOBACZ ZDJĘCIA]</title>
             <link>http://pudelek.pl/roxie-wegiel-testowy-tytul-html-news</link>
             <description>Fani są w SZOKU. Jaki wpływ będzie to miało na polską technologię? Eksperci pytają: "Czy to jeszcze stylizacja, czy już wołanie o atencję?" [ZDJĘCIA]</description>
-            <pubDate>Sat, 01 Jan 2026 20:20:00 +0100</pubDate>
+            <pubDate>Sat, 01 Jan 2026 20:20:00 GMT</pubDate>
             <category>Skandale</category>
             <author>Pudelek</author>
         </item>
@@ -23,19 +24,52 @@ SAMPLE_RSS_XML = """
 # --- FIXTURES ---
 @pytest.fixture
 def mock_article_create():
-    with patch("app.scrapers.rss.rss_scraper.Article.create") as mock_create:
+    with patch("app.scrapers.rss.rss_scraper.ArticleCreate.create") as mock_create:
         yield mock_create
 
 
 @pytest.fixture
 def rss_scraper():
     instance = RssScraper(
-        url="http://kacpersiemionek.com/rss", source_name="Test Source"
+        url="http://kacpersiemionek.com/rss/%s", source_name="Test Source"
     )
     return instance
 
 
 # --- UNIT TESTS ---
+@patch("app.scrapers.rss.rss_scraper.requests.get")
+def test_collect_data_success(mock_get, rss_scraper, mock_article_create):
+    mock_response = MagicMock()
+    mock_response.content = SAMPLE_RSS_XML.encode("utf-8")
+    mock_get.return_value = mock_response
+
+    mock_article_create.side_effect = lambda **kwargs: kwargs
+
+    results = rss_scraper.collect_data(category="Technology")
+
+    assert len(results) == 1
+
+    article_data = results[0]
+
+    assert (
+        article_data["title"]
+        == "ODWAŻNA Roxie Węgiel w nowym, ostrym wydaniu! Pręży się w słonecznym Świebodzinie... Przesadziła? [ZOBACZ ZDJĘCIA]"
+    )
+    assert (
+        article_data["url"] == "http://pudelek.pl/roxie-wegiel-testowy-tytul-html-news"
+    )
+    assert (
+        article_data["description"]
+        == 'Fani są w SZOKU. Jaki wpływ będzie to miało na polską technologię? Eksperci pytają: "Czy to jeszcze stylizacja, czy już wołanie o atencję?" [ZDJĘCIA]'
+    )
+    assert article_data["source"] == "Test Source"
+
+    assert isinstance(article_data["published_at"], datetime)
+    assert article_data["published_at"].year == 2026
+
+    assert "Technology" in article_data["categories"]
+
+
 @patch("app.scrapers.rss.rss_scraper.requests.get")
 def test_collect_data_request_failure(mock_get, rss_scraper):
     mock_get.side_effect = requests.RequestException("Network error")
