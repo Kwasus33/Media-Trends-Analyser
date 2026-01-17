@@ -41,8 +41,13 @@ export async function fetchDailyReports(): Promise<DailyReport[]> {
       );
     }
 
-    const data = await response.json();
-    return data as DailyReport[];
+    const data = (await response.json()) as DailyReport[];
+
+    data.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+
+    return data;
   } catch (error) {
     console.error('Fetch Daily Reports failed:', error);
     throw error;
