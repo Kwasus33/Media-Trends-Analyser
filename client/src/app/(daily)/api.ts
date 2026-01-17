@@ -1,35 +1,50 @@
-import { getISODate } from '@/utils/dateUtils';
-import mockData from '@/data/daily.json';
 import type { DailyReport } from '@/types/dailyReport';
+import { env } from '@/env';
 
-type DailyFilters = {
-  from?: string;
-  to?: string;
-};
+function getRevalidateTime() {
+  const now = new Date();
+  const target = new Date(now);
 
-const toDate = new Date();
+  target.setHours(1, 0, 0, 0);
 
-const fromDate = new Date();
-fromDate.setDate(fromDate.getDate() - 7);
+  if (now >= target) {
+    target.setDate(target.getDate() + 1);
+  }
 
-const defaultFilters = {
-  from: getISODate(fromDate),
-  to: getISODate(toDate),
-};
-
-export async function fetchDailyReports(
-  filters: DailyFilters = defaultFilters
-) {
-  // Delete in the future
-  if (!filters) return;
-
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  // TODO - API Fetch
-
-  mockData.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  const secondsUntilUpdate = Math.floor(
+    (target.getTime() - now.getTime()) / 1000
   );
 
-  return mockData as DailyReport[];
+  return Math.max(60, secondsUntilUpdate);
+}
+
+export async function fetchDailyReports(): Promise<DailyReport[]> {
+  const url = `${env.API_URL}/agent/api/v1/daily_summary/recent`;
+
+  const revalidateTime = getRevalidateTime();
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      next: {
+        revalidate: revalidateTime,
+      },
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.text();
+      throw new Error(
+        `API Error (${response.status}): ${errorBody || response.statusText}`
+      );
+    }
+
+    const data = await response.json();
+    return data as DailyReport[];
+  } catch (error) {
+    console.error('Fetch Daily Reports failed:', error);
+    throw error;
+  }
 }
