@@ -28,7 +28,7 @@ export async function fetchDailyReports(): Promise<DailyReport[]> {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'API-Key': env.VM_SECRET,
+        'api-key': env.VM_SECRET,
       },
       cache: 'no-store',
       // next: {
