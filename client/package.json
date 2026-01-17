@@ -13,8 +13,8 @@
     "prettier:write": "prettier --write .",
     "spellcheck": "cspell \"**/*.{ts,tsx,md,json}\"",
     "knip": "knip",
-    "test": "cross-env NODE_ENV=test API_URL='http://test' jest --coverage",
-    "test:watch": "cross-env NODE_ENV=test API_URL='http://test' jest --watch",
+    "test": "cross-env NODE_ENV=test API_URL='http://test' VM_SECRET='A' jest --coverage",
+    "test:watch": "cross-env NODE_ENV=test API_URL='http://test' VM_SECRET='A' jest --watch",
     "validate": "npm run type-check && npm run lint && npm run knip && npm run spellcheck && npm run test",
     "check": " npm run prettier:check && npm run validate && npm run build"
   },
