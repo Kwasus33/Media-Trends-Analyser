@@ -4,7 +4,11 @@ on:
   push:
     branches-ignore:
       - main
+      - integration
       - develop
+      - dev_ops
+      - architecture
+      - frontend*
     paths:
       - 'services/agent-service/**'
       - '.github/workflows/ci-agent-service.yml'
@@ -15,6 +19,7 @@ env:
 jobs:
   run_ci:
     runs-on: self-hosted
+    environment: CI-env
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
