@@ -1,27 +1,27 @@
 import type { DailyReport } from '@/types/dailyReport';
 import { env } from '@/env';
 
-function getRevalidateTime() {
-  const now = new Date();
-  const target = new Date(now);
+// function getRevalidateTime() {
+//   const now = new Date();
+//   const target = new Date(now);
 
-  target.setHours(1, 0, 0, 0);
+//   target.setHours(1, 0, 0, 0);
 
-  if (now >= target) {
-    target.setDate(target.getDate() + 1);
-  }
+//   if (now >= target) {
+//     target.setDate(target.getDate() + 1);
+//   }
 
-  const secondsUntilUpdate = Math.floor(
-    (target.getTime() - now.getTime()) / 1000
-  );
+//   const secondsUntilUpdate = Math.floor(
+//     (target.getTime() - now.getTime()) / 1000
+//   );
 
-  return Math.max(60, secondsUntilUpdate);
-}
+//   return Math.max(60, secondsUntilUpdate);
+// }
 
 export async function fetchDailyReports(): Promise<DailyReport[]> {
   const url = `${env.API_URL}/agent/api/v1/daily_summary/recent`;
 
-  const revalidateTime = getRevalidateTime();
+  // const revalidateTime = getRevalidateTime();
 
   try {
     const response = await fetch(url, {
@@ -29,9 +29,10 @@ export async function fetchDailyReports(): Promise<DailyReport[]> {
       headers: {
         'Content-Type': 'application/json',
       },
-      next: {
-        revalidate: revalidateTime,
-      },
+      cache: 'no-store',
+      // next: {
+      //   revalidate: revalidateTime,
+      // },
     });
 
     if (!response.ok) {
