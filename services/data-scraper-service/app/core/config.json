@@ -1,0 +1,143 @@
+{
+    "bankier": {
+        "title": "Bankier.pl",
+        "endpoint": {
+            "base_url": "https://www.bankier.pl/rss/%s.xml",
+            "categories": [
+                "wiadomosci",
+                "finanse"
+            ]
+        },
+        "type": "RssScraper"
+    },
+    "natemat": {
+        "title": "naTemat",
+        "endpoint": {
+            "base_url": "https://natemat.pl/rss/wszystkie",
+            "categories": []
+        },
+        "type": "RssScraper"
+    },
+    "defence24": {
+        "title": "Defence24",
+        "endpoint": {
+            "base_url": "https://defence24.pl/_rss",
+            "categories": []
+        },
+        "type": "RssScraper"
+    },
+    "spidersweb": {
+        "title": "SpidersWeb",
+        "endpoint": {
+            "base_url": "https://spidersweb.pl/api/post/feed/feed-gn",
+            "categories": []
+        },
+        "type": "RssScraper"
+    },
+    "moneypl": {
+        "title": "Money.pl",
+        "endpoint": {
+            "base_url": "https://www.money.pl/rss/",
+            "categories": []
+        },
+        "type": "RssScraper"
+    },
+    "businessinsider": {
+        "title": "BusinessInsider",
+        "endpoint": {
+            "base_url": "https://businessinsider.com.pl/.feed",
+            "categories": []
+        },
+        "type": "RssScraper"
+    },
+    "nextgazeta": {
+        "title": "nextGazeta",
+        "endpoint": {
+            "base_url": "https://next.gazeta.pl/pub/next/rssnext.htm",
+            "categories": []
+        },
+        "type": "RssScraper"
+    },
+    "tvn24": {
+        "title": "TVN24",
+        "endpoint": {
+            "base_url": "https://www.tvn24.pl/%s.xml",
+            "categories": [
+                "najnowsze",
+                "najwazniejsze"
+            ]
+        },
+        "type": "RssScraper"
+    },
+    "gazetawyborcza": {
+        "title": "GazetaWyborcza",
+        "endpoint": {
+            "base_url": "http://rss.gazeta.pl/pub/rss/%s.xml",
+            "categories": [
+                "gazetawyborcza_kraj",
+                "gazetawyborcza_swiat"
+            ]
+        },
+        "type": "RssScraper"
+    },
+    "interia": {
+        "title": "Interia",
+        "endpoint": {
+            "base_url": "http://%s.interia.pl/feed",
+            "categories": [
+                "fakty",
+                "gry",
+                "nt"
+            ]
+        },
+        "type": "RssScraper"
+    },
+    "nyt-rss": {
+        "title": "NewYorkTimes",
+        "endpoint": {
+            "base_url": "https://rss.nytimes.com/services/xml/rss/nyt/%s.xml",
+            "categories": [
+                "Business",
+                "Climate",
+                "Economy",
+                "Education",
+                "Europe",
+                "Health",
+                "MostViewed",
+                "Politics",
+                "Science",
+                "Sports",
+                "Technology",
+                "World"
+            ]
+        },
+        "type": "RssScraper"
+    },
+    "bbc": {
+        "title": "BBC",
+        "endpoint": {
+            "base_url": "https://bbc-news-api.vercel.app/%s?lang=english",
+            "categories": [
+                "latest",
+                "news"
+            ]
+        },
+        "type": "BBCScraper",
+        "api_key": ""
+    },
+    "nyt-top-stories": {
+        "title": "NewYorkTimes",
+        "endpoint": {
+            "base_url": "https://api.nytimes.com/svc/topstories/v2/%s.json?api-key=",
+            "categories": [
+                "politics",
+                "world",
+                "science",
+                "business",
+                "health"
+            ]
+        },
+        "type": "NYTScraper",
+        "api_key": "NEW_YORK_TIMES_API_KEY"
+    }
+}

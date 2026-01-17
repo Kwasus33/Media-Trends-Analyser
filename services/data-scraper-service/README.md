@@ -6,7 +6,7 @@ data-scraper-service      # Contains service files
     │   │   |    └── ...
     │   │   ├── __init__.py
     │   │   └── ...
-    │   ├── core          # Defines configurations, auth, jwt, loggers
+    │   ├── core          # Defines configurations, etc.. (potentially auth, loggers)
     │   │   ├── __init__.py
     │   │   └── ...
     │   ├── models/       # Defines database ORM models
@@ -18,7 +18,7 @@ data-scraper-service      # Contains service files
     │   ├── services      # Defines application's bussiness logic
     │   │   ├── __init__.py
     │   │   └── ...
-    │   └── utils         # Defines utils used across application
+    │   └── scrapers      # Defines scrapers used to get articles/entries data from different sources
     │       ├── __init__.py
     │       └── ...
     ├── tests

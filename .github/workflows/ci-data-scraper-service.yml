@@ -22,6 +22,7 @@ jobs:
     environment: CI-env
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      NEW_YORK_TIMES_API_KEY: ${{ secrets.NEW_YORK_TIMES_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
