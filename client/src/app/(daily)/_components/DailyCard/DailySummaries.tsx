@@ -56,7 +56,7 @@ export function DailySourceGrid({
   data,
   currentCategory,
 }: DailySourceGridProps) {
-  if (!data.summaries || data.categories) return null;
+  if (!data.summaries || !data.categories) return null;
 
   const activeSources: Source[] = [];
   const silentSources: Source[] = [];
