@@ -92,6 +92,27 @@
         },
         "type": "RssScraper"
     },
+    "nytRss": {
+        "title": "NewYorkTimes",
+        "endpoint": {
+            "base_url": "https://rss.nytimes.com/services/xml/rss/nyt/%s.xml",
+            "categories": [
+                "Business",
+                "Climate",
+                "Economy",
+                "Education",
+                "Europe",
+                "Health",
+                "MostViewed",
+                "Politics",
+                "Science",
+                "Sports",
+                "Technology",
+                "World"
+            ]
+        },
+        "type": "RssScraper"
+    },
     "bbc": {
         "title": "BBC",
         "endpoint": {
@@ -101,6 +122,22 @@
                 "news"
             ]
         },
-        "type": "BBCScraper"
+        "type": "BBCScraper",
+        "api_key": ""
+    },
+    "nyt-top-stories": {
+        "title": "NewYorkTimes Top Stories",
+        "endpoint": {
+            "base_url": "https://api.nytimes.com/svc/topstories/v2/%s.json?api-key=",
+            "categories": [
+                "politics",
+                "world",
+                "science",
+                "business",
+                "health"
+            ]
+        },
+        "type": "NYTScrapper",
+        "api_key": "NEW_YORK_TIMES_API_KEY"
     }
 }

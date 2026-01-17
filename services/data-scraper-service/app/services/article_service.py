@@ -1,7 +1,11 @@
 from app.scrapers import API_SCRAPERS
 from app.core.config import CONTEXT
 
+from dotenv import load_dotenv
 import random
+import os
+
+load_dotenv()
 
 
 class ScraperService(object):
@@ -26,7 +30,7 @@ class ScraperService(object):
         if source not in CONTEXT:
             raise ValueError(f"Source: `{source}` not found")
 
-        scraper_type, base_url, available_categories, source_name = (
+        scraper_type, base_url, available_categories, source_name, api_key_name = (
             self._validate_configuration(source, category)
         )
 
@@ -34,7 +38,13 @@ class ScraperService(object):
             category = random.choice(available_categories)
 
         scraper = API_SCRAPERS[scraper_type]
-        scraper = scraper(base_url, source_name) if source_name else scraper(base_url)
+        api_key = os.getenv(api_key_name)
+        source_name = source_name if source_name else "Unknown"
+        scraper = (
+            scraper(base_url, source_name, api_key)
+            if api_key
+            else scraper(base_url, source_name)
+        )
 
         return scraper.collect_data(category)
 
@@ -51,12 +61,21 @@ class ScraperService(object):
         data = []
 
         for source in CONTEXT:
-            scraper_type, base_url, available_categories, source_name = (
-                self._validate_configuration(source)
-            )
+            (
+                scraper_type,
+                base_url,
+                available_categories,
+                source_name,
+                api_key_name,
+            ) = self._validate_configuration(source)
+
             scraper = API_SCRAPERS[scraper_type]
+            api_key = os.getenv(api_key_name)
+            source_name = source_name if source_name else "Unknown"
             scraper = (
-                scraper(base_url, source_name) if source_name else scraper(base_url)
+                scraper(base_url, source_name, api_key)
+                if api_key
+                else scraper(base_url, source_name)
             )
 
             if available_categories:
@@ -90,7 +109,7 @@ class ScraperService(object):
 
         base_url = source_data["endpoint"].get("base_url", None)
         if not base_url:
-            raise ValueError(f"Chosen source scraper missing URL in configuration")
+            raise ValueError("Chosen source scraper missing URL in configuration")
 
         available_categories = source_data["endpoint"].get("categories", [])
 
@@ -98,5 +117,12 @@ class ScraperService(object):
             raise ValueError(f"Category: `{category}` not found for source: `{source}`")
 
         source_name = source_data.get("title", None)
+        api_key_name = source_data.get("api_key", "")
 
-        return scraper_type, base_url, available_categories, source_name
+        return (
+            scraper_type,
+            base_url,
+            available_categories,
+            source_name,
+            api_key_name,
+        )
