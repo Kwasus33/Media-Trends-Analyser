@@ -34,9 +34,6 @@ class ScraperService(object):
             self._validate_configuration(source, category)
         )
 
-        if not category and available_categories:
-            category = random.choice(available_categories)
-
         scraper = API_SCRAPERS[scraper_type]
         api_key = os.getenv(api_key_name)
         source_name = source_name if source_name else "Unknown"
@@ -45,6 +42,12 @@ class ScraperService(object):
             if api_key
             else scraper(base_url, source_name)
         )
+
+        if not category and available_categories:
+            scraped_articles = []
+            for category in available_categories:
+                scraped_articles += scraper.collect_data(category)
+            return scraped_articles
 
         return scraper.collect_data(category)
 

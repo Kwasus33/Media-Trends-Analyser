@@ -9,7 +9,7 @@ import requests
 
 @save_scrapers
 class RssScraper(BaseScraper):
-    def collect_data(self, category: str = None) -> list:
+    def collect_data(self, category: str | None = None) -> list:
         """
         ...
         """
@@ -46,17 +46,24 @@ class RssScraper(BaseScraper):
                 print(f"Error parsing article publishing date - {e}")
                 continue
 
+            categories = (
+                [category]
+                if category
+                else []
+                + [
+                    category.text
+                    for category in item.findall(".//category")
+                    if category.text
+                ]
+            )
+
             article = ArticleCreate.create(
                 title=title,
                 description=description,
                 url=url,
                 published_at=published_date,
                 source=self.source_name,
-                categories=[
-                    category.text
-                    for category in item.findall(".//category")
-                    if category.text
-                ],
+                categories=categories,
             )
             if article:
                 data.append(article)

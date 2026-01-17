@@ -108,7 +108,8 @@ class BBCScraper(ApiScraper):
                             description=description,
                             url=url,
                             source=self.source_name,
-                            categories=[key],
+                            categories=([self.category] if self.category else [])
+                            + [key],
                         )
                         if article:
                             data.append(article)
