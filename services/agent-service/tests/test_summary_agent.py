@@ -148,3 +148,47 @@ def test_get_periodic_summary_filtering(mock_model, mock_settings):
 
     assert "BBC" in daily_mock.categories
     assert "Pudelek" not in daily_mock.categories
+
+
+def test_get_periodic_summary_structure(mock_model, mock_settings):
+    agent = SummaryAgent(model=mock_model, settings=mock_settings)
+
+    mock_output = {
+        "main_summary": "Weekly recap text",
+        "categories_timeline": [{"date": "2026-01-01", "Technology": 10}],
+        "category_totals": {"Technology": 10},
+        "trends": {
+            "rising": ["Technology"],
+            "declining": ["Economy"],
+            "emerging": ["Politics"],
+        },
+        "key_insights": ["Insight 1"],
+        "source_highlights": {"BBC": "Focus on tech"},
+        "event_timeline": {"2026-01-01": "Playboi carti in fortnite."},
+        "references": {"BBC": [101]},
+    }
+
+    mock_final_chain = MagicMock()
+    mock_final_chain.invoke.return_value = mock_output
+
+    with patch(
+        "app.agents.summary_agent.SummaryAgent.periodic_summary_prompt",
+        new_callable=PropertyMock,
+    ) as mock_prompt_property:
+        mock_prompt_obj = MagicMock()
+        mock_prompt_property.return_value = mock_prompt_obj
+        mock_prompt_obj.__or__.return_value = mock_model
+        mock_model.__or__.return_value = mock_final_chain
+
+        result = agent.get_periodic_summary(
+            daily_summaries=[],
+            sources=["BBC"],
+            categories=["Technology"],
+            start_date=date(2026, 1, 1),
+            end_date=date(2026, 1, 7),
+        )
+
+    assert result.start_date == date(2026, 1, 1)
+    assert result.main_summary == "Weekly recap text"
+    assert result.trends["rising"] == ["Technology"]
+    assert result.category_totals["Technology"] == 10
