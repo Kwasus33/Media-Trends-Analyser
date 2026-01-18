@@ -32,11 +32,12 @@ def test_update_task_error():
     task_service.update_task_error("jd3198jw8asd0j9j21", "Error")
     task = task_service.get_task("jd3198jw8asd0j9j21")
     assert task["status"] == TaskStatus.FAILED
-    assert task["error"] == "Error"
+    assert task["error"] == {"message": "Error"}
     task_service.delete_task("jd3198jw8asd0j9j21")
 
 
 def test_get_task_not_found():
+    task_service.tasks.clear()
     task = task_service.get_task("jd3198jw8asd0j9j21")
     assert task["status"] == TaskStatus.PENDING
 

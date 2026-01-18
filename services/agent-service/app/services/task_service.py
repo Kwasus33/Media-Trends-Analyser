@@ -32,7 +32,7 @@ def update_task_result(task_id: str, result: Any) -> None:
 def update_task_error(task_id: str, error: str) -> None:
     if task_id in tasks:
         tasks[task_id]["status"] = TaskStatus.FAILED
-        tasks[task_id]["error"] = error
+        tasks[task_id]["error"] = {"message": error}
         tasks[task_id]["completed_at"] = datetime.now()
 
 
