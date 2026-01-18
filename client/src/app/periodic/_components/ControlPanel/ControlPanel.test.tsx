@@ -66,17 +66,15 @@ describe('ControlPanel', () => {
       </ControlPanel>
     );
 
-    const sourceCheckboxes = screen.getAllByTestId(/^checkbox-Source/);
-    sourceCheckboxes.forEach((cb) => {
-      expect(cb).toBeChecked();
-    });
+    const bbcCheckbox = screen.getByTestId(/^checkbox-BBC/);
+    expect(bbcCheckbox).toBeChecked();
 
     expect(screen.getByTestId('child-content')).toBeInTheDocument();
   });
 
   it('initializes state from URL parameters', () => {
     const params = new URLSearchParams();
-    params.append('source', 'Reddit');
+    params.append('source', 'Interia');
     params.append('category', 'Technology');
     (useSearchParams as jest.Mock).mockReturnValue(params);
 
@@ -86,7 +84,7 @@ describe('ControlPanel', () => {
       </ControlPanel>
     );
 
-    expect(screen.getByTestId('checkbox-Reddit')).toBeChecked();
+    expect(screen.getByTestId('checkbox-Interia')).toBeChecked();
     expect(screen.getByTestId('checkbox-BBC')).not.toBeChecked();
     expect(screen.getByTestId('checkbox-Technology')).toBeChecked();
     expect(screen.getByTestId('checkbox-Politics')).not.toBeChecked();
@@ -99,15 +97,15 @@ describe('ControlPanel', () => {
       </ControlPanel>
     );
 
-    const redditCheckbox = screen.getByTestId('checkbox-Reddit');
+    const InteriaCheckbox = screen.getByTestId('checkbox-Interia');
 
-    expect(redditCheckbox).toBeChecked();
+    expect(InteriaCheckbox).toBeChecked();
 
-    fireEvent.click(redditCheckbox);
-    expect(redditCheckbox).not.toBeChecked();
+    fireEvent.click(InteriaCheckbox);
+    expect(InteriaCheckbox).not.toBeChecked();
 
-    fireEvent.click(redditCheckbox);
-    expect(redditCheckbox).toBeChecked();
+    fireEvent.click(InteriaCheckbox);
+    expect(InteriaCheckbox).toBeChecked();
   });
 
   it('generates correct URL and navigates on submit', async () => {
@@ -118,10 +116,10 @@ describe('ControlPanel', () => {
     );
 
     const bbcCheckbox = screen.getByTestId('checkbox-BBC');
-    const redditCheckbox = screen.getByTestId('checkbox-Reddit');
+    const InteriaCheckbox = screen.getByTestId('checkbox-Interia');
 
     fireEvent.click(bbcCheckbox);
-    fireEvent.click(redditCheckbox);
+    fireEvent.click(InteriaCheckbox);
 
     const generateBtn = screen.getByText(/Generate Report/i);
     fireEvent.click(generateBtn);
@@ -131,9 +129,9 @@ describe('ControlPanel', () => {
     });
 
     const callArgs = mockPush.mock.calls[0][0];
-    expect(callArgs).toContain('source=New+York+Times');
+    expect(callArgs).toContain('source=NewYorkTimes');
     expect(callArgs).not.toContain('source=BBC');
-    expect(callArgs).not.toContain('source=Reddit');
+    expect(callArgs).not.toContain('source=Interia');
   });
 
   it('disables submit button if required fields are missing', () => {
@@ -147,10 +145,10 @@ describe('ControlPanel', () => {
       .getAllByTestId(/^checkbox-/)
       .filter(
         (el) =>
-          el.getAttribute('data-testid')?.includes('Source') ||
-          el.getAttribute('data-testid')?.includes('Reddit') ||
+          el.getAttribute('data-testid')?.includes('TVN24') ||
+          el.getAttribute('data-testid')?.includes('Interia') ||
           el.getAttribute('data-testid')?.includes('BBC') ||
-          el.getAttribute('data-testid')?.includes('New York Times')
+          el.getAttribute('data-testid')?.includes('NewYorkTimes')
       );
 
     allSources.forEach((checkbox) => {
