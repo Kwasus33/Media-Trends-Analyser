@@ -1,4 +1,3 @@
-from datetime import date
 from unittest.mock import MagicMock, patch
 
 from app.database.database import get_db
@@ -20,24 +19,18 @@ app.dependency_overrides[get_db] = override_get_db
 
 BASE_URL = "/periodic_summary"
 
+
 # --- TESTS ---
 
 
-@patch("app.api.v1.periodic_summary.summary_service.get_periodic_summary")
-def test_get_periodic_summary_success(mock_service):
+@patch("app.api.v1.periodic_summary.task_service.create_task")
+@patch("app.api.v1.periodic_summary.task_service.generate_summary_task")
+def test_start_periodic_summary_success(mock_generate, mock_create):
     start_date = "2026-01-01"
     end_date = "2026-01-07"
 
-    mock_response = {
-        "start_date": date(2026, 1, 1),
-        "end_date": date(2026, 1, 7),
-        "main_summary": "Weekly report: AI is taking over. First terminators spotted in Warsaw.",
-        "articles_processed": 10,
-    }
-    mock_service.return_value = mock_response
-
-    response = client.get(
-        f"{BASE_URL}/"
+    response = client.post(
+        f"{BASE_URL}/start"
         f"?start={start_date}"
         f"&end={end_date}"
         f"&sources=BBC&sources=TVN24"
@@ -45,48 +38,53 @@ def test_get_periodic_summary_success(mock_service):
     )
 
     assert response.status_code == 200
-
     data = response.json()
-    assert (
-        data["main_summary"]
-        == "Weekly report: AI is taking over. First terminators spotted in Warsaw."
-    )
-
-    mock_service.assert_called_once()
-    args, _ = mock_service.call_args
-
-    assert args[0] == date(2026, 1, 1)
-    assert args[1] == date(2026, 1, 7)
-    assert args[2] == ["BBC", "TVN24"]
-    assert args[3] == ["Technology", "Politics"]
+    assert "task_id" in data
+    assert isinstance(data["task_id"], str)
+    mock_create.assert_called_once()
 
 
-def test_get_periodic_summary_missing_params():
-    response = client.get(
-        f"{BASE_URL}/?end=2026-01-01&sources=BBC&categories=Technology"
+def test_start_periodic_summary_missing_params():
+    response = client.post(
+        f"{BASE_URL}/start?end=2026-01-01&sources=BBC&categories=Technology"
     )
     assert response.status_code == 422
 
 
-def test_get_periodic_summary_invalid_date_range():
-    response = client.get(
-        f"{BASE_URL}/?start=2077-01-01&end=966-04-16&sources=BBC&categories=Technology"
-    )
+@patch("app.api.v1.periodic_summary.task_service.get_task")
+def test_get_task_status_success(mock_get_task):
+    task_id = "test-task-123"
+    mock_get_task.return_value = {
+        "status": "completed",
+        "result": {
+            "main_summary": "AI is taking over. First terminators spotted in Warsaw.",
+        },
+        "error": None,
+    }
 
-    assert response.status_code != 500
+    response = client.get(f"{BASE_URL}/status/{task_id}")
 
-
-@patch("app.api.v1.periodic_summary.summary_service.get_periodic_summary")
-def test_get_periodic_summary_internal_server_error(mock_service):
-    client = TestClient(app, raise_server_exceptions=False)
-
-    mock_service.side_effect = Exception("Database connection lost")
-
-    response = client.get(
-        f"{BASE_URL}/?start=2026-01-01&end=2026-01-07&sources=BBC&categories=Technology"
-    )
-
-    assert response.status_code == 500
+    assert response.status_code == 200
     data = response.json()
-    assert data["detail"] == "Internal server error"
-    assert "Database connection lost" in data["error"]
+    assert data["task_id"] == task_id
+    assert data["status"] == "completed"
+    assert "main_summary" in data["result"]
+    mock_get_task.assert_called_once_with(task_id)
+
+
+@patch("app.api.v1.periodic_summary.task_service.get_task")
+def test_get_task_status_failed(mock_get_task):
+    task_id = "failed-task-456"
+    mock_get_task.return_value = {
+        "status": "failed",
+        "result": None,
+        "error": {"detail": "Database connection lost"},
+    }
+
+    response = client.get(f"{BASE_URL}/status/{task_id}")
+
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "failed"
+    assert data["error"]["detail"] == "Database connection lost"
+
