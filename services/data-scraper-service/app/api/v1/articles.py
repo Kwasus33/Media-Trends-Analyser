@@ -16,6 +16,23 @@ router = APIRouter(prefix="/articles", responses={404: {"description": "Not foun
 # those enpoints can be used by client for generating live (tho calculations-demanding) results
 
 
+@router.post("")
+async def get_and_save_all_articles(
+    limit: int | None = Query(default=None, ge=1), db: Session = Depends(get_db)
+) -> dict:
+    """
+    Scraps all articles and saves them in the Postgres database.
+    :return: list containing dict with results of saving articles to db and list of collected articles
+    """
+    articles = (
+        scraper_service.fetch_all_articles(limit)
+        if limit
+        else scraper_service.fetch_all_articles()
+    )
+    db_result = db_service.save_articles(articles, db)
+    return db_result
+
+
 @router.get("/all")
 async def get_all_articles(
     limit: int | None = Query(default=None, ge=1),
@@ -32,7 +49,9 @@ async def get_all_articles(
 
 @router.get("/{source}")
 @router.get("/{source}/{category}")
-async def get_articles(source: str, category: str | None = None) -> list[ArticleCreate]:
+async def get_articles_by_choice(
+    source: str, category: str | None = None
+) -> list[ArticleCreate]:
     """
     Gets latest available articles from online sources like APIs and RSS feeds
 
@@ -44,11 +63,22 @@ async def get_articles(source: str, category: str | None = None) -> list[Article
     return scraper_service.fetch_articles(source, category)
 
 
-@router.post("/articles")
-def save_article_in_db(
+@router.post("/save")
+async def save_articles_in_db(
     articles: list[ArticleCreate], db: Session = Depends(get_db)
 ) -> dict:
     """
     Add articles to the Postgres database.
     """
     return db_service.save_articles(articles, db)
+
+
+@router.post("/save/{source}")
+@router.post("/save/{source}/{category}")
+async def get_and_save_articles_by_choice(
+    source: str, category: str | None = None, db: Session = Depends(get_db)
+) -> dict:
+    """ """
+    articles = scraper_service.fetch_articles(source, category)
+    db_result = db_service.save_articles(articles, db)
+    return db_result

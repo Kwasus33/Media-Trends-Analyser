@@ -1,63 +1,4 @@
 {
-    "bankier": {
-        "title": "Bankier.pl",
-        "endpoint": {
-            "base_url": "https://www.bankier.pl/rss/%s.xml",
-            "categories": [
-                "wiadomosci",
-                "finanse"
-            ]
-        },
-        "type": "RssScraper"
-    },
-    "natemat": {
-        "title": "naTemat",
-        "endpoint": {
-            "base_url": "https://natemat.pl/rss/wszystkie",
-            "categories": []
-        },
-        "type": "RssScraper"
-    },
-    "defence24": {
-        "title": "Defence24",
-        "endpoint": {
-            "base_url": "https://defence24.pl/_rss",
-            "categories": []
-        },
-        "type": "RssScraper"
-    },
-    "spidersweb": {
-        "title": "SpidersWeb",
-        "endpoint": {
-            "base_url": "https://spidersweb.pl/api/post/feed/feed-gn",
-            "categories": []
-        },
-        "type": "RssScraper"
-    },
-    "moneypl": {
-        "title": "Money.pl",
-        "endpoint": {
-            "base_url": "https://www.money.pl/rss/",
-            "categories": []
-        },
-        "type": "RssScraper"
-    },
-    "businessinsider": {
-        "title": "BusinessInsider",
-        "endpoint": {
-            "base_url": "https://businessinsider.com.pl/.feed",
-            "categories": []
-        },
-        "type": "RssScraper"
-    },
-    "nextgazeta": {
-        "title": "nextGazeta",
-        "endpoint": {
-            "base_url": "https://next.gazeta.pl/pub/next/rssnext.htm",
-            "categories": []
-        },
-        "type": "RssScraper"
-    },
     "tvn24": {
         "title": "TVN24",
         "endpoint": {
@@ -65,17 +6,6 @@
             "categories": [
                 "najnowsze",
                 "najwazniejsze"
-            ]
-        },
-        "type": "RssScraper"
-    },
-    "gazetawyborcza": {
-        "title": "GazetaWyborcza",
-        "endpoint": {
-            "base_url": "http://rss.gazeta.pl/pub/rss/%s.xml",
-            "categories": [
-                "gazetawyborcza_kraj",
-                "gazetawyborcza_swiat"
             ]
         },
         "type": "RssScraper"
@@ -97,18 +27,13 @@
         "endpoint": {
             "base_url": "https://rss.nytimes.com/services/xml/rss/nyt/%s.xml",
             "categories": [
-                "Business",
                 "Climate",
                 "Economy",
                 "Education",
                 "Europe",
-                "Health",
                 "MostViewed",
-                "Politics",
-                "Science",
                 "Sports",
-                "Technology",
-                "World"
+                "Technology"
             ]
         },
         "type": "RssScraper"
@@ -118,7 +43,6 @@
         "endpoint": {
             "base_url": "https://bbc-news-api.vercel.app/%s?lang=english",
             "categories": [
-                "latest",
                 "news"
             ]
         },

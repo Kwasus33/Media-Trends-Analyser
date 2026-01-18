@@ -40,46 +40,43 @@ class ApiScraper(BaseScraper):
     @abstractmethod
     def _extract_data(self, response, category): ...
 
+    def _is_valid_article(self, entry, title_tag, description_tag, url_tag):
+        title = entry.get(title_tag, None)
+        title = parse_text(title)
+
+        description = entry.get(description_tag, None)
+        description = parse_text(description)
+
+        url = entry.get(url_tag, None)
+
+        if not title or not description or not url or url in self.collected_by_url:
+            return False
+        return title, description, url
+
 
 @save_scrapers
 class NYTScraper(ApiScraper):
     def _extract_data(self, response, category) -> list[ArticleCreate]:
         data: list[ArticleCreate] = []
         for result in response["results"]:
+            res = self._is_valid_article(
+                result, title_tag="title", description_tag="abstract", url_tag="url"
+            )
+            if not res:
+                continue
+
+            date = result.get("published_date", None)
             try:
-                title = result["title"]
-                title = parse_text(title)
+                date = datetime.fromisoformat(date) if date else datetime.now()
+            except Exception as e:
+                continue
 
-                description = result["abstract"]
-                description = parse_text(description)
+            categories = [category] if category else []
+            categories += result.get("des_facet", []) + result.get("org_facet", [])
 
-                url = result.get("url", None)
-                categories = [category] if category else []
-                categories += result.get("des_facet", []) + result.get("org_facet", [])
-
-                if not description or not url:
-                    continue
-
-                date = result.get("published_date", None)
-
-                article = ArticleCreate.create(
-                    title=title,
-                    description=description,
-                    url=url,
-                    published_at=datetime.fromisoformat(date)
-                    if date
-                    else datetime.now(),
-                    source=self.source_name,
-                    categories=categories,
-                )
-
-                if article:
-                    data.append(article)
-
-            # will be better specified later
-            except Exception:
-                pass
-
+            article = self._save_article(*res, categories, date)
+            if article:
+                data.append(article)
         return data
 
 
@@ -90,29 +87,18 @@ class BBCScraper(ApiScraper):
         for key, values in response.items():
             if isinstance(values, list):
                 for value in values:
-                    try:
-                        title = value["title"]
-                        title = parse_text(title)
+                    res = self._is_valid_article(
+                        value,
+                        title_tag="title",
+                        description_tag="summary",
+                        url_tag="news_link",
+                    )
+                    if not res:
+                        continue
 
-                        description = value["summary"]
-                        description = parse_text(description)
+                    categories = ([category] if category else []) + [key]
 
-                        url = value.get("news_link", None)
-
-                        if not title or not description or not url:
-                            continue
-
-                        article = ArticleCreate.create(
-                            title=title,
-                            description=description,
-                            url=url,
-                            source=self.source_name,
-                            categories=([category] if category else []) + [key],
-                        )
-                        if article:
-                            data.append(article)
-
-                    # will be better specified later
-                    except Exception:
-                        pass
+                    article = self._save_article(*res, categories)
+                    if article:
+                        data.append(article)
         return data
