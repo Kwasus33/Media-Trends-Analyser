@@ -78,7 +78,7 @@ def test_get_task_status_failed(mock_get_task):
     mock_get_task.return_value = {
         "status": "failed",
         "result": None,
-        "error": {"detail": "Database connection lost"},
+        "error": "Database connection lost",
     }
 
     response = client.get(f"{BASE_URL}/status/{task_id}")
@@ -86,5 +86,6 @@ def test_get_task_status_failed(mock_get_task):
     assert response.status_code == 200
     data = response.json()
     assert data["status"] == "failed"
-    assert data["error"]["detail"] == "Database connection lost"
+    assert data["error"] == "Database connection lost"
+
 
