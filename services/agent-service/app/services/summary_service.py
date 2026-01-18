@@ -394,4 +394,19 @@ def get_recent_daily_summaries(db: Session) -> list[dict]:
 
         current_date -= timedelta(days=1)
 
-    return result
+    start_idx = None
+    for i in range(len(result)):
+        if result[i]["has_data"]:
+            start_idx = i
+            break
+
+    end_idx = None
+    for i in range(len(result) - 1, -1, -1):
+        if result[i]["has_data"]:
+            end_idx = i
+            break
+
+    if start_idx is None or end_idx is None:
+        return []
+
+    return result[start_idx : end_idx + 1]
