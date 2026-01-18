@@ -32,7 +32,7 @@ def test_update_task_error():
     task_service.update_task_error("jd3198jw8asd0j9j21", "Error")
     task = task_service.get_task("jd3198jw8asd0j9j21")
     assert task["status"] == TaskStatus.FAILED
-    assert task["error"] == {"message": "Error"}
+    assert task["error"] == "Error"
     task_service.delete_task("jd3198jw8asd0j9j21")
 
 
