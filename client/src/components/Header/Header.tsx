@@ -17,7 +17,7 @@ export function Header() {
     <header className="mb-12 text-center relative z-10 flex flex-col items-center">
       <h1
         onClick={handleReset}
-        className="inline text-5xl md:text-6xl font-extrabold tracking-tight hover:opacity-90 transition-opacity cursor-pointer"
+        className="inline text-4xl md:text-6xl font-extrabold tracking-tight hover:opacity-90 transition-opacity cursor-pointer"
       >
         <span className="bg-linear-to-b from-white to-white/70 bg-clip-text text-transparent">
           Media Trends

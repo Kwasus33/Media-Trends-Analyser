@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import { type Source, getSourceConfig } from '@/constants/sources';
 import { type Category, getCategoryConfig } from '@/constants/categories';
+import { TextExpander } from '@/components/TextExpander';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 type SourceCardProps = {
   source: Source;
@@ -26,6 +28,8 @@ export function SourceCard({
 }: SourceCardProps) {
   const [showLinks, setShowLinks] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  const isDesktop = useBreakpoint('md');
 
   const style = getSourceConfig(source);
   const Icon = style.icon;
@@ -55,20 +59,27 @@ export function SourceCard({
   return (
     <div ref={cardRef} className="relative flex flex-col rounded-xl h-full">
       <div
-        className={`absolute inset-0 rounded-xl overflow-hidden ${style.bg} pointer-events-none`}
+        className={`absolute inset-0 rounded-xl overflow-hidden ${style.bg} border ${style.border} pointer-events-none`}
       >
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-linear-to-br from-white/5 to-transparent rounded-full blur-2xl" />
       </div>
 
-      <div className="relative z-10 p-6 grow flex flex-col">
+      <div className="relative z-10 px-4 py-6 sm:p-6 grow flex flex-col">
         <div className="flex items-center gap-4 mb-4">
           {Icon}
           <h4 className={`text-xl font-bold ${style.color}`}>{source}</h4>
         </div>
 
-        <p className="text-gray-300 leading-relaxed text-sm md:text-base border-t border-white/5 pt-4 pb-1 grow">
-          {text}
-        </p>
+        <TextExpander
+          collapsedHeight={isDesktop ? 240 : 180}
+          buttonColor={style.color}
+          buttonClassName="bg-black/20 backdrop-blur-md hover:bg-black/40 shadow-lg"
+          className="grow"
+        >
+          <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+            {text}
+          </p>
+        </TextExpander>
 
         {activeCategories.length > 0 && (
           <div className="mt-2 pt-3 border-t border-white/5">
@@ -81,12 +92,12 @@ export function SourceCard({
 
             <div className="flex flex-wrap gap-2">
               {activeCategories.map(([category, count]) => {
-                const style = getCategoryConfig(category);
+                const catStyle = getCategoryConfig(category);
 
                 return (
                   <div
                     key={category}
-                    className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-medium border ${style.bg} ${style.text} ${style.border}`}
+                    className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-medium border ${catStyle.bg} ${catStyle.text} ${catStyle.border}`}
                   >
                     <span>{category}</span>
                     <span className="font-bold">{count}%</span>

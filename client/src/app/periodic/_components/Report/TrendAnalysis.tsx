@@ -1,4 +1,10 @@
-import { TrendingUp, TrendingDown, Sparkles, Activity } from 'lucide-react';
+import {
+  TrendingUp,
+  TrendingDown,
+  Sparkles,
+  Activity,
+  SearchX,
+} from 'lucide-react';
 import { SectionWrapper } from '@/components/SectionWrapper';
 
 type TrendsData = {
@@ -12,18 +18,26 @@ type TrendAnalysisProps = {
 };
 
 export function TrendAnalysis({ trends }: TrendAnalysisProps) {
+  const hasAnyTrends =
+    trends.rising.length > 0 ||
+    trends.declining.length > 0 ||
+    trends.emerging.length > 0;
+
+  if (!hasAnyTrends) return null;
+
   return (
     <SectionWrapper
       title="Trend Analysis"
       icon={<Activity className="w-5 h-5 text-red-600" />}
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-left">
+      <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-6 w-full text-left">
         <TrendGroup
           title="Rising Trends"
           items={trends.rising}
           icon={<TrendingUp className="w-5 h-5" />}
           colorClass="text-emerald-400"
           bgClass="bg-emerald-900/20 border-emerald-500/20"
+          emptyMessage="No rising trends detected"
         />
 
         <TrendGroup
@@ -32,6 +46,7 @@ export function TrendAnalysis({ trends }: TrendAnalysisProps) {
           icon={<Sparkles className="w-5 h-5" />}
           colorClass="text-blue-400"
           bgClass="bg-blue-900/20 border-blue-500/20"
+          emptyMessage="No emerging signals found"
         />
 
         <TrendGroup
@@ -40,6 +55,7 @@ export function TrendAnalysis({ trends }: TrendAnalysisProps) {
           icon={<TrendingDown className="w-5 h-5" />}
           colorClass="text-rose-400"
           bgClass="bg-rose-900/20 border-rose-500/20"
+          emptyMessage="No significant decline"
         />
       </div>
     </SectionWrapper>
@@ -52,16 +68,21 @@ function TrendGroup({
   icon,
   colorClass,
   bgClass,
+  emptyMessage,
 }: {
   title: string;
   items: string[];
   icon: React.ReactNode;
   colorClass: string;
   bgClass: string;
+  emptyMessage: string;
 }) {
+  const filteredItems = items.filter((item) => item.trim().length > 0);
+  const isEmpty = filteredItems.length === 0;
+
   return (
     <div
-      className={`flex flex-col gap-4 p-6 rounded-xl border ${bgClass} transition-all hover:bg-opacity-30`}
+      className={`flex flex-col gap-4 p-4 sm:p-6 rounded-xl border ${bgClass} transition-all hover:bg-opacity-30`}
     >
       <div
         className={`flex items-center gap-2 font-bold text-lg ${colorClass}`}
@@ -70,20 +91,32 @@ function TrendGroup({
         <h3>{title}</h3>
       </div>
 
-      <div className="flex flex-col gap-2">
-        {items.map((item, idx) => (
-          <div
-            key={idx}
-            className="flex items-start gap-3 p-3 rounded-lg bg-black/40 border border-white/5 hover:border-white/10 transition-colors"
-          >
-            <span
-              className={`mt-1.5 w-1.5 h-1.5 rounded-full ${colorClass.replace('text-', 'bg-')}`}
-            />
-            <span className="text-gray-300 text-sm font-medium leading-relaxed">
-              {item}
-            </span>
+      <div className="flex flex-col gap-2 grow">
+        {isEmpty ? (
+          <div className="flex flex-col items-center justify-center grow min-h-25 rounded-lg bg-black/10 border border-white/5 border-dashed p-4 text-center">
+            <SearchX className="w-5 h-5 text-gray-600 mb-2 opacity-50" />
+            <p className="text-gray-500 text-sm font-medium italic">
+              {emptyMessage}
+            </p>
           </div>
-        ))}
+        ) : (
+          filteredItems.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex items-start gap-3 p-3 rounded-lg bg-black/40 border border-white/5 hover:border-white/10 transition-colors"
+            >
+              <span
+                className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${colorClass.replace(
+                  'text-',
+                  'bg-'
+                )}`}
+              />
+              <span className="text-gray-300 text-sm font-medium leading-relaxed">
+                {item}
+              </span>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

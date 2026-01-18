@@ -20,9 +20,9 @@ import { LoadingState } from '@/components/LoadingState';
 
 const MIN_DATA_DATE = '2026-01-01';
 
-const categoriesList = Object.keys(CATEGORIES).filter(
-  (category) => category !== 'default'
-);
+const categoriesList = Object.keys(CATEGORIES)
+  .filter((category) => category !== 'default')
+  .sort();
 
 const getToday = () => getISODate(new Date());
 
@@ -34,9 +34,13 @@ const getYesterday = () => {
 
 type ControlPanelProps = {
   children: ReactNode;
+  isPolling?: boolean;
 };
 
-export function ControlPanel({ children }: ControlPanelProps) {
+export function ControlPanel({
+  children,
+  isPolling = false,
+}: ControlPanelProps) {
   const sourcesNames = Object.keys(SOURCES).filter(
     (source) => source !== 'default'
   );
@@ -64,6 +68,8 @@ export function ControlPanel({ children }: ControlPanelProps) {
     searchParams.get('to') || getToday()
   );
 
+  const isLoading = isPending || isPolling;
+
   const todayDate = getToday();
 
   const isButtonDisabled =
@@ -71,7 +77,7 @@ export function ControlPanel({ children }: ControlPanelProps) {
     !endDate ||
     !selectedSources.length ||
     !selectedCategories.length ||
-    isPending;
+    isLoading;
 
   const handleSourceChange = (source: string) => {
     setSelectedSources((prev) =>
@@ -131,24 +137,20 @@ export function ControlPanel({ children }: ControlPanelProps) {
 
   return (
     <>
-      <Box className="flex flex-col gap-5 mb-8 max-w-5xl mx-auto p-6 pb-8">
+      <Box className="flex flex-col gap-5 mb-8 max-w-5xl mx-auto p-3 sm:p-6 pb-8">
         <div className="flex flex-col gap-3 items-center">
           <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
             Sources
           </div>
           <div className="flex flex-wrap gap-4 justify-center">
-            {sourcesNames.map((rawSource) => {
-              const source = rawSource as Source;
-
-              return (
-                <SourceSelector
-                  key={source}
-                  source={source}
-                  checked={selectedSources.includes(source)}
-                  onChange={() => handleSourceChange(source)}
-                />
-              );
-            })}
+            {sourcesNames.map((source) => (
+              <SourceSelector
+                key={source}
+                source={source as Source}
+                checked={selectedSources.includes(source)}
+                onChange={() => handleSourceChange(source)}
+              />
+            ))}
           </div>
         </div>
 
@@ -172,7 +174,7 @@ export function ControlPanel({ children }: ControlPanelProps) {
 
         <div className="h-px w-full max-w-3xl mx-auto bg-gray-800/60" />
 
-        <div className="flex flex-col md:flex-row items-end justify-center gap-6 w-full pt-1">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full pt-1">
           <DateInput
             id="startDate"
             label="From date"
@@ -193,22 +195,22 @@ export function ControlPanel({ children }: ControlPanelProps) {
 
           <Button
             onClick={handleGenerateReport}
-            className="w-full md:w-auto md:min-w-60 h-12 text-lg shadow-lg shadow-indigo-500/20 flex items-center justify-center"
+            className="w-full md:mt-auto md:w-auto md:min-w-60 h-12 text-lg shadow-lg shadow-indigo-500/20 flex items-center justify-center"
             disabled={isButtonDisabled}
           >
-            {isPending ? 'Processing...' : 'Generate Report'}
+            {isLoading ? 'Processing...' : 'Generate Report'}
           </Button>
         </div>
       </Box>
 
-      {isPending ? (
+      {isLoading && (
         <LoadingState
-          title="Analyzing Data..."
-          description="Aggregating trends from selected sources"
+          title="Generating Report..."
+          description="Aggregating trends and analyzing data. This may take up to a minute."
         />
-      ) : (
-        children
       )}
+
+      <div className={isLoading ? 'hidden' : 'block'}>{children}</div>
     </>
   );
 }

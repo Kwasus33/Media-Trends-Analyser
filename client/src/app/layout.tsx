@@ -39,7 +39,7 @@ export default function RootLayout({
         </div>
 
         <div className="relative z-10 flex flex-col min-h-screen">
-          <main className="grow w-full p-8">
+          <main className="grow w-full p-2 sm:p-4 md:p-8">
             <Header />
             {children}
           </main>

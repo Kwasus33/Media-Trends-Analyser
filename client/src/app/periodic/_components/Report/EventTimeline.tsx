@@ -70,7 +70,7 @@ export function EventTimeline({ timeline, isExport }: EventTimelineProps) {
         {sortedDates.length > 1 && (
           <div
             ref={scrollRef}
-            className="flex items-start justify-start p-4 overflow-x-auto custom-scrollbar scroll-smooth"
+            className="flex items-start justify-start px-0 py-4 sm:p-4 overflow-x-auto custom-scrollbar scroll-smooth"
           >
             {sortedDates.map((date, index) => {
               let delay = 0;
@@ -149,7 +149,7 @@ function TimelineNode({
       </button>
 
       {!isLast && (
-        <div className="w-32 h-0.5 relative -mx-8 z-0 mt-1.75">
+        <div className="w-20 sm:w-32 h-0.5 relative -mx-8 z-0 mt-1.75">
           <div className="absolute inset-0 bg-gray-800 rounded-full" />
 
           <div
@@ -168,16 +168,18 @@ function TimelineNode({
 }
 
 function TimelineContent({ date, content }: TimelineContentProps) {
+  const hasContent = content && content.trim().length > 0;
+
   return (
-    <Box className="w-full bg-black/20 border border-white/5 p-6 rounded-xl relative overflow-hidden">
-      <div className="absolute top-0 right-0 p-4 opacity-5">
+    <Box className="w-full bg-black/20 border border-white/5 px-2 py-6 sm:p-6 rounded-xl relative overflow-hidden">
+      <div className="absolute top-0 right-0 p-4 opacity-5 hidden md:block">
         <CalendarClock className="w-32 h-32" />
       </div>
 
       <div className="relative z-10">
         <h4
           suppressHydrationWarning
-          className="text-xl font-bold text-sky-400 mb-4 flex items-center gap-2"
+          className="text-xl font-bold text-sky-400 mb-4 px-1 flex items-center gap-2"
         >
           {new Date(date).toLocaleDateString('en-GB', {
             weekday: 'long',
@@ -187,17 +189,32 @@ function TimelineContent({ date, content }: TimelineContentProps) {
           })}
         </h4>
 
-        <ul className="flex flex-col gap-4">
-          {content.split(';').map((sentence, index) => (
-            <li
-              key={index}
-              className="flex gap-3 text-gray-300 text-base leading-relaxed items-start"
-            >
-              <ChevronRight className="w-5 h-5 mt-0.5 shrink-0 text-sky-500/50" />
-              <span>{sentence.trim()}</span>
-            </li>
-          ))}
-        </ul>
+        {hasContent ? (
+          <ul className="flex flex-col gap-4">
+            {content.split(';').map((sentence, index) => {
+              if (!sentence.trim()) return null;
+
+              return (
+                <li
+                  key={index}
+                  className="flex gap-1 sm:gap-3 text-gray-300 text-base leading-relaxed items-start"
+                >
+                  <ChevronRight className="w-5 h-5 mt-0.5 shrink-0 text-sky-500/50" />
+                  <span>{sentence.trim()}</span>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <div className="flex flex-col items-center justify-center py-8 text-center text-gray-500 gap-2 border border-dashed border-white/10 rounded-lg bg-white/5 mx-1">
+            <span className="text-lg font-medium text-gray-400">
+              No data available
+            </span>
+            <span className="text-sm">
+              There are no recorded events for this date.
+            </span>
+          </div>
+        )}
       </div>
     </Box>
   );
@@ -210,27 +227,41 @@ function PrintableTimeline({ timeline, dates }: PrintableReportProps) {
       icon={<CalendarClock className="w-5 h-5 text-sky-400" />}
     >
       <div className="flex flex-col">
-        {dates.map((date) => (
-          <div
-            key={date}
-            className="border-l-2 border-sky-500/30 pl-4 pb-2 my-4 break-inside-avoid"
-          >
-            <h4 className="text-lg font-bold text-sky-400 mb-2">
-              {new Date(date).toLocaleDateString('en-GB', {
-                weekday: 'long',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </h4>
-            <ul className="flex flex-col gap-2">
-              {timeline[date].split(';').map((sentence, index) => (
-                <li key={index} className="text-gray-300 text-sm">
-                  • {sentence.trim()}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {dates.map((date) => {
+          const content = timeline[date];
+          const hasContent = content && content.trim().length > 0;
+
+          return (
+            <div
+              key={date}
+              className="border-l-2 border-sky-500/30 pl-4 pb-2 my-4 break-inside-avoid"
+            >
+              <h4 className="text-lg font-bold text-sky-400 mb-2">
+                {new Date(date).toLocaleDateString('en-GB', {
+                  weekday: 'long',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </h4>
+
+              {hasContent ? (
+                <ul className="flex flex-col gap-2">
+                  {content.split(';').map((sentence, index) =>
+                    sentence.trim() ? (
+                      <li key={index} className="text-gray-300 text-sm">
+                        • {sentence.trim()}
+                      </li>
+                    ) : null
+                  )}
+                </ul>
+              ) : (
+                <p className="text-gray-500 italic text-sm">
+                  No events recorded.
+                </p>
+              )}
+            </div>
+          );
+        })}
       </div>
     </SectionWrapper>
   );

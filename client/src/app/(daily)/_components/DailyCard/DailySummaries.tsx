@@ -1,8 +1,9 @@
 'use client';
 
+import { SilentSourceList } from '@/components/SilentSourceList';
 import { SourceCard } from '@/components/SourceCard';
 import type { Category } from '@/constants/categories';
-import type { Source } from '@/constants/sources';
+import { type Source } from '@/constants/sources';
 import type { DailyReport } from '@/types/dailyReport';
 
 type DailyFiltersProps = {
@@ -55,25 +56,55 @@ export function DailySourceGrid({
   data,
   currentCategory,
 }: DailySourceGridProps) {
+  if (!data.summaries || !data.categories) return null;
+
+  const activeSources: Source[] = [];
+  const silentSources: Source[] = [];
+
+  Object.entries(data.summaries).forEach(([sourceName, categoryMap]) => {
+    const summaryText = categoryMap[currentCategory];
+    const source = sourceName as Source;
+
+    if (summaryText && summaryText.trim().length > 0) {
+      activeSources.push(source);
+    } else {
+      silentSources.push(source);
+    }
+  });
+
   return (
-    <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-      {Object.entries(data.summaries).map(([sourceName, categories]) => {
-        const summaryText = categories[currentCategory];
+    <div className="p-3 sm:p-6 flex flex-col gap-6">
+      {activeSources.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {activeSources.map((source) => {
+            const summaryText = data.summaries![source][currentCategory];
+            const sourceCounts = data.categories![source];
 
-        if (!summaryText) return null;
+            return (
+              <SourceCard
+                key={source}
+                source={source}
+                text={summaryText}
+                categoryCounts={sourceCounts}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div className="text-center py-8 text-gray-500 italic">
+          No sources covered {currentCategory} on this day.
+        </div>
+      )}
 
-        const typedSource = sourceName as Source;
-        const sourceCounts = data.categories[typedSource];
-
-        return (
-          <SourceCard
-            key={sourceName}
-            source={typedSource}
-            text={summaryText}
-            categoryCounts={sourceCounts}
-          />
-        );
-      })}
+      <SilentSourceList
+        sources={silentSources}
+        label={
+          <>
+            Did not cover{' '}
+            <span className="text-gray-300">{currentCategory}</span>:
+          </>
+        }
+      />
     </div>
   );
 }

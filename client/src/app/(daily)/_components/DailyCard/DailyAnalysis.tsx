@@ -4,6 +4,7 @@ import { BarChart3, Info } from 'lucide-react';
 import { CategoryPieChart } from '@/components/charts/PieChart';
 import { getCategoryConfig } from '@/constants/categories';
 import type { TopCategory } from '@/types/dailyReport';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 type DailyAnalysisProps = {
   topCategories: TopCategory[];
@@ -11,13 +12,15 @@ type DailyAnalysisProps = {
 };
 
 export function DailyAnalysis({ topCategories, pieData }: DailyAnalysisProps) {
+  const isDesktop = useBreakpoint('sm');
+
   if (topCategories.length === 0) return null;
 
   const primary = topCategories[0];
   const secondary = topCategories[1];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-t border-white/5 bg-black/20 p-6 md:p-8">
+    <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-2 items-center border-t border-white/5 bg-black/20 p-4 md:p-8">
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <BarChart3 className="w-4 h-4 text-indigo-400" />
@@ -59,14 +62,14 @@ export function DailyAnalysis({ topCategories, pieData }: DailyAnalysisProps) {
         </div>
       </div>
 
-      <div className="h-48 w-full flex justify-center md:justify-end">
+      <div className="w-full flex justify-center">
         <div className="w-full max-w-sm h-full">
           <CategoryPieChart
             data={pieData}
             isExport={false}
             innerRadius={40}
             outerRadius={65}
-            legendPosition="right"
+            legendPosition={isDesktop ? 'right' : 'bottom'}
           />
         </div>
       </div>
