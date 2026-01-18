@@ -34,9 +34,13 @@ const getYesterday = () => {
 
 type ControlPanelProps = {
   children: ReactNode;
+  isPolling?: boolean;
 };
 
-export function ControlPanel({ children }: ControlPanelProps) {
+export function ControlPanel({
+  children,
+  isPolling = false,
+}: ControlPanelProps) {
   const sourcesNames = Object.keys(SOURCES).filter(
     (source) => source !== 'default'
   );
@@ -64,6 +68,8 @@ export function ControlPanel({ children }: ControlPanelProps) {
     searchParams.get('to') || getToday()
   );
 
+  const isLoading = isPending || isPolling;
+
   const todayDate = getToday();
 
   const isButtonDisabled =
@@ -71,7 +77,7 @@ export function ControlPanel({ children }: ControlPanelProps) {
     !endDate ||
     !selectedSources.length ||
     !selectedCategories.length ||
-    isPending;
+    isLoading;
 
   const handleSourceChange = (source: string) => {
     setSelectedSources((prev) =>
@@ -137,18 +143,14 @@ export function ControlPanel({ children }: ControlPanelProps) {
             Sources
           </div>
           <div className="flex flex-wrap gap-4 justify-center">
-            {sourcesNames.map((rawSource) => {
-              const source = rawSource as Source;
-
-              return (
-                <SourceSelector
-                  key={source}
-                  source={source}
-                  checked={selectedSources.includes(source)}
-                  onChange={() => handleSourceChange(source)}
-                />
-              );
-            })}
+            {sourcesNames.map((source) => (
+              <SourceSelector
+                key={source}
+                source={source as Source}
+                checked={selectedSources.includes(source)}
+                onChange={() => handleSourceChange(source)}
+              />
+            ))}
           </div>
         </div>
 
@@ -196,19 +198,19 @@ export function ControlPanel({ children }: ControlPanelProps) {
             className="w-full md:mt-auto md:w-auto md:min-w-60 h-12 text-lg shadow-lg shadow-indigo-500/20 flex items-center justify-center"
             disabled={isButtonDisabled}
           >
-            {isPending ? 'Processing...' : 'Generate Report'}
+            {isLoading ? 'Processing...' : 'Generate Report'}
           </Button>
         </div>
       </Box>
 
-      {isPending ? (
+      {isLoading && (
         <LoadingState
-          title="Analyzing Data..."
-          description="Aggregating trends from selected sources"
+          title="Generating Report..."
+          description="Aggregating trends and analyzing data. This may take up to a minute."
         />
-      ) : (
-        children
       )}
+
+      <div className={isLoading ? 'hidden' : 'block'}>{children}</div>
     </>
   );
 }
