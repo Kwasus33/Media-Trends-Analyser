@@ -100,7 +100,7 @@ def test_collect_data_missing_fields(mock_get, rss_scraper, mock_article_create)
             <item>
                 <title>No link :(((</title>
                 <description>Kacper Siemionek</description>
-                <link></link>  <pubDate>Sat, 01 Jan 2026 20:20:00 GMT</pubDate>
+                <pubDate>Sat, 01 Jan 2026 20:20:00 GMT</pubDate>
             </item>
         </channel>
     </rss>
