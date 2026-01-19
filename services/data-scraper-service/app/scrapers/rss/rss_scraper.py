@@ -13,7 +13,6 @@ class RssScraper(BaseScraper):
         """
         ...
         """
-        data: list[ArticleCreate] = []
         temp_url = self.url % category if category else self.url
 
         try:
@@ -24,6 +23,8 @@ class RssScraper(BaseScraper):
         except Exception as e:
             raise Exception(e)
 
+        data: list[ArticleCreate] = []
+
         for item in root.iter("item"):
             title = item.find(".//title").text
             title = parse_text(title)
@@ -32,7 +33,7 @@ class RssScraper(BaseScraper):
             description = parse_text(description)
             url = item.find(".//link").text
 
-            if not title or not description or not url:
+            if not title or not description or not url or url in self.collected_by_url:
                 continue
 
             date = item.find(".//pubDate").text
@@ -58,13 +59,8 @@ class RssScraper(BaseScraper):
                 ]
             )
 
-            article = ArticleCreate.create(
-                title=title,
-                description=description,
-                url=url,
-                published_at=published_date,
-                source=self.source_name,
-                categories=categories,
+            article = self._save_article(
+                title, description, url, categories, published_date
             )
             if article:
                 data.append(article)

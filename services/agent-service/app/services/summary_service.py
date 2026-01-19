@@ -167,20 +167,6 @@ def convert_categories_to_percentages(
     }
 
 
-def convert_timeline_to_percentages(categories_timeline: list[dict]) -> list[dict]:
-    result = []
-
-    for day_data in categories_timeline:
-        category_values = {cat: val for cat, val in day_data.items() if cat != "date"}
-        percentages = convert_dict_to_percentages(category_values)
-
-        day = {"date": day_data["date"]}
-        day.update(percentages)
-        result.append(day)
-
-    return result
-
-
 def fill_dates_in_categories(
     categories_timeline: list[dict],
     start_date: date,
@@ -214,17 +200,12 @@ def fill_dates_in_events(
     start_date: date,
     end_date: date,
 ) -> dict[str, str]:
-    normalized = {
-        key.isoformat() if isinstance(key, date) else key: val
-        for key, val in event_timeline.items()
-    }
-
     result = {}
     current_date = start_date
 
     while current_date <= end_date:
         date_str = current_date.isoformat()
-        result[date_str] = normalized.get(date_str, "")
+        result[date_str] = event_timeline.get(date_str, "")
         current_date += timedelta(days=1)
 
     return result
@@ -343,27 +324,34 @@ def get_periodic_summary(
         end_date=end,
     )
 
-    periodic_summary.references = replace_article_ids_with_urls(
+    references_with_urls = replace_article_ids_with_urls(
         db, periodic_summary.references
     )
 
-    periodic_summary.categories_timeline = fill_dates_in_categories(
+    categories_timeline_filled = fill_dates_in_categories(
         periodic_summary.categories_timeline, start, end, categories
     )
 
-    periodic_summary.event_timeline = fill_dates_in_events(
+    event_timeline_filled = fill_dates_in_events(
         periodic_summary.event_timeline, start, end
     )
 
-    periodic_summary.categories_timeline = convert_timeline_to_percentages(
-        periodic_summary.categories_timeline
-    )
-
-    periodic_summary.category_totals = convert_totals_to_percentages(
+    category_totals_percentages = convert_totals_to_percentages(
         periodic_summary.category_totals
     )
 
-    return PeriodicSummaryResponse.model_validate(periodic_summary.model_dump())
+    return PeriodicSummaryResponse(
+        start_date=periodic_summary.start_date,
+        end_date=periodic_summary.end_date,
+        main_summary=periodic_summary.main_summary,
+        categories_timeline=categories_timeline_filled,
+        category_totals=category_totals_percentages,
+        trends=periodic_summary.trends,
+        key_insights=periodic_summary.key_insights,
+        source_highlights=periodic_summary.source_highlights,
+        event_timeline=event_timeline_filled,
+        references=references_with_urls,
+    )
 
 
 def get_recent_daily_summaries(db: Session) -> list[dict]:
@@ -406,4 +394,19 @@ def get_recent_daily_summaries(db: Session) -> list[dict]:
 
         current_date -= timedelta(days=1)
 
-    return result
+    start_idx = None
+    for i in range(len(result)):
+        if result[i]["has_data"]:
+            start_idx = i
+            break
+
+    end_idx = None
+    for i in range(len(result) - 1, -1, -1):
+        if result[i]["has_data"]:
+            end_idx = i
+            break
+
+    if start_idx is None or end_idx is None:
+        return []
+
+    return result[start_idx : end_idx + 1]

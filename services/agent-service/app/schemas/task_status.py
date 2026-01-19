@@ -13,4 +13,4 @@ class TaskStatusResponse(BaseModel):
     task_id: str
     status: TaskStatus
     result: dict | None = None
-    error: dict | None = None
+    error: str | None = None
