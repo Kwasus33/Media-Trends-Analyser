@@ -14,27 +14,17 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-SCRAPPER_URL = os.getenv("SCRAPPER_URL", "http://data-service:8082/articles/all")
-SCRAPPER_DB_URL = os.getenv(
-    "SCRAPPER_DB_URL", "http://data-service:8082/articles/articles"
-)
-AGENT_URL = os.getenv("AGENT_URL", "http://agent-service:8083/daily_summary/")
+SCRAPPER_URL = os.getenv("SCRAPPER_URL", "http://data-service:8082/articles")
+AGENT_URL = os.getenv("AGENT_URL", "http://agent-service:8083/daily_summary")
 
 
 async def trigger_scraping_job():
     logger.info("Data Scrapping starts...")
     async with httpx.AsyncClient() as client:
         try:
-            response = await client.get(SCRAPPER_URL, timeout=120)
+            response = await client.post(SCRAPPER_URL, timeout=120)
             logger.info(f"Scraping status: {response.status_code}")
-            if 200 <= response.status_code < 300:
-                articles = response.json()
-                response = await client.post(
-                    SCRAPPER_DB_URL, json=articles, timeout=120
-                )
-                logger.info(
-                    f"DB save status: {response.status_code} - Result: {response.text}"
-                )
+            logger.info(f"Scraping response: {response.text}")
 
         except Exception as e:
             logger.error(
@@ -48,7 +38,7 @@ async def trigger_agent_summary_job():
         try:
             today = date.today().isoformat()
             response = await client.post(
-                AGENT_URL,
+                AGENT_URL.format(today),
                 params={"summary_date": today},
                 timeout=600,
             )
