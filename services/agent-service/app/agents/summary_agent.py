@@ -1,7 +1,6 @@
 from datetime import date
 import json
-import re
-import ast
+from json_repair import repair_json
 
 from app.agents.agent_config import AgentSettings
 from app.schemas.article import Article
@@ -194,12 +193,6 @@ class SummaryAgent:
         start_date: date,
         end_date: date,
     ):
-        periodic_summary_chain = (
-            self.periodic_summary_prompt
-            | self.model
-            | StrOutputParser()
-        )
-
         for summary in daily_summaries:
             summary.summaries = {
                 src: {
@@ -231,7 +224,13 @@ class SummaryAgent:
                 if src in sources
             }
 
-        raw_content = periodic_summary_chain.invoke({"daily_summaries": daily_summaries})
+        periodic_summary_chain = (
+            self.periodic_summary_prompt | self.model | StrOutputParser()
+        )
+
+        raw_content = periodic_summary_chain.invoke(
+            {"daily_summaries": daily_summaries}
+        )
 
         clean_content = raw_content.strip()
         if clean_content.startswith("```json"):
@@ -250,18 +249,7 @@ class SummaryAgent:
             pass
 
         if output is None:
-            try:
-                output = ast.literal_eval(clean_content)
-            except Exception:
-                pass
-
-        if output is None:
-            fixed_content = clean_content
-            fixed_content = re.sub(r'[}\]]\s*,?\s*("source_highlights")', r'], \1', fixed_content)
-            fixed_content = re.sub(r'[}\]]\s*,?\s*("category_totals")', r'], \1', fixed_content)
-            fixed_content = re.sub(r'([}\]])\s*(")', r'\1, \2', fixed_content)
-            fixed_content = re.sub(r'("\s*)\s(")', r'\1, \2', fixed_content)
-            fixed_content = re.sub(r',\s*([}\]])', r'\1', fixed_content)
+            fixed_content = repair_json(clean_content, return_objects=True)
 
             try:
                 output = json.loads(fixed_content, strict=False)
