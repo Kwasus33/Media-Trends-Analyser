@@ -79,7 +79,7 @@ export function TextExpander({
       </div>
 
       {isExpanded && showButton && (
-        <div className="w-full flex justify-center mt-4">
+        <div className="w-full flex justify-center mt-2">
           <button
             onClick={() => setIsExpanded(false)}
             className={`

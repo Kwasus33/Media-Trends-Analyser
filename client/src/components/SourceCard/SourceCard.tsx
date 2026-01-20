@@ -57,7 +57,7 @@ export function SourceCard({
   }, [showLinks]);
 
   return (
-    <div ref={cardRef} className="relative flex flex-col rounded-xl h-full">
+    <div ref={cardRef} className="relative flex flex-col rounded-xl">
       <div
         className={`absolute inset-0 rounded-xl overflow-hidden ${style.bg} border ${style.border} pointer-events-none`}
       >
