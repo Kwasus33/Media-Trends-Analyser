@@ -15,5 +15,4 @@ dependencies = [
     "uvicorn>=0.38.0",
     "sqlalchemy>=2.0.45",
     "psycopg2-binary>=2.9.11",
-    "json-repair>=0.55.0",
 ]
