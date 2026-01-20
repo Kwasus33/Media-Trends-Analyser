@@ -87,5 +87,3 @@ def test_get_task_status_failed(mock_get_task):
     data = response.json()
     assert data["status"] == "failed"
     assert data["error"] == "Database connection lost"
-
-

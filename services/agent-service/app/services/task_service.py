@@ -6,6 +6,7 @@ from app.schemas.task_status import TaskStatus
 from sqlalchemy.orm import Session
 from app.services.summary_service import get_periodic_summary
 
+
 logger = logging.getLogger(__name__)
 
 tasks: dict[str, dict[str, Any]] = {}
@@ -32,14 +33,19 @@ def update_task_result(task_id: str, result: Any) -> None:
 def update_task_error(task_id: str, error: str) -> None:
     if task_id in tasks:
         tasks[task_id]["status"] = TaskStatus.FAILED
-        tasks[task_id]["error"] = {"message": error}
+        tasks[task_id]["error"] = error
         tasks[task_id]["completed_at"] = datetime.now()
 
 
 def get_task(task_id: str) -> dict[str, Any]:
     task = tasks.get(task_id)
     if not task:
-        return {"status": TaskStatus.PENDING}
+        return {
+            "task_id": task_id,
+            "status": TaskStatus.NOT_FOUND,
+            "result": None,
+            "error": f"Task with id {task_id} does not exist or has expired.",
+        }
     return task
 
 
@@ -93,4 +99,3 @@ def generate_summary_task(
     except Exception as e:
         logger.exception("[Task %s] Error generating summary", task_id)
         update_task_error(task_id, str(e))
-

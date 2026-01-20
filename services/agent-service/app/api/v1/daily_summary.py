@@ -10,13 +10,14 @@ router = APIRouter(prefix="/daily_summary")
 
 
 @router.post(
-    "/", response_model=DailySummaryResponse, status_code=status.HTTP_201_CREATED
+    "", response_model=DailySummaryResponse, status_code=status.HTTP_201_CREATED
 )
 async def get_daily_summary(
     summary_date: date = Query(...),
     db: Session = Depends(get_db),
 ):
     return await summary_service.get_daily_summary_async(summary_date, db)
+
 
 @router.get(
     "/recent",

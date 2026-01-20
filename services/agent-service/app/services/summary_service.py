@@ -18,7 +18,11 @@ from app.agents.agent_config import AgentSettings
 
 def create_summary_agent() -> SummaryAgent:
     settings = AgentSettings()
-    model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+    model = ChatGoogleGenerativeAI(
+        model="gemini-3-flash-preview",
+        temperature=0,
+        model_kwargs={"response_mime_type": "application/json"},
+    )
     return SummaryAgent(model, settings)
 
 

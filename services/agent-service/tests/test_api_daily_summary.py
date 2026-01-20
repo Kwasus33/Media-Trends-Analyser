@@ -28,6 +28,7 @@ def test_create_daily_summary_invalid_date():
     )
     assert response.status_code == 422
 
+
 @patch("app.api.v1.daily_summary.summary_service.get_daily_summary_async")
 def test_create_daily_summary_success(mock_service):
     test_date = "2026-01-01"

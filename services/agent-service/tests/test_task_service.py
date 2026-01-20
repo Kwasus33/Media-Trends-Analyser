@@ -2,7 +2,7 @@ import pytest
 from sqlalchemy.orm import Session
 from datetime import date, datetime, timedelta
 from unittest.mock import MagicMock, patch
-from app.services import summary_service, task_service
+from app.services import task_service
 from app.schemas.task_status import TaskStatus
 
 
@@ -32,14 +32,14 @@ def test_update_task_error():
     task_service.update_task_error("jd3198jw8asd0j9j21", "Error")
     task = task_service.get_task("jd3198jw8asd0j9j21")
     assert task["status"] == TaskStatus.FAILED
-    assert task["error"] == {"message": "Error"}
+    assert task["error"] == "Error"
     task_service.delete_task("jd3198jw8asd0j9j21")
 
 
 def test_get_task_not_found():
     task_service.tasks.clear()
     task = task_service.get_task("jd3198jw8asd0j9j21")
-    assert task["status"] == TaskStatus.PENDING
+    assert task["status"] == TaskStatus.NOT_FOUND
 
 
 def test_delete_task():
@@ -52,7 +52,9 @@ def test_delete_task():
 
 def test_cleanup_expired_tasks():
     task_service.create_task("jd3198jw8asd0j9j21")
-    task_service.tasks["jd3198jw8asd0j9j21"]["created_at"] = datetime.now() - timedelta(seconds=4000)
+    task_service.tasks["jd3198jw8asd0j9j21"]["created_at"] = datetime.now() - timedelta(
+        seconds=4000
+    )
 
     task_service.cleanup_expired_tasks()
 
@@ -70,14 +72,13 @@ def test_generate_summary_task_success(mock_get_summary, mock_db):
         date(2026, 1, 16),
         ["BBC"],
         ["Technology"],
-        mock_db
+        mock_db,
     )
 
     task = task_service.get_task("jd3198jw8asd0j9j21")
     assert task["status"] == TaskStatus.COMPLETED
     assert task["result"] == {"data": "summary"}
     task_service.delete_task("jd3198jw8asd0j9j21")
-
 
 
 @patch("app.services.task_service.get_periodic_summary")
@@ -91,7 +92,7 @@ def test_generate_summary_task_failure(mock_get_summary, mock_db):
         date(2026, 1, 16),
         ["BBC"],
         ["Technology"],
-        mock_db
+        mock_db,
     )
 
     task = task_service.get_task("jd3198jw8asd0j9j21")

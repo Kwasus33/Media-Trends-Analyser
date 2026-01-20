@@ -5,6 +5,7 @@ from app.api.v1.daily_summary import router as daily_summary_router
 from app.api.v1.periodic_summary import router as periodic_summary_router
 from app.services.task_service import start_cleanup_task, stop_cleanup_task
 
+
 @asynccontextmanager
 async def lifespan(app):
     start_cleanup_task()
@@ -12,6 +13,7 @@ async def lifespan(app):
         yield
     finally:
         stop_cleanup_task()
+
 
 app = FastAPI(
     title="Agent Service",
@@ -23,6 +25,7 @@ app = FastAPI(
 app.include_router(daily_summary_router)
 app.include_router(periodic_summary_router)
 
+
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
     return JSONResponse(
@@ -33,6 +36,7 @@ async def global_exception_handler(request: Request, exc: Exception):
             "path": request.url.path,
         },
     )
+
 
 @app.get("/")
 async def agent_service():

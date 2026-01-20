@@ -1,4 +1,5 @@
 from datetime import date
+import json
 
 from app.agents.agent_config import AgentSettings
 from app.schemas.article import Article
@@ -6,7 +7,7 @@ from app.schemas.daily_summary import DailySummary
 from app.schemas.periodic_summary import PeriodicSummary
 
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -83,20 +84,68 @@ class SummaryAgent:
             - main_summary: a narrative (8–12 sentences) synthesizing the main themes and events across the period.\
             - categories_timeline: a list of objects, where each object represents one day and contains:\
               * date: the date in YYYY-MM-DD format\
-              * one field per category (e.g., Technology, Politics, Economy, Sport, Culture) with the total count for that day (summed across all sources)\
-              Example: [{{ "date": "2025-11-01", "Technology": 50, "Politics": 30, "Economy": 20, "Sport": 40, "Culture": 60 }}, {{ "date": "2025-11-02", ... }}]\
+              * one field per category (e.g., Technology, Politics, Economy, Sport, Culture) with the total count for
+                that day (summed across all sources)\
             - category_totals: a dict with total counts per category for the entire period.\
             - trends: A dictionary containing three specific lists (each item: 3-5 words max):
-              * rising: Topics gaining momentum (max 5 items).
-              * declining: Topics that faded (max 5 items).
-              * emerging: New topics that appeared late (max 5 items).
+              * rising: Topics gaining momentum (3-5 items).
+              * declining: Topics that faded (3-5 items).
+              * emerging: New topics that appeared late (3-5 items).
             - key_insights: 5–10 bullet points covering the most critical findings.\
-            - source_highlights: a dict (Key: Source Name, Value: 1-3 sentence summary of that source's focus).\
+            - source_highlights: a dict (Key: Source Name, Value: 3-5 sentence summary of that source's focus).\
             - event_timeline: a dict (Key: YYYY-MM-DD, Value: Description of key events).
-              For dates with events, provide a detailed description. Do NOT leave empty strings unless there are truly no events.\
-            - references: a dict (Key: Source Name, Value: List of top 5 most important articles IDs (only integer) found in the input for that source).\
+              For dates with events, provide a detailed description. Do NOT leave empty strings
+              unless there are truly no events.\
+            - references: a dict (Key: Source Name, Value: List of top 5 most important article IDs (only integers)
+              that were DIRECTLY USED to write the source_highlights for that source).
+              The referenced articles must be the ones that best represent the focus described in "source_highlights".
+              EXAMPLE: {{"BBC": [101, 102, 103], "TVN24": [104, 105]}}, DO NOT include categories in references
+              
+            
+            Target JSON Structure (Example):
+            {{
+                "main_summary": "string - detailed narrative",
+                "categories_timeline": [
+                    {{ "date": "2026-01-11", "Sport": 10, "Technology": 5, "Politics": 0, "Economy": 2, "Culture": 8 }},
+                    {{ "date": "2026-01-12", "Sport": 12, "Technology": 7, "Politics": 3, "Economy": 1, "Culture": 5 }}
+                ],
+                "category_totals": {{
+                    "Sport": 100,
+                    "Technology": 50,
+                    "Politics": 30,
+                    "Economy": 20,
+                    "Culture": 15
+                }},
+                "trends": {{
+                    "rising": ["Topic A", "Topic B", "Topic C", "Topic D"],
+                    "declining": ["Topic E", "Topic F", "Topic G"],
+                    "emerging": ["Topic H", "Topic I", "Topic J", "Topic K", "Topic L"]
+                }},
+                "key_insights": [
+                    "Insight",
+                    "Insight"
+                ],
+                "source_highlights": {{
+                    "BBC": "Summary of BBC coverage...",
+                    "TVN24": "Summary of TVN24 coverage..."
+                }},
+                "event_timeline": {{
+                    "2026-01-01": "Description of events on this day. It must be a SINGLE STRING, not a list.",
+                    "2026-01-02": "Another event description combining all events of that day."
+                }},
+                "references": {{
+                    "BBC": [101, 102, 103],
+                    "TVN24": [104, 105]
+                }}
+            }}
+              
+              Do NOT use trailing commas (commas after the last element in lists or objects).
+              - CORRECT: {{ "key": "value" }}
+              - WRONG:   {{ "key": "value", }}
 
             IMPORTANT: Return ONLY raw JSON. Do NOT wrap it in markdown code blocks. Do NOT use ```json or ``` markers.
+            IMPORTANT: Do NOT use double quotes (") inside the summary text. Use single quotes (') instead to avoid
+            breaking JSON syntax.
         """
         )
 
@@ -143,12 +192,6 @@ class SummaryAgent:
         start_date: date,
         end_date: date,
     ):
-        periodic_summary_chain = (
-            self.periodic_summary_prompt
-            | self.model
-            | JsonOutputParser(pydantic_object=PeriodicSummary)
-        )
-
         for summary in daily_summaries:
             summary.summaries = {
                 src: {
@@ -180,17 +223,36 @@ class SummaryAgent:
                 if src in sources
             }
 
-        output = periodic_summary_chain.invoke({"daily_summaries": daily_summaries})
-
-        return PeriodicSummary(
-            start_date=start_date,
-            end_date=end_date,
-            main_summary=output["main_summary"],
-            categories_timeline=output["categories_timeline"],
-            category_totals=output["category_totals"],
-            trends=output["trends"],
-            key_insights=output["key_insights"],
-            source_highlights=output["source_highlights"],
-            event_timeline=output["event_timeline"],
-            references=output["references"],
+        periodic_summary_chain = (
+            self.periodic_summary_prompt | self.model | StrOutputParser()
         )
+
+        raw_content = periodic_summary_chain.invoke(
+            {"daily_summaries": daily_summaries}
+        )
+
+        clean_content = raw_content.strip()
+        if clean_content.startswith("```json"):
+            clean_content = clean_content[7:]
+        elif clean_content.startswith("```"):
+            clean_content = clean_content[3:]
+        if clean_content.endswith("```"):
+            clean_content = clean_content[:-3]
+        clean_content = clean_content.strip()
+
+        try:
+            output = json.loads(clean_content, strict=False)
+            return PeriodicSummary(
+                start_date=start_date,
+                end_date=end_date,
+                main_summary=output["main_summary"],
+                categories_timeline=output["categories_timeline"],
+                category_totals=output["category_totals"],
+                trends=output["trends"],
+                key_insights=output["key_insights"],
+                source_highlights=output["source_highlights"],
+                event_timeline=output["event_timeline"],
+                references=output["references"],
+            )
+        except json.JSONDecodeError:
+            raise ValueError("Failed to parse LLM output.")
