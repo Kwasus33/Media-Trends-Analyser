@@ -30,7 +30,6 @@ export async function fetchDailyReports(): Promise<DailyReport[]> {
         'Content-Type': 'application/json',
         'api-key': env.VM_SECRET,
       },
-      cache: 'no-store',
       next: {
         revalidate: revalidateTime,
       },
