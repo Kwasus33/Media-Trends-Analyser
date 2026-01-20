@@ -51,7 +51,7 @@ def test_get_daily_summary_for_source(mock_model, mock_settings):
     }
 
     mock_final_chain = MagicMock()
-    mock_final_chain.invoke.return_value = expected_output
+    mock_final_chain.invoke.return_value = json.dumps(expected_output)
 
     with patch(
         "app.agents.summary_agent.SummaryAgent.daily_summary_for_source_prompt",
