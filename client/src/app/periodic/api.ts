@@ -41,7 +41,10 @@ export const getPeriodicTaskId = unstable_cache(
       `${baseUrl}/agent/api/v1/periodic_summary/start?${params.toString()}`,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'api-key': env.VM_SECRET,
+        },
         cache: 'no-store',
       }
     );
@@ -64,7 +67,7 @@ export async function checkTaskStatus(taskId: string): Promise<TaskStatus> {
     `${baseUrl}/agent/api/v1/periodic_summary/status/${taskId}`,
     {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'api-key': env.VM_SECRET },
       cache: 'no-store',
     }
   );

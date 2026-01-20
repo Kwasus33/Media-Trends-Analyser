@@ -118,8 +118,8 @@ export function ControlPanel({
   const handleGenerateReport = () => {
     const params = new URLSearchParams();
 
-    selectedSources.forEach((s) => params.append('source', s));
-    selectedCategories.forEach((c) => params.append('category', c));
+    selectedSources.forEach((source) => params.append('source', source));
+    selectedCategories.forEach((cat) => params.append('category', cat));
     params.set('from', startDate);
     params.set('to', endDate);
 
