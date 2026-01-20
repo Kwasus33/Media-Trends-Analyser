@@ -50,10 +50,9 @@ def test_fetch_all_articles_grouped_not_found(mock_db):
     assert exc.value.status_code == 404
 
 
-@pytest.mark.asyncio
 @patch("app.services.summary_service.create_summary_agent")
 @patch("app.services.summary_service.fetch_all_articles_grouped")
-async def test_get_daily_summary_success(mock_fetch, mock_create_agent, mock_db, mock_agent):
+def test_get_daily_summary_success(mock_fetch, mock_create_agent, mock_db, mock_agent):
     summary_date = date(2026, 1, 1)
     mock_db.query.return_value.filter.return_value.first.return_value = None
 
@@ -69,7 +68,7 @@ async def test_get_daily_summary_success(mock_fetch, mock_create_agent, mock_db,
     mock_fetch.return_value = {"BBC": [article]}
     mock_create_agent.return_value = mock_agent
 
-    await summary_service.get_daily_summary_async(summary_date, mock_db)
+    asyncio.run(summary_service.get_daily_summary_async(summary_date, mock_db))
 
     mock_fetch.assert_called_once_with(mock_db, summary_date)
     mock_db.add.assert_called_once()
