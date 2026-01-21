@@ -1,5 +1,6 @@
 from datetime import date
 import json
+import json_repair
 
 from app.agents.agent_config import AgentSettings
 from app.schemas.article import Article
@@ -162,7 +163,10 @@ class SummaryAgent:
         try:
             return json.loads(clean_content, strict=False)
         except json.JSONDecodeError:
-            raise ValueError("Failed to parse LLM output.")
+            try:
+                return json_repair.loads(clean_content)
+            except Exception:
+                raise ValueError("Failed to parse LLM output.")
 
     def get_daily_summary_for_source(
         self, articles: list[Article], source: str, summary_date: date
