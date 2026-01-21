@@ -60,6 +60,19 @@ services:
 
       traefik.http.services.llmagent-svc.loadbalancer.server.port: "8083"
 
+  scheduler:
+    build: ./services/scheduler
+    restart: always
+    environment:
+      - SCRAPER_URL=http://data-service:8082/articles
+      - AGENT_URL=http://agent-service:8083/daily_summary
+    networks:
+      - app_network
+    volumes:
+      - ./services/scheduler/app:/src/app
+      - ./services/scheduler/pyproject.toml:/src/pyproject.toml
+      - ./services/scheduler/uv.lock:/src/uv.lock
+
 networks:
   app_network:
     name: app_network
