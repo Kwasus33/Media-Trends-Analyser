@@ -13,6 +13,29 @@ import {
 import { CHART_COLORS } from '@/constants/chartColors';
 import { CATEGORIES, type Category } from '@/constants/categories';
 
+const originalWarn = console.warn;
+const originalError = console.error;
+
+function shouldSuppress(args: unknown[]) {
+  const msg = args[0];
+  return (
+    typeof msg === 'string' &&
+    msg.includes('width') &&
+    msg.includes('height') &&
+    msg.includes('greater than 0')
+  );
+}
+
+console.warn = (...args: unknown[]) => {
+  if (shouldSuppress(args)) return;
+  originalWarn(...args);
+};
+
+console.error = (...args: unknown[]) => {
+  if (shouldSuppress(args)) return;
+  originalError(...args);
+};
+
 type TrendDataPoint = {
   date: string;
   [key: string]: string | number;
