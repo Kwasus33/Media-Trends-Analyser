@@ -17,6 +17,7 @@ import { type Source, SOURCES } from '@/constants/sources';
 import { CATEGORIES } from '@/constants/categories';
 import { getISODate } from '@/utils/dateUtils';
 import { LoadingState } from '@/components/LoadingState';
+import { toQueryString, parseSearchParams } from '@/utils/urlUtils'; // Import Parser
 
 const MIN_DATA_DATE = '2026-01-01';
 
@@ -48,25 +49,25 @@ export function ControlPanel({
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const urlFilters = parseSearchParams(searchParams);
+
   const [isPending, startTransition] = useTransition();
 
   const [selectedSources, setSelectedSources] = useState<string[]>(() => {
-    const fromUrl = searchParams.getAll('source');
-    return fromUrl.length > 0 ? fromUrl : sourcesNames;
+    return urlFilters.source.length > 0 ? urlFilters.source : sourcesNames;
   });
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>(() => {
-    const fromUrl = searchParams.getAll('category');
-    return fromUrl.length > 0 ? fromUrl : categoriesList;
+    return urlFilters.category.length > 0
+      ? urlFilters.category
+      : categoriesList;
   });
 
   const [startDate, setStartDate] = useState<string>(
-    searchParams.get('from') || getYesterday()
+    urlFilters.from || getYesterday()
   );
 
-  const [endDate, setEndDate] = useState<string>(
-    searchParams.get('to') || getToday()
-  );
+  const [endDate, setEndDate] = useState<string>(urlFilters.to || getToday());
 
   const isLoading = isPending || isPolling;
 
@@ -116,14 +117,14 @@ export function ControlPanel({
   };
 
   const handleGenerateReport = () => {
-    const params = new URLSearchParams();
+    const filters = {
+      source: selectedSources,
+      category: selectedCategories,
+      from: startDate,
+      to: endDate,
+    };
 
-    selectedSources.forEach((source) => params.append('source', source));
-    selectedCategories.forEach((cat) => params.append('category', cat));
-    params.set('from', startDate);
-    params.set('to', endDate);
-
-    const newQueryString = params.toString();
+    const newQueryString = toQueryString(filters);
     const currentQueryString = searchParams.toString();
 
     startTransition(() => {

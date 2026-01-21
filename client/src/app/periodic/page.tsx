@@ -1,3 +1,4 @@
+import { parseSearchParams } from '@/utils/urlUtils';
 import { ClientWrapper } from './ClientWrapper';
 import { getPeriodicTaskId, checkTaskStatus, startPeriodicTask } from './api';
 
@@ -6,13 +7,13 @@ type HomeProps = {
 };
 
 export default async function Home({ searchParams }: HomeProps) {
-  const params = await searchParams;
+  const rawParams = await searchParams;
 
-  const paramsKey = new URLSearchParams(
-    params as Record<string, string>
-  ).toString();
+  const filters = parseSearchParams(rawParams);
 
-  const hasFilters = Object.keys(params).length > 0;
+  const paramsKey = JSON.stringify(filters);
+
+  const hasFilters = filters.source.length > 0 || filters.category.length > 0;
 
   let initialData = null;
   let taskId: string | null = null;
@@ -20,7 +21,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
   if (hasFilters) {
     try {
-      taskId = await getPeriodicTaskId(params);
+      taskId = await getPeriodicTaskId(filters);
 
       let task = await checkTaskStatus(taskId);
 
@@ -29,7 +30,7 @@ export default async function Home({ searchParams }: HomeProps) {
           `Stale cache detected for Task ${taskId}. Starting fresh task.`
         );
 
-        taskId = await startPeriodicTask(params);
+        taskId = await startPeriodicTask(filters);
         task = await checkTaskStatus(taskId);
       }
 
@@ -44,8 +45,8 @@ export default async function Home({ searchParams }: HomeProps) {
     }
   }
 
-  const startDate = typeof params.from === 'string' ? params.from : '';
-  const endDate = typeof params.to === 'string' ? params.to : '';
+  const startDate = typeof filters.from === 'string' ? filters.from : '';
+  const endDate = typeof filters.to === 'string' ? filters.to : '';
 
   return (
     <ClientWrapper

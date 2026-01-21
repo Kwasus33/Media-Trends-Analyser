@@ -2,14 +2,7 @@
 
 import { unstable_cache } from 'next/cache';
 import { env } from '@/env';
-import type { PeriodicReport } from '@/types/periodicReport';
-
-type PeriodicFilters = {
-  source?: string | string[];
-  category?: string | string[];
-  from?: string;
-  to?: string;
-};
+import type { PeriodicReport, PeriodicFilters } from '@/types/periodicReport';
 
 export type TaskStatus = {
   task_id: string;
@@ -46,17 +39,11 @@ async function fetchAgent<T>(
 export async function startPeriodicTask(filters: PeriodicFilters) {
   const params = new URLSearchParams();
 
-  if (filters.from) params.append('start', filters.from);
-  if (filters.to) params.append('end', filters.to);
+  if (filters.from) params.set('start', filters.from);
+  if (filters.to) params.set('end', filters.to);
 
-  const listParams = (key: string, value: string | string[] | undefined) =>
-    [value || '']
-      .flat()
-      .filter(Boolean)
-      .forEach((value) => params.append(key, value));
-
-  listParams('sources', filters.source);
-  listParams('categories', filters.category);
+  filters.source?.forEach((s) => params.append('sources', s));
+  filters.category?.forEach((c) => params.append('categories', c));
 
   console.log(`[PERIODIC START] Requesting task for: ${params.toString()}`);
 

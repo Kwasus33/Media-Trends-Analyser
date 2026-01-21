@@ -1,5 +1,12 @@
 import { type Source } from '@/constants/sources';
 
+export type PeriodicFilters = {
+  source: string[];
+  category: string[];
+  from: string;
+  to: string;
+};
+
 export type PeriodicReport = {
   main_summary: string;
   categories_timeline: Array<{
