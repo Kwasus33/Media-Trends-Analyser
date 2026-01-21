@@ -1,6 +1,5 @@
 'use server';
 
-import { unstable_cache } from 'next/cache';
 import { env } from '@/env';
 import type { PeriodicReport, PeriodicFilters } from '@/types/periodicReport';
 
@@ -56,12 +55,6 @@ export async function startPeriodicTask(filters: PeriodicFilters) {
 
   return data.task_id;
 }
-
-export const getPeriodicTaskId = unstable_cache(
-  startPeriodicTask,
-  ['periodic-task-id-v1'],
-  { revalidate: 3600, tags: ['periodic-tasks'] }
-);
 
 export async function checkTaskStatus(taskId: string): Promise<TaskStatus> {
   console.log(`[PERIODIC STATUS] Polling ID: ${taskId}`);
