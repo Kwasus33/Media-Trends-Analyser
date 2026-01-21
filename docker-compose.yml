@@ -64,7 +64,7 @@ services:
     build: ./services/scheduler
     restart: always
     environment:
-      - SCRAPPER_URL=http://data-service:8082/articles
+      - SCRAPER_URL=http://data-service:8082/articles
       - AGENT_URL=http://agent-service:8083/daily_summary
     networks:
       - app_network

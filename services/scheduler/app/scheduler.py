@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-SCRAPPER_URL = os.getenv("SCRAPPER_URL", "http://data-service:8082/articles")
+SCRAPER_URL = os.getenv("SCRAPER_URL", "http://data-service:8082/articles")
 AGENT_URL = os.getenv("AGENT_URL", "http://agent-service:8083/daily_summary")
 
 
@@ -22,7 +22,7 @@ async def trigger_scraping_job():
     logger.info("Data Scrapping starts...")
     async with httpx.AsyncClient() as client:
         try:
-            response = await client.post(SCRAPPER_URL, timeout=180)
+            response = await client.post(SCRAPER_URL, timeout=180)
             logger.info(f"Scraping status: {response.status_code}")
             logger.info(f"Scraping response: {response.text}")
 
