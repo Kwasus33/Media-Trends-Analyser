@@ -74,8 +74,10 @@ describe('ControlPanel', () => {
 
   it('initializes state from URL parameters', () => {
     const params = new URLSearchParams();
-    params.append('source', 'Interia');
-    params.append('category', 'Technology');
+
+    params.append('s', 'interia');
+    params.append('c', 'technology');
+
     (useSearchParams as jest.Mock).mockReturnValue(params);
 
     render(
@@ -129,9 +131,11 @@ describe('ControlPanel', () => {
     });
 
     const callArgs = mockPush.mock.calls[0][0];
-    expect(callArgs).toContain('source=NewYorkTimes');
-    expect(callArgs).not.toContain('source=BBC');
-    expect(callArgs).not.toContain('source=Interia');
+
+    expect(callArgs).toContain('s=');
+    expect(callArgs).toContain('newyorktimes');
+    expect(callArgs).not.toMatch(/s=.*bbc/);
+    expect(callArgs).not.toMatch(/s=.*interia/);
   });
 
   it('disables submit button if required fields are missing', () => {
