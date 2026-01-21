@@ -22,7 +22,7 @@ async def trigger_scraping_job():
     logger.info("Data Scrapping starts...")
     async with httpx.AsyncClient() as client:
         try:
-            response = await client.post(SCRAPPER_URL, timeout=120)
+            response = await client.post(SCRAPPER_URL, timeout=180)
             logger.info(f"Scraping status: {response.status_code}")
             logger.info(f"Scraping response: {response.text}")
 
@@ -53,8 +53,8 @@ async def trigger_agent_summary_job():
 
 
 scheduler.add_job(trigger_scraping_job, "cron", hour=12, minute=0)
-scheduler.add_job(trigger_scraping_job, "cron", hour=22, minute=0)
-scheduler.add_job(trigger_agent_summary_job, "cron", hour=23, minute=30)
+scheduler.add_job(trigger_scraping_job, "cron", hour=23, minute=45)
+scheduler.add_job(trigger_agent_summary_job, "cron", hour=23, minute=55)
 
 
 @asynccontextmanager
