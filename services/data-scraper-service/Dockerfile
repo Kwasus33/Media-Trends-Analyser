@@ -8,7 +8,7 @@ ENV PATH="/root/.local/bin/:$PATH"
 
 WORKDIR /src
 
-COPY pyproject.toml uv.lock .env ./
+COPY pyproject.toml uv.lock ./
 
 RUN uv sync
 
