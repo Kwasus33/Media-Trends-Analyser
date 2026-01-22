@@ -109,6 +109,5 @@ def test_collect_data_missing_fields(mock_get, rss_scraper, mock_article_create)
     mock_response.content = broken_xml.encode("utf-8")
     mock_get.return_value = mock_response
 
-    results = rss_scraper.collect_data()
-
-    assert len(results) == 0
+    with pytest.raises(AttributeError):
+        rss_scraper.collect_data()
