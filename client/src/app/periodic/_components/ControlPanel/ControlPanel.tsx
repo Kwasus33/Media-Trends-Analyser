@@ -19,7 +19,7 @@ import { getISODate } from '@/utils/dateUtils';
 import { LoadingState } from '@/components/LoadingState';
 import { toQueryString, parseSearchParams } from '@/utils/urlUtils';
 
-const MIN_DATA_DATE = '2026-01-01';
+const MIN_DATA_DATE = '2026-01-11';
 
 const categoriesList = Object.keys(CATEGORIES)
   .filter((category) => category !== 'default')
