@@ -54,7 +54,7 @@ export async function fetchDailyReports(): Promise<DailyReport[]> {
 
     return data;
   } catch (error) {
-    console.error('Fetch Daily Reports failed:', error);
+    console.error('❌ Fetch Daily Reports failed:', error);
     throw error;
   }
 }

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/Header';
 import './globals.css';
 import { ScrollToTop } from '@/components/ScrollToTop';
+import { CreatorsSignature } from '@/components/CreatorsSignature';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -48,8 +49,7 @@ export default function RootLayout({
             <p>Media Trends Analyser &copy; {currentYear}</p>
 
             <p className="flex gap-1">
-              Created by{' '}
-              <span className="text-gray-300 font-medium">SIAIdziwAIk</span>
+              Created by <CreatorsSignature />
             </p>
           </footer>
         </div>
