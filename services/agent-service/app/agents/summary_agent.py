@@ -96,7 +96,7 @@ class SummaryAgent:
             - source_highlights: a dict (Key: Source Name, Value: 3-5 sentence summary of that source's focus).\
             - event_timeline: a dict (Key: YYYY-MM-DD, Value: Description of key events).
               For dates with events, provide a detailed description. Do NOT leave empty strings
-              unless there are truly no events.\
+              unless there are truly no events. Make it max 6-7 sentences separated by a single semicolon.\
             - references: a dict (Key: Source Name, Value: List of top 5 most important article IDs (only integers)
               that were DIRECTLY USED to write the source_highlights for that source).
               The referenced articles must be the ones that best represent the focus described in "source_highlights".
@@ -132,7 +132,7 @@ class SummaryAgent:
                 }},
                 "event_timeline": {{
                     "2026-01-01": "Description of events on this day. It must be a SINGLE STRING, not a list.",
-                    "2026-01-02": "Another event description combining all events of that day."
+                    "2026-01-02": "Event 1; Event 2; Event 3;..."
                 }},
                 "references": {{
                     "BBC": [101, 102, 103],
