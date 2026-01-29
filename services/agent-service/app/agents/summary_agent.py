@@ -54,6 +54,34 @@ class SummaryAgent:
               - In "summaries": set the value to an empty string "".
               - In "categories": set the value to 0.
               - In "references": set the value to an empty list [].
+              
+            EXPECTED_OUTPUT_STRUCTURE:
+            {
+              "summaries": {
+                "Sport": "",
+                "Culture": "",
+                "Economy": "",
+                "Society": "",
+                "Politics": "",
+                "Technology": ""
+              },
+              "categories": {
+                "Sport": 0,
+                "Culture": 0,
+                "Economy": 0,
+                "Society": 0,
+                "Politics": 0,
+                "Technology": 0
+              },
+              "references": {
+                "Sport": [],
+                "Culture": [],
+                "Economy": [],
+                "Society": [],
+                "Politics": [],
+                "Technology": []
+              }
+            }
 
             IMPORTANT: Return ONLY raw JSON. Do NOT wrap it in markdown code blocks. Do NOT use ```json or ``` markers.
         """
