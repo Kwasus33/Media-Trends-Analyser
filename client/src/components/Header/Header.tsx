@@ -39,8 +39,10 @@ export function Header() {
 function NavigationMenu() {
   const pathname = usePathname();
 
-  const isDaily = pathname === '/';
-  const isPeriodic = pathname.startsWith('/periodic');
+  const currentPath = pathname || '/';
+
+  const isPeriodic = currentPath.startsWith('/periodic');
+  const isDaily = !isPeriodic;
 
   const className = (isActive: boolean) => `
             relative flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200

@@ -2,7 +2,11 @@
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "project": ["src/**/*.{ts,tsx}"],
   "ignore": [".next/**", "node_modules/**"],
-  "ignoreDependencies": ["tailwindcss", "tailwindcss-animate"],
+  "ignoreDependencies": [
+    "tailwindcss",
+    "tailwindcss-animate",
+    "baseline-browser-mapping"
+  ],
   "tailwind": {
     "config": "tailwind.config.ts"
   }
