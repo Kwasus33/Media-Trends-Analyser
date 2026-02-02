@@ -93,7 +93,7 @@ The system consists of independent microservices:
     cp services/agent-service/.env.example services/agent-service/.env
     ```
 
-    > **Important:** To generate _new_ reports using AI, you must add a valid `GOOGLE_API_KEY` inside `services/agent-service/.env`.
+    **Important:** To generate _new_ reports using AI, you must add a valid `GOOGLE_API_KEY` inside `services/agent-service/.env`.
 
     **C. Client Configuration:**
     Create a `.env` file inside the `client` directory:
