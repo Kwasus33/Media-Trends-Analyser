@@ -2,7 +2,7 @@
 
 ## Project Demo
 
-[Project's demo](./assets/demo-music.mp4)
+https://github.com/user-attachments/assets/ea745338-5183-44e2-8f24-aa33a688e812
 
 ## Team
 
