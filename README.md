@@ -71,7 +71,7 @@ The system consists of independent microservices:
     ```bash
     git clone https://github.com/Kwasus33/Media-Trends-Analyser
     cd Media-Trends-Analyser
-    chmod +x run_clean.sh run_demo.sh
+    chmod +x scripts/*.sh
     ```
 
 2.  **Configure Environment Variables:**
@@ -111,13 +111,13 @@ We provide utility scripts to automatically handle database setup and Docker net
 Starts the system pre-populated with archival data (January 2026).
 
 ```bash
-./run_demo.sh
+./scripts/run_demo.sh
 ```
 
 **Option B: Run with Empty Database (fresh system ready for new data scraping).**
 
 ```
-./run_clean.sh
+./scripts/run_clean.sh
 ```
 
 ### 3. Run the Client (Frontend)
