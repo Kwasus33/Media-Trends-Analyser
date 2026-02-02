@@ -2,7 +2,7 @@
 
 ## Project Demo
 
-[![Watch the Demo](https://img.youtube.com/vi/DY34wSL14t4/maxresdefault.jpg)](https://www.youtube.com/watch?v=DY34wSL14t4)
+[Project's demo](./assets/demo-music.mp4)
 
 ## Team
 
