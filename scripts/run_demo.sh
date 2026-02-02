@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")/.."
+
 docker compose down -v --remove-orphans
 docker rm -f local_postgres_db 2>/dev/null || true
 docker network prune -f
