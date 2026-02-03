@@ -32,7 +32,6 @@ services:
       traefik.http.routers.scrapers-v1.entrypoints: "web"
       traefik.http.middlewares.scrapers-v1-strip.stripprefix.prefixes: "/scrapers/api/v1"
       traefik.http.routers.scrapers-v1.middlewares: "scrapers-v1-strip"
-
       traefik.http.services.scrapers-svc.loadbalancer.server.port: "8082"
 
   agent-service:
@@ -47,10 +46,8 @@ services:
       traefik.enable: "true"
       traefik.http.routers.llmagent-v1.rule: "PathPrefix(`/agent/api/v1`) && Header(`api-key`, `${VM_SECRET}`)"
       traefik.http.routers.llmagent-v1.entrypoints: "web"
-
       traefik.http.middlewares.llmagent-v1-strip.stripprefix.prefixes: "/agent/api/v1"
       traefik.http.routers.llmagent-v1.middlewares: "llmagent-v1-strip"
-
       traefik.http.services.llmagent-svc.loadbalancer.server.port: "8083"
 
   scheduler:
@@ -63,6 +60,26 @@ services:
     networks:
       - app_network
 
+  db:
+    image: postgres:15-alpine
+    container_name: local_postgres_db
+    restart: always
+    profiles: ["local"]
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=media_trends_db
+    ports:
+      - "5432:5432"
+    networks:
+      - app_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database:/docker-entrypoint-initdb.d
+
 networks:
   app_network:
     name: app_network
+
+volumes:
+  postgres_data:
